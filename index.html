@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Star Graph - GitHub Starred Repos Knowledge Graph</title>
+  <script src="https://cdn.jsdelivr.net/npm/sigma@3.0.0/build/sigma.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/graphology@0.25.4/dist/graphology.umd.min.js"></script>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; }
+    .header { padding: 1rem 2rem; background: #161b22; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
+    .header h1 { font-size: 1.5rem; font-weight: 600; }
+    .stats { display: flex; gap: 2rem; font-size: 0.875rem; color: #8b949e; }
+    .container { display: flex; height: calc(100vh - 64px); }
+    #sigma-container { flex: 1; min-width: 0; }
+    .sidebar { width: 320px; background: #161b22; border-left: 1px solid #30363d; padding: 1rem; overflow-y: auto; }
+    .search-box { width: 100%; padding: 0.5rem; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; margin-bottom: 1rem; font-size: 0.875rem; }
+    .node-list { list-style: none; }
+    .node-item { padding: 0.5rem; border-radius: 6px; cursor: pointer; transition: background 0.15s; margin-bottom: 0.25rem; }
+    .node-item:hover { background: #21262d; }
+    .node-item.selected { background: #1f6feb33; border: 1px solid #1f6feb; }
+    .node-name { font-weight: 500; font-size: 0.875rem; }
+    .node-type { font-size: 0.75rem; color: #8b949e; }
+    .node-info { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #30363d; }
+    .node-info h4 { font-size: 0.875rem; margin-bottom: 0.5rem; }
+    .node-detail { font-size: 0.75rem; color: #8b949e; margin-bottom: 0.25rem; }
+    .badge { display: inline-block; padding: 0.125rem 0.375rem; border-radius: 3px; font-size: 0.625rem; background: #1f6feb33; color: #58a6ff; margin: 0.125rem; }
+    .filter-buttons { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
+    .filter-btn { padding: 0.375rem 0.75rem; border: 1px solid #30363d; background: #21262d; color: #c9d1d9; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
+    .filter-btn.active { background: #1f6feb; border-color: #1f6feb; }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <h1>Star Graph</h1>
+    <div class="stats">
+      <span id="repo-count">Repos: 0</span>
+      <span id="topic-count">Topics: 0</span>
+      <span id="edge-count">Edges: 0</span>
+    </div>
+  </div>
+  <div class="container">
+    <div id="sigma-container"></div>
+    <div class="sidebar">
+      <input type="text" class="search-box" id="search" placeholder="Search repos or topics...">
+      <div class="filter-buttons">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="repo">Repos</button>
+        <button class="filter-btn" data-filter="topic">Topics</button>
+      </div>
+      <ul class="node-list" id="node-list"></ul>
+      <div class="node-info" id="node-info"></div>
+    </div>
+  </div>
+  <script>
+    const { Graph } = graphology;
+    let graph = new Graph();
+    let renderer = null;
+    let selectedNode = null;
+    let filter = 'all';
+    
+    async function loadGraph() {
+      const response = await fetch('data/star_graph.json');
+      const data = await response.json();
+      
+      for (const node of data.nodes) {
+        graph.addNode(node.key, node.attributes);
+      }
+      for (const edge of data.edges) {
+        graph.addEdge(edge.source, edge.target, edge.attributes);
+      }
+      
+      updateStats();
+      renderNodeList();
+      initSigma();
+    }
+    
+    function updateStats() {
+      const repos = Array.from(graph.nodes()).filter(n => graph.getNodeAttribute(n, 'type') === 'repo').length;
+      const topics = Array.from(graph.nodes()).filter(n => graph.getNodeAttribute(n, 'type') === 'topic').length;
+      document.getElementById('repo-count').textContent = `Repos: ${repos}`;
+      document.getElementById('topic-count').textContent = `Topics: ${topics}`;
+      document.getElementById('edge-count').textContent = `Edges: ${graph.size}`;
+    }
+    
+    function initSigma() {
+      renderer = new Sigma(graph, document.getElementById('sigma-container'), {
+        renderLabels: true,
+        labelFont: '12px system-ui',
+        labelSize: 12,
+        labelColor: '#c9d1d9',
+        labelThreshold: 8,
+        defaultNodeColor: '#58a6ff',
+        nodeReducer: (node, data) => {
+          const type = data.type;
+          let color = type === 'repo' ? '#58a6ff' : '#a371f7';
+          let size = type === 'repo' ? 8 : 6;
+          if (data.stargazers_count > 10000) size = 14;
+          else if (data.stargazers_count > 1000) size = 10;
+          
+          const res = { color, size, label: data.type === 'repo' ? data.key.split('/')[1] : data.key };
+          if (data.key === selectedNode) res.highlighted = true;
+          return res;
+        },
+        edgeReducer: (edge, data) => ({ color: '#30363d', size: 0.5 })
+      });
+      
+      renderer.on('clickNode', e => {
+        selectNode(e.node);
+      });
+      
+      renderer.on('clickStage', () => {
+        selectNode(null);
+      });
+    }
+    
+    function selectNode(key) {
+      selectedNode = key;
+      renderNodeList();
+      if (renderer) renderer.refresh();
+      if (key) {
+        const data = graph.getNodeAttributes(key);
+        showNodeInfo(key, data);
+        const camera = renderer.getCamera();
+        camera.animatedReset({ node: key, duration: 500 });
+      } else {
+        document.getElementById('node-info').innerHTML = '<p style="color:#8b949e;font-size:0.75rem">Click a node to see details</p>';
+      }
+    }
+    
+    function showNodeInfo(key, data) {
+      const info = document.getElementById('node-info');
+      if (data.type === 'repo') {
+        const topics = (data.all_topics || '').split('|').filter(Boolean);
+        info.innerHTML = `
+          <h4>${key}</h4>
+          <div class="node-detail"><strong>Language:</strong> ${data.language || 'Unknown'}</div>
+          <div class="node-detail"><strong>Stars:</strong> ${data.stargazers_count || 0}</div>
+          <div class="node-detail"><strong>Topics (${topics.length}):</strong></div>
+          <div>${topics.slice(0, 15).map(t => `<span class="badge">${t}</span>`).join('')}</div>
+          <div style="margin-top:0.5rem"><a href="${data.html_url}" target="_blank" style="color:#58a6ff;font-size:0.75rem">View on GitHub</a></div>
+        `;
+      } else {
+        const neighbors = Array.from(graph.neighbors(key)).filter(n => graph.getNodeAttribute(n, 'type') === 'repo');
+        info.innerHTML = `
+          <h4>${key}</h4>
+          <div class="node-detail"><strong>Connected repos:</strong> ${neighbors.length}</div>
+          <div style="margin-top:0.5rem;max-height:200px;overflow:auto">${neighbors.slice(0, 20).map(n => `<div class="node-detail">${n}</div>`).join('')}</div>
+        `;
+      }
+    }
+    
+    function renderNodeList() {
+      const search = document.getElementById('search').value.toLowerCase();
+      const list = document.getElementById('node-list');
+      list.innerHTML = '';
+      
+      const nodes = Array.from(graph.nodes())
+        .filter(key => {
+          if (filter === 'repo' && graph.getNodeAttribute(key, 'type') !== 'repo') return false;
+          if (filter === 'topic' && graph.getNodeAttribute(key, 'type') !== 'topic') return false;
+          if (search && !key.toLowerCase().includes(search)) return false;
+          return true;
+        })
+        .sort((a, b) => {
+          const typeA = graph.getNodeAttribute(a, 'type');
+          const typeB = graph.getNodeAttribute(b, 'type');
+          if (typeA !== typeB) return typeA === 'repo' ? -1 : 1;
+          if (typeA === 'repo') {
+            return (graph.getNodeAttribute(b, 'stargazers_count') || 0) - (graph.getNodeAttribute(a, 'stargazers_count') || 0);
+          }
+          return graph.degree(b) - graph.degree(a);
+        });
+      
+      for (const key of nodes.slice(0, 100)) {
+        const data = graph.getNodeAttributes(key);
+        const li = document.createElement('li');
+        li.className = `node-item${key === selectedNode ? ' selected' : ''}`;
+        li.onclick = () => selectNode(key);
+        li.innerHTML = `
+          <div class="node-name">${key}</div>
+          <div class="node-type">${data.type === 'repo' ? 'Repo' : 'Topic'} ${data.type === 'repo' ? ' ' + (data.language || '') : ' ' + graph.degree(key) + ' repos'}</div>
+        `;
+        list.appendChild(li);
+      }
+    }
+    
+    document.getElementById('search').addEventListener('input', renderNodeList);
+    document.querySelectorAll('.filter-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        filter = btn.dataset.filter;
+        document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+        renderNodeList();
+      });
+    });
+    
+    loadGraph();
+  </script>
+</body>
+</html>
