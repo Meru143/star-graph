@@ -3,67 +3,131 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Star Graph - GitHub Starred Repos Knowledge Graph</title>
+  <title>Star Graph - Interactive Knowledge Graph</title>
   <script src="https://cdn.jsdelivr.net/npm/sigma@3.0.0/build/sigma.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/graphology@0.25.4/dist/graphology.umd.min.js"></script>
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; }
-    .header { padding: 1rem 2rem; background: #161b22; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; }
-    .header h1 { font-size: 1.5rem; font-weight: 600; }
-    .stats { display: flex; gap: 2rem; font-size: 0.875rem; color: #8b949e; }
-    .container { display: flex; height: calc(100vh - 64px); }
-    #sigma-container { flex: 1; min-width: 0; }
-    .sidebar { width: 320px; background: #161b22; border-left: 1px solid #30363d; padding: 1rem; overflow-y: auto; }
-    .search-box { width: 100%; padding: 0.5rem; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; margin-bottom: 1rem; font-size: 0.875rem; }
-    .node-list { list-style: none; }
-    .node-item { padding: 0.5rem; border-radius: 6px; cursor: pointer; transition: background 0.15s; margin-bottom: 0.25rem; }
-    .node-item:hover { background: #21262d; }
-    .node-item.selected { background: #1f6feb33; border: 1px solid #1f6feb; }
-    .node-name { font-weight: 500; font-size: 0.875rem; }
-    .node-type { font-size: 0.75rem; color: #8b949e; }
-    .node-info { margin-top: 1rem; padding-top: 1rem; border-top: 1px solid #30363d; }
-    .node-info h4 { font-size: 0.875rem; margin-bottom: 0.5rem; }
-    .node-detail { font-size: 0.75rem; color: #8b949e; margin-bottom: 0.25rem; }
-    .badge { display: inline-block; padding: 0.125rem 0.375rem; border-radius: 3px; font-size: 0.625rem; background: #1f6feb33; color: #58a6ff; margin: 0.125rem; }
-    .filter-buttons { display: flex; gap: 0.5rem; margin-bottom: 1rem; }
-    .filter-btn { padding: 0.375rem 0.75rem; border: 1px solid #30363d; background: #21262d; color: #c9d1d9; border-radius: 6px; cursor: pointer; font-size: 0.75rem; }
+    body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: #0d1117; color: #c9d1d9; overflow: hidden; }
+    .header { padding: 0.75rem 1.5rem; background: #161b22; border-bottom: 1px solid #30363d; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; }
+    .header h1 { font-size: 1.25rem; font-weight: 600; }
+    .stats { display: flex; gap: 1.5rem; font-size: 0.8rem; color: #8b949e; }
+    .container { display: flex; height: calc(100vh - 48px); }
+    #sigma-container { flex: 1; min-width: 0; position: relative; }
+    .sidebar { width: 340px; background: #161b22; border-left: 1px solid #30363d; padding: 1rem; overflow-y: auto; display: flex; flex-direction: column; gap: 1rem; }
+    .panel { background: #21262d; border: 1px solid #30363d; border-radius: 6px; padding: 1rem; }
+    .panel h4 { font-size: 0.8rem; font-weight: 600; text-transform: uppercase; color: #8b949e; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+    .search-box { width: 100%; padding: 0.5rem; background: #0d1117; border: 1px solid #30363d; border-radius: 6px; color: #c9d1d9; font-size: 0.8rem; margin-bottom: 0.75rem; }
+    .search-box:focus { outline: none; border-color: #1f6feb; }
+    .filter-group { display: flex; flex-wrap: wrap; gap: 0.375rem; margin-bottom: 0.75rem; }
+    .filter-btn { padding: 0.25rem 0.625rem; border: 1px solid #30363d; background: #21262d; color: #c9d1d9; border-radius: 4px; cursor: pointer; font-size: 0.7rem; transition: all 0.15s; }
+    .filter-btn:hover { background: #30363d; }
     .filter-btn.active { background: #1f6feb; border-color: #1f6feb; }
+    .node-list { list-style: none; max-height: 300px; overflow-y: auto; }
+    .node-item { padding: 0.5rem; border-radius: 6px; cursor: pointer; transition: background 0.1s; margin-bottom: 0.25rem; border: 1px solid transparent; }
+    .node-item:hover { background: #21262d; }
+    .node-item.selected { background: rgba(31, 111, 235, 0.2); border-color: #1f6feb; }
+    .node-name { font-weight: 500; font-size: 0.8rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .node-meta { font-size: 0.7rem; color: #8b949e; display: flex; gap: 0.5rem; margin-top: 0.25rem; flex-wrap: wrap; }
+    .badge { padding: 0.125rem 0.375rem; border-radius: 3px; font-size: 0.6rem; font-weight: 500; }
+    .badge-repo { background: rgba(31, 111, 235, 0.2); color: #58a6ff; }
+    .badge-topic { background: rgba(163, 113, 247, 0.2); color: #a371f7; }
+    .badge-tech { background: rgba(63, 185, 80, 0.2); color: #3fb950; }
+    .badge-use { background: rgba(210, 153, 34, 0.2); color: #d29922; }
+    .badge-arch { background: rgba(248, 81, 73, 0.2); color: #f85149; }
+    .node-detail { border-top: 1px solid #30363d; padding-top: 1rem; margin-top: 1rem; }
+    .detail-row { display: flex; justify-content: space-between; font-size: 0.75rem; margin-bottom: 0.375rem; }
+    .detail-label { color: #8b949e; }
+    .detail-value { color: #c9d1d9; text-align: right; max-width: 65%; word-break: break-word; }
+    .actions { display: flex; gap: 0.5rem; margin-top: 1rem; }
+    .btn { flex: 1; padding: 0.5rem; border: 1px solid #30363d; background: #21262d; color: #c9d1d9; border-radius: 6px; cursor: pointer; font-size: 0.75rem; transition: all 0.15s; }
+    .btn:hover { background: #30363d; }
+    .btn-primary { background: #1f6feb; border-color: #1f6feb; }
+    .btn-primary:hover { background: #388bfd; }
+    .legend { display: flex; flex-wrap: wrap; gap: 0.5rem; font-size: 0.7rem; }
+    .legend-item { display: flex; align-items: center; gap: 0.375rem; }
+    .legend-color { width: 10px; height: 10px; border-radius: 50%; }
+    .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem; }
+    .stat-card { background: #21262d; border: 1px solid #30363d; border-radius: 6px; padding: 0.5rem; }
+    .stat-value { font-size: 1.25rem; font-weight: 600; color: #c9d1d9; }
+    .stat-label { font-size: 0.65rem; color: #8b949e; text-transform: uppercase; }
+    .empty-state { color: #8b949e; font-size: 0.8rem; text-align: center; padding: 2rem; }
+    .toolbar { display: flex; gap: 0.5rem; flex-wrap: wrap; align-items: center; }
+    .toolbar-btn { padding: 0.375rem 0.75rem; border: 1px solid #30363d; background: #21262d; color: #c9d1d9; border-radius: 6px; cursor: pointer; font-size: 0.7rem; }
+    .toolbar-btn:hover { background: #30363d; }
+    .toolbar-btn.primary { background: #1f6feb; border-color: #1f6feb; }
+    .hidden { display: none !important; }
   </style>
 </head>
 <body>
   <div class="header">
-    <h1>Star Graph</h1>
+    <h1>⭐ Star Graph</h1>
     <div class="stats">
-      <span id="repo-count">Repos: 0</span>
-      <span id="topic-count">Topics: 0</span>
-      <span id="edge-count">Edges: 0</span>
+      <span id="stat-repos">Repos: 0</span>
+      <span id="stat-topics">Topics: 0</span>
+      <span id="stat-techs">Techs: 0</span>
+      <span id="stat-edges">Edges: 0</span>
     </div>
   </div>
   <div class="container">
     <div id="sigma-container"></div>
     <div class="sidebar">
-      <input type="text" class="search-box" id="search" placeholder="Search repos or topics...">
-      <div class="filter-buttons">
-        <button class="filter-btn active" data-filter="all">All</button>
-        <button class="filter-btn" data-filter="repo">Repos</button>
-        <button class="filter-btn" data-filter="topic">Topics</button>
+      <div class="panel">
+        <h4>Search & Filter</h4>
+        <input type="text" class="search-box" id="search" placeholder="Search repos, topics, tech...">
+        <div class="filter-group" id="type-filters"></div>
       </div>
-      <ul class="node-list" id="node-list"></ul>
-      <div class="node-info" id="node-info"></div>
+      <div class="panel">
+        <h4>Nodes (<span id="node-count">0</span>)</h4>
+        <ul class="node-list" id="node-list"></ul>
+      </div>
+      <div class="panel node-detail" id="node-detail">
+        <div class="empty-state">Click a node to see details</div>
+      </div>
+      <div class="panel">
+        <h4>Actions</h4>
+        <div class="actions">
+          <button class="btn" id="btn-center">Center View</button>
+          <button class="btn" id="btn-export-png">Export PNG</button>
+          <button class="btn" id="btn-export-subgraph">Export Subgraph</button>
+        </div>
+      </div>
     </div>
   </div>
+
   <script>
     const { Graph } = graphology;
     let graph = new Graph();
     let renderer = null;
     let selectedNode = null;
-    let filter = 'all';
-    
+    let nodeTypeFilter = 'all';
+    let searchQuery = '';
+    let originalGraph = null;
+
+    // Node type colors
+    const TYPE_COLORS = {
+      repo: '#58a6ff',
+      topic: '#a371f7',
+      technology: '#3fb950',
+      use_case: '#d29922',
+      architecture: '#f85149',
+      unknown: '#8b949e'
+    };
+
+    const TYPE_LABELS = {
+      repo: 'Repo',
+      topic: 'Topic',
+      technology: 'Tech',
+      use_case: 'Use Case',
+      architecture: 'Arch'
+    };
+
+    // Load graph
     async function loadGraph() {
-      const response = await fetch('data/star_graph.json');
-      const data = await response.json();
+      const res = await fetch('data/star_graph_enhanced.json');
+      const data = await res.json();
       
+      // Build graphology graph
       for (const node of data.nodes) {
         graph.addNode(node.key, node.attributes);
       }
@@ -71,130 +135,237 @@
         graph.addEdge(edge.source, edge.target, edge.attributes);
       }
       
+      originalGraph = data;
       updateStats();
-      renderNodeList();
       initSigma();
+      renderNodeList();
+      renderTypeFilters();
     }
-    
+
     function updateStats() {
-      const repos = Array.from(graph.nodes()).filter(n => graph.getNodeAttribute(n, 'type') === 'repo').length;
-      const topics = Array.from(graph.nodes()).filter(n => graph.getNodeAttribute(n, 'type') === 'topic').length;
-      document.getElementById('repo-count').textContent = `Repos: ${repos}`;
-      document.getElementById('topic-count').textContent = `Topics: ${topics}`;
-      document.getElementById('edge-count').textContent = `Edges: ${graph.size}`;
+      const types = {};
+      for (const node of graph.nodes()) {
+        const t = graph.getNodeAttribute(node, 'type') || 'unknown';
+        types[t] = (types[t] || 0) + 1;
+      }
+      document.getElementById('stat-repos').textContent = `Repos: ${types.repo || 0}`;
+      document.getElementById('stat-topics').textContent = `Topics: ${(types.topic || 0) + (types.use_case || 0)}`;
+      document.getElementById('stat-techs').textContent = `Techs: ${types.technology || 0}`;
+      document.getElementById('stat-edges').textContent = `Edges: ${graph.size}`;
+      document.getElementById('node-count').textContent = graph.order;
     }
-    
+
     function initSigma() {
       renderer = new Sigma(graph, document.getElementById('sigma-container'), {
         renderLabels: true,
         labelFont: '12px system-ui',
         labelSize: 12,
         labelColor: '#c9d1d9',
-        labelThreshold: 8,
-        defaultNodeColor: '#58a6ff',
+        labelThreshold: 6,
+        defaultNodeColor: '#8b949e',
         nodeReducer: (node, data) => {
-          const type = data.type;
-          let color = type === 'repo' ? '#58a6ff' : '#a371f7';
-          let size = type === 'repo' ? 8 : 6;
-          if (data.stargazers_count > 10000) size = 14;
-          else if (data.stargazers_count > 1000) size = 10;
+          const type = data.type || 'unknown';
+          let color = TYPE_COLORS[type] || TYPE_COLORS.unknown;
+          let size = 6;
           
-          const res = { color, size, label: data.type === 'repo' ? data.key.split('/')[1] : data.key };
-          if (data.key === selectedNode) res.highlighted = true;
-          return res;
+          if (type === 'repo') {
+            const stars = data.stargazers_count || data.stars || 0;
+            if (stars > 10000) size = 14;
+            else if (stars > 1000) size = 11;
+            else if (stars > 100) size = 9;
+            else size = 7;
+          } else if (type === 'topic' || type === 'use_case') {
+            size = Math.min(6 + graph.degree(node) * 0.3, 14);
+          } else if (type === 'technology') {
+            size = Math.min(6 + graph.degree(node) * 0.2, 12);
+          }
+          
+          const label = type === 'repo' ? node.split('/')[1] : node;
+          
+          return {
+            color,
+            size,
+            label,
+            highlighted: node === selectedNode,
+            type
+          };
         },
-        edgeReducer: (edge, data) => ({ color: '#30363d', size: 0.5 })
+        edgeReducer: (edge, data) => ({
+          color: '#30363d',
+          size: 0.5
+        })
       });
+
+      renderer.on('clickNode', (e) => selectNode(e.node));
+      renderer.on('clickStage', () => selectNode(null));
+    }
+
+    function renderTypeFilters() {
+      const types = ['repo', 'topic', 'technology', 'use_case', 'architecture'];
+      const container = document.getElementById('type-filters');
+      container.innerHTML = types.map(t => 
+        `<button class="filter-btn${t === 'all' ? ' active' : ''}" data-type="${t}" style="--color:${TYPE_COLORS[t]}">${TYPE_LABELS[t]}</button>`
+      ).join('');
       
-      renderer.on('clickNode', e => {
-        selectNode(e.node);
+      container.querySelectorAll('.filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          nodeTypeFilter = btn.dataset.type;
+          container.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b === btn));
+          renderNodeList();
+        });
       });
-      
-      renderer.on('clickStage', () => {
-        selectNode(null);
-      });
     }
-    
-    function selectNode(key) {
-      selectedNode = key;
-      renderNodeList();
-      if (renderer) renderer.refresh();
-      if (key) {
-        const data = graph.getNodeAttributes(key);
-        showNodeInfo(key, data);
-        const camera = renderer.getCamera();
-        camera.animatedReset({ node: key, duration: 500 });
-      } else {
-        document.getElementById('node-info').innerHTML = '<p style="color:#8b949e;font-size:0.75rem">Click a node to see details</p>';
-      }
-    }
-    
-    function showNodeInfo(key, data) {
-      const info = document.getElementById('node-info');
-      if (data.type === 'repo') {
-        const topics = (data.all_topics || '').split('|').filter(Boolean);
-        info.innerHTML = `
-          <h4>${key}</h4>
-          <div class="node-detail"><strong>Language:</strong> ${data.language || 'Unknown'}</div>
-          <div class="node-detail"><strong>Stars:</strong> ${data.stargazers_count || 0}</div>
-          <div class="node-detail"><strong>Topics (${topics.length}):</strong></div>
-          <div>${topics.slice(0, 15).map(t => `<span class="badge">${t}</span>`).join('')}</div>
-          <div style="margin-top:0.5rem"><a href="${data.html_url}" target="_blank" style="color:#58a6ff;font-size:0.75rem">View on GitHub</a></div>
-        `;
-      } else {
-        const neighbors = Array.from(graph.neighbors(key)).filter(n => graph.getNodeAttribute(n, 'type') === 'repo');
-        info.innerHTML = `
-          <h4>${key}</h4>
-          <div class="node-detail"><strong>Connected repos:</strong> ${neighbors.length}</div>
-          <div style="margin-top:0.5rem;max-height:200px;overflow:auto">${neighbors.slice(0, 20).map(n => `<div class="node-detail">${n}</div>`).join('')}</div>
-        `;
-      }
-    }
-    
+
     function renderNodeList() {
-      const search = document.getElementById('search').value.toLowerCase();
       const list = document.getElementById('node-list');
-      list.innerHTML = '';
+      const query = searchQuery.toLowerCase();
       
-      const nodes = Array.from(graph.nodes())
+      const nodes = graph.nodes()
         .filter(key => {
-          if (filter === 'repo' && graph.getNodeAttribute(key, 'type') !== 'repo') return false;
-          if (filter === 'topic' && graph.getNodeAttribute(key, 'type') !== 'topic') return false;
-          if (search && !key.toLowerCase().includes(search)) return false;
+          const data = graph.getNodeAttributes(key);
+          const type = data.type || 'unknown';
+          if (nodeTypeFilter !== 'all' && type !== nodeTypeFilter) return false;
+          if (query && !key.toLowerCase().includes(query)) return false;
           return true;
         })
         .sort((a, b) => {
-          const typeA = graph.getNodeAttribute(a, 'type');
-          const typeB = graph.getNodeAttribute(b, 'type');
-          if (typeA !== typeB) return typeA === 'repo' ? -1 : 1;
-          if (typeA === 'repo') {
+          const ta = graph.getNodeAttribute(a, 'type');
+          const tb = graph.getNodeAttribute(b, 'type');
+          if (ta !== tb) return ta === 'repo' ? -1 : 1;
+          if (ta === 'repo') {
             return (graph.getNodeAttribute(b, 'stargazers_count') || 0) - (graph.getNodeAttribute(a, 'stargazers_count') || 0);
           }
           return graph.degree(b) - graph.degree(a);
         });
       
-      for (const key of nodes.slice(0, 100)) {
+      list.innerHTML = nodes.slice(0, 150).map(key => {
         const data = graph.getNodeAttributes(key);
-        const li = document.createElement('li');
-        li.className = `node-item${key === selectedNode ? ' selected' : ''}`;
-        li.onclick = () => selectNode(key);
-        li.innerHTML = `
-          <div class="node-name">${key}</div>
-          <div class="node-type">${data.type === 'repo' ? 'Repo' : 'Topic'} ${data.type === 'repo' ? ' ' + (data.language || '') : ' ' + graph.degree(key) + ' repos'}</div>
+        const type = data.type || 'unknown';
+        const badgeClass = `badge-${type}`;
+        const stars = data.stargazers_count ? ` ⭐${data.stargazers_count}` : '';
+        const lang = data.language ? ` • ${data.language}` : '';
+        const degree = graph.degree(key);
+        
+        return `
+          <li class="node-item${key === selectedNode ? ' selected' : ''}" data-key="${key}">
+            <div class="node-name">${key}${stars}</div>
+            <div class="node-meta">
+              <span class="badge ${badgeClass}">${TYPE_LABELS[type]}</span>
+              ${type === 'repo' ? `<span>${degree} connections${lang}</span>` : `<span>${degree} repos</span>`}
+            </div>
+          </li>
         `;
-        list.appendChild(li);
+      }).join('');
+      
+      list.querySelectorAll('.node-item').forEach(li => {
+        li.addEventListener('click', () => selectNode(li.dataset.key));
+      });
+    }
+
+    function selectNode(key) {
+      selectedNode = key;
+      renderer.refresh();
+      renderNodeList();
+      
+      if (key) {
+        const data = graph.getNodeAttributes(key);
+        const type = data.type || 'unknown';
+        showNodeDetail(key, data, type);
+        
+        // Center camera
+        const camera = renderer.getCamera();
+        camera.animatedReset({ node: key, duration: 500 });
+      } else {
+        document.getElementById('node-detail').innerHTML = '<div class="empty-state">Click a node to see details</div>';
       }
     }
-    
-    document.getElementById('search').addEventListener('input', renderNodeList);
-    document.querySelectorAll('.filter-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        filter = btn.dataset.filter;
-        document.querySelectorAll('.filter-btn').forEach(b => b.classList.toggle('active', b === btn));
-        renderNodeList();
-      });
+
+    function showNodeDetail(key, data, type) {
+      const detail = document.getElementById('node-detail');
+      let html = '';
+      
+      if (type === 'repo') {
+        html = `
+          <h4 style="font-size:0.85rem;margin-bottom:0.5rem">${key}</h4>
+          <div class="detail-row"><span class="detail-label">Description</span><span class="detail-value">${data.description || 'No description'}</span></div>
+          <div class="detail-row"><span class="detail-label">Purpose</span><span class="detail-value">${data.primary_purpose || 'N/A'}</span></div>
+          <div class="detail-row"><span class="detail-label">Language</span><span class="detail-value">${data.language || 'Unknown'}</span></div>
+          <div class="detail-row"><span class="detail-label">Stars</span><span class="detail-value">${(data.stargazers_count || data.stars || 0).toLocaleString()}</span></div>
+          <div class="detail-row"><span class="detail-label">Maturity</span><span class="detail-value">${data.maturity || 'N/A'}</span></div>
+          <div class="detail-row"><span class="detail-label">Production Ready</span><span class="detail-value">${data.production_ready ? 'Yes' : 'No'}</span></div>
+          <div class="detail-row"><span class="detail-label">Tech Stack</span><span class="detail-value">${(data.tech_stack || []).slice(0, 8).join(', ') || 'N/A'}</span></div>
+          <div class="detail-row"><span class="detail-label">Use Cases</span><span class="detail-value">${(data.use_cases || []).slice(0, 6).join(', ') || 'N/A'}</span></div>
+          <div class="detail-row"><span class="detail-label">Topics</span><span class="detail-value">${(data.inferred_topics || []).slice(0, 8).join(', ') || 'N/A'}</span></div>
+          <a href="${data.url || data.html_url || '#'}" target="_blank" style="display:inline-block;margin-top:0.75rem;font-size:0.75rem;color:#58a6ff;">View on GitHub →</a>
+        `;
+      } else {
+        const neighbors = Array.from(graph.neighbors(key)).filter(n => graph.getNodeAttribute(n, 'type') === 'repo').slice(0, 20);
+        html = `
+          <h4 style="font-size:0.85rem;margin-bottom:0.5rem">${key}</h4>
+          <div class="detail-row"><span class="detail-label">Type</span><span class="detail-value">${TYPE_LABELS[type]}</span></div>
+          <div class="detail-row"><span class="detail-label">Connected Repos</span><span class="detail-value">${neighbors.length}</span></div>
+          <div style="margin-top:0.5rem;max-height:200px;overflow:auto;font-size:0.7rem;">
+            ${neighbors.map(n => `<div style="padding:0.125rem 0;color:#8b949e;">${n}</div>`).join('')}
+          </div>
+        `;
+      }
+      
+      detail.innerHTML = html;
+    }
+
+    // Event listeners
+    document.getElementById('search').addEventListener('input', (e) => {
+      searchQuery = e.target.value;
+      renderNodeList();
     });
-    
+
+    document.getElementById('btn-center').addEventListener('click', () => {
+      if (selectedNode) {
+        const camera = renderer.getCamera();
+        camera.animatedReset({ node: selectedNode, duration: 500 });
+      }
+    });
+
+    document.getElementById('btn-export-png').addEventListener('click', async () => {
+      // Canvas export would need additional setup
+      alert('PNG export requires canvas access - use browser screenshot for now');
+    });
+
+    document.getElementById('btn-export-subgraph').addEventListener('click', () => {
+      if (!selectedNode) return alert('Select a node first');
+      
+      // Export subgraph as JSON
+      const subgraphNodes = new Set([selectedNode]);
+      for (const n of graph.neighbors(selectedNode)) subgraphNodes.add(n);
+      
+      const subgraph = { nodes: [], edges: [] };
+      for (const key of subgraphNodes) {
+        subgraph.nodes.push({ key, attributes: graph.getNodeAttributes(key) });
+      }
+      for (const [u, v, attrs] of graph.edges()) {
+        if (subgraphNodes.has(u) && subgraphNodes.has(v)) {
+          subgraph.edges.push({ source: u, target: v, attributes: attrs });
+        }
+      }
+      
+      const blob = new Blob([JSON.stringify(subgraph, null, 2)], { type: 'application/json' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `subgraph_${selectedNode.replace('/', '_')}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+    });
+
+    // Keyboard shortcuts
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') selectNode(null);
+      if (e.key === '/' && document.activeElement.tagName !== 'INPUT') {
+        e.preventDefault();
+        document.getElementById('search').focus();
+      }
+    });
+
     loadGraph();
   </script>
 </body>
