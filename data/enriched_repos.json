@@ -1,16 +1,54 @@
 {
-  "Graphify-Labs/graphify": {
-    "hash": "f6bf3c94568f6a46",
+  "topoteretes/cognee": {
+    "hash": "78559b2e46713d7a",
     "inferred_topics": [
-      "knowledge-graphs",
-      "code-analysis-tools",
-      "ast-parsing",
-      "deterministic-parsing",
-      "queryable-codebases",
-      "python-ast",
-      "code-documentation-tools",
-      "graph-based-search"
+      "ai-platform",
+      "knowledge-graph-engine",
+      "long-term-memory",
+      "persistent-memory",
+      "python-ai",
+      "self-hosted-ai",
+      "session-management"
     ],
-    "enriched_at": "2026-07-20T16:47:17Z"
+    "enriched_at": "2026-07-21T07:23:37Z"
+  },
+  "tt-a1i/archify": {
+    "hash": "bc819e62e62e45ec",
+    "inferred_topics": [
+      "archify",
+      "architecture-visualization",
+      "dark-light-theme",
+      "diagram-export",
+      "html-visualization",
+      "png-export",
+      "webp-export"
+    ],
+    "enriched_at": "2026-07-21T07:23:49Z"
+  },
+  "stablyai/orca": {
+    "hash": "405bace3d9f4cbc4",
+    "inferred_topics": [
+      "typescript",
+      "desktop-app",
+      "vps",
+      "parallel-processing",
+      "mobile-ide",
+      "agent-platform",
+      "fleet-management"
+    ],
+    "enriched_at": "2026-07-21T07:23:52Z"
+  },
+  "colbymchenry/codegraph": {
+    "hash": "f8ede01ce17026b9",
+    "inferred_topics": [
+      "knowledge-graph",
+      "code-analysis",
+      "ai-assistants",
+      "local-development",
+      "c-programming",
+      "code-indexing",
+      "auto-syncing"
+    ],
+    "enriched_at": "2026-07-21T07:24:46Z"
   }
 }
