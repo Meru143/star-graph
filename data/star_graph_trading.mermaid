@@ -1,19 +1,22 @@
 graph TD
   subgraph trading ["Trading"]
-    portfolio_optimization["portfolio-optimization"]:::topic
+    nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
     Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
-    algorithmic_trading["algorithmic-trading"]:::topic
     quantitative_finance["quantitative-finance"]:::topic
+    backtesting["backtesting"]:::topic
+    algorithmic_trading["algorithmic-trading"]:::topic
+    vnpy_vnpy["vnpy/vnpy"]:::repo
     TraderAlice_OpenAlice["TraderAlice/OpenAlice"]:::repo
     risk_management["risk-management"]:::topic
-    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
-    nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
-    HKUDS_Vibe_Trading["HKUDS/Vibe-Trading"]:::repo
-    LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
-    backtesting["backtesting"]:::topic
-    virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
     OpenBB_finance_OpenBB["OpenBB-finance/OpenBB"]:::repo
+    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
+    portfolio_optimization["portfolio-optimization"]:::topic
+    LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
+    HKUDS_Vibe_Trading["HKUDS/Vibe-Trading"]:::repo
+    virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
   end
+  vnpy_vnpy --> algorithmic_trading
+  vnpy_vnpy --> risk_management
   wilsonfreitas_awesome_quant --> quantitative_finance
   wilsonfreitas_awesome_quant --> algorithmic_trading
   wilsonfreitas_awesome_quant --> portfolio_optimization
