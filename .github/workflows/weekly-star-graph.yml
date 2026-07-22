@@ -35,7 +35,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install networkx requests
+          pip install -r requirements.txt
       
       - name: Fetch starred repos
         env:
@@ -52,7 +52,7 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet data/star_graph.json data/star_graph.graphml data/last_starred_state.json data/enriched_repos.json; then
+          if git diff --quiet data/star_graph.json data/star_graph.graphml data/last_starred_state.json data/enriched_repos.json data/starred_raw.json; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "No changes to graph files"
           else
@@ -65,14 +65,16 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/star_graph.json data/star_graph.graphml data/last_starred_state.json data/enriched_repos.json
+          git add data/star_graph.json data/star_graph.graphml data/last_starred_state.json data/enriched_repos.json data/starred_raw.json
           git commit -m "chore: weekly star graph update $(date -u +%Y-%m-%d)"
+          git pull --rebase
           git push
 
-  # Deep enrichment job (runs separately, less frequently)
+  # Deep enrichment job (runs after update-star-graph, only on manual trigger)
   deep-enrichment:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 480
+    needs: update-star-graph
     if: github.event_name == 'workflow_dispatch' && inputs.force_full == true
     
     steps:
@@ -82,6 +84,9 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.GITHUB_TOKEN }}
       
+      - name: Pull latest (includes fresh starred_raw.json from update job)
+        run: git pull --rebase
+      
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
@@ -90,7 +95,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install networkx requests
+          pip install -r requirements.txt
       
       - name: Run deep enrichment
         env:
@@ -117,7 +122,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git pull --rebase
           git add data/star_graph_enhanced.json data/star_graph_enhanced.graphml data/deep_research.json data/star_graph_*.mermaid
           git commit -m "chore: deep enrichment update $(date -u +%Y-%m-%d)"
+          git pull --rebase
           git push

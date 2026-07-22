@@ -1,0 +1,13 @@
+# Test files
+data/test_*.json
+data/page_*.json
+data/temp_*.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+
+# OS
+.DS_Store
+Thumbs.db

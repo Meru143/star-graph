@@ -112,8 +112,20 @@ def fetch_readme(owner_repo, token):
     return ""
 
 def fetch_key_files(owner_repo, token):
+    """Fetch key files using tree API to avoid 404s on non-existent files."""
     files = {}
+    # Use tree API to find which key files actually exist (1 API call instead of 17)
+    tree_data = fetch_with_backoff(
+        f"{GITHUB_API}/repos/{owner_repo}/git/trees/HEAD?recursive=1",
+        gh_headers(token)
+    )
+    existing_paths = set()
+    if tree_data and "tree" in tree_data:
+        existing_paths = {item["path"] for item in tree_data["tree"] if item["type"] == "blob"}
+    
     for fname in KEY_FILES:
+        if fname not in existing_paths:
+            continue
         content = fetch_file_content(owner_repo, token, fname)
         if content:
             files[fname] = content[:3000]
@@ -206,7 +218,7 @@ def main():
         full_name = repo["full_name"]
         print(f"\n[{i+1}/{total}] {full_name}")
 
-        if args.skip_cached and full_name in cache and "deep_analysis" in cache[full_name]:
+        if args.skip_cached and full_name in cache and cache[full_name].get("deep_analysis"):
             print("  Cached, skipping")
             continue
 
