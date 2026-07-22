@@ -191,17 +191,20 @@ def main():
 
         api_key = os.environ.get('NVIDIA_API_KEY')
         if api_key:
-            result = subprocess.run([
-                sys.executable, str(Path(__file__).parent / 'enrich_repo.py'),
-                '--input', str(temp_file),
-                '--cache', str(ENRICHED_FILE),
-            ], capture_output=True, text=True, timeout=300,
-               env={**os.environ, 'NVIDIA_API_KEY': api_key})
-            if result.returncode != 0:
-                print(f"Enrichment failed: {result.stderr}", file=sys.stderr)
-            else:
-                print("Enrichment complete")
-                enriched = load_enriched()
+            try:
+                result = subprocess.run([
+                    sys.executable, str(Path(__file__).parent / 'enrich_repo.py'),
+                    '--input', str(temp_file),
+                    '--cache', str(ENRICHED_FILE),
+                ], capture_output=True, text=True, timeout=900,
+                   env={**os.environ, 'NVIDIA_API_KEY': api_key})
+                if result.returncode != 0:
+                    print(f"Enrichment failed: {result.stderr}", file=sys.stderr)
+                else:
+                    print("Enrichment complete")
+            except subprocess.TimeoutExpired:
+                print("Enrichment timed out, continuing with partial cache")
+            enriched = load_enriched()
         else:
             print("NVIDIA_API_KEY not set, skipping enrichment")
         temp_file.unlink(missing_ok=True)
