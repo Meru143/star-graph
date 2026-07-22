@@ -1,0 +1,20 @@
+graph TD
+  subgraph llm_inference ["Llm Inference"]
+    gitleaks_gitleaks["gitleaks/gitleaks"]:::repo
+    llm_inference["llm-inference"]:::topic
+    sglang["sglang"]:::technology
+    AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash["AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-DFlash"]:::repo
+    vllm["vllm"]:::topic
+    z_lab_dflash["z-lab/dflash"]:::repo
+    modelscope_FunASR["modelscope/FunASR"]:::repo
+  end
+  AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash --> vllm
+  vllm --> modelscope_FunASR
+  vllm --> z_lab_dflash
+  gitleaks_gitleaks --> llm_inference
+  z_lab_dflash --> sglang
+  classDef repo fill:#1f6feb,color:#fff;
+  classDef topic fill:#a371f7,color:#fff;
+  classDef technology fill:#3fb950,color:#fff;
+  classDef use_case fill:#d29922,color:#fff;
+  classDef architecture fill:#f85149,color:#fff;

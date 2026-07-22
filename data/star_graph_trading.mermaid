@@ -1,0 +1,36 @@
+graph TD
+  subgraph trading ["Trading"]
+    portfolio_optimization["portfolio-optimization"]:::topic
+    Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
+    algorithmic_trading["algorithmic-trading"]:::topic
+    quantitative_finance["quantitative-finance"]:::topic
+    TraderAlice_OpenAlice["TraderAlice/OpenAlice"]:::repo
+    risk_management["risk-management"]:::topic
+    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
+    nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
+    HKUDS_Vibe_Trading["HKUDS/Vibe-Trading"]:::repo
+    LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
+    backtesting["backtesting"]:::topic
+    virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
+    OpenBB_finance_OpenBB["OpenBB-finance/OpenBB"]:::repo
+  end
+  wilsonfreitas_awesome_quant --> quantitative_finance
+  wilsonfreitas_awesome_quant --> algorithmic_trading
+  wilsonfreitas_awesome_quant --> portfolio_optimization
+  quantitative_finance --> HKUDS_Vibe_Trading
+  quantitative_finance --> LLMQuant_quant_mind
+  quantitative_finance --> OpenBB_finance_OpenBB
+  virattt_ai_hedge_fund --> risk_management
+  virattt_ai_hedge_fund --> portfolio_optimization
+  HKUDS_Vibe_Trading --> algorithmic_trading
+  HKUDS_Vibe_Trading --> backtesting
+  algorithmic_trading --> nautechsystems_nautilus_trader
+  backtesting --> Drakkar_Software_OctoBot
+  nautechsystems_nautilus_trader --> risk_management
+  nautechsystems_nautilus_trader --> portfolio_optimization
+  TraderAlice_OpenAlice --> risk_management
+  classDef repo fill:#1f6feb,color:#fff;
+  classDef topic fill:#a371f7,color:#fff;
+  classDef technology fill:#3fb950,color:#fff;
+  classDef use_case fill:#d29922,color:#fff;
+  classDef architecture fill:#f85149,color:#fff;

@@ -1,0 +1,90 @@
+graph TD
+  subgraph web_scraping ["Web Scraping"]
+    trap_bytes_gourlex["trap-bytes/gourlex"]:::repo
+    browser_use_browser_use["browser-use/browser-use"]:::repo
+    KnockOutEZ_wigolo["KnockOutEZ/wigolo"]:::repo
+    refactoringhq_tolaria["refactoringhq/tolaria"]:::repo
+    playwright["playwright"]:::topic
+    santifer_career_ops["santifer/career-ops"]:::repo
+    Panniantong_Agent_Reach["Panniantong/Agent-Reach"]:::repo
+    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
+    runablehq_mini_browser["runablehq/mini-browser"]:::repo
+    bug0inc_passmark["bug0inc/passmark"]:::repo
+    fathah_hermes_desktop["fathah/hermes-desktop"]:::repo
+    ScrapeGraphAI_Scrapegraph_ai["ScrapeGraphAI/Scrapegraph-ai"]:::repo
+    crawler["crawler"]:::topic
+    WebBreacher_WhatsMyName["WebBreacher/WhatsMyName"]:::repo
+    OpenBMB_PilotDeck["OpenBMB/PilotDeck"]:::repo
+    midudev_autoskills["midudev/autoskills"]:::repo
+    puppeteer["puppeteer"]:::topic
+    apify_fingerprint_suite["apify/fingerprint-suite"]:::repo
+    browser_use_browser_harness["browser-use/browser-harness"]:::repo
+    CloakHQ_CloakBrowser["CloakHQ/CloakBrowser"]:::repo
+    scraperai_scraperai["scraperai/scraperai"]:::repo
+    nexu_io_html_anything["nexu-io/html-anything"]:::repo
+    hyperbrowserai_HyperAgent["hyperbrowserai/HyperAgent"]:::repo
+    alumnium_hq_alumnium["alumnium-hq/alumnium"]:::repo
+    heygen_com_hyperframes["heygen-com/hyperframes"]:::repo
+    AndyTheFactory_newspaper4k["AndyTheFactory/newspaper4k"]:::repo
+    sveltejs_svelte["sveltejs/svelte"]:::repo
+    alibaba_page_agent["alibaba/page-agent"]:::repo
+    D4Vinci_Scrapling["D4Vinci/Scrapling"]:::repo
+    web_scraping["web-scraping"]:::topic
+    browseros_ai_BrowserOS["browseros-ai/BrowserOS"]:::repo
+    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
+    browser_automation["browser-automation"]:::topic
+  end
+  KnockOutEZ_wigolo --> web_scraping
+  web_scraping --> CloakHQ_CloakBrowser
+  web_scraping --> D4Vinci_Scrapling
+  web_scraping --> ScrapeGraphAI_Scrapegraph_ai
+  web_scraping --> WebBreacher_WhatsMyName
+  web_scraping --> Panniantong_Agent_Reach
+  web_scraping --> trap_bytes_gourlex
+  web_scraping --> blacklanternsecurity_bbot
+  web_scraping --> hyperbrowserai_HyperAgent
+  web_scraping --> runablehq_mini_browser
+  web_scraping --> apify_fingerprint_suite
+  web_scraping --> browser_use_browser_harness
+  web_scraping --> AndyTheFactory_newspaper4k
+  web_scraping --> scraperai_scraperai
+  web_scraping --> browser_use_browser_use
+  alibaba_page_agent --> browser_automation
+  browser_automation --> CloakHQ_CloakBrowser
+  browser_automation --> browser_use_browser_harness
+  browser_automation --> browser_use_browser_use
+  browser_automation --> browseros_ai_BrowserOS
+  browser_automation --> hyperbrowserai_HyperAgent
+  browser_automation --> runablehq_mini_browser
+  browser_automation --> apify_fingerprint_suite
+  browser_automation --> D4Vinci_Scrapling
+  sveltejs_svelte --> playwright
+  bug0inc_passmark --> playwright
+  playwright --> hyperbrowserai_HyperAgent
+  playwright --> alumnium_hq_alumnium
+  playwright --> apify_fingerprint_suite
+  playwright --> CloakHQ_CloakBrowser
+  playwright --> D4Vinci_Scrapling
+  playwright --> browser_use_browser_harness
+  playwright --> browser_use_browser_use
+  playwright --> refactoringhq_tolaria
+  playwright --> elebumm_RedditVideoMakerBot
+  playwright --> nexu_io_html_anything
+  playwright --> OpenBMB_PilotDeck
+  playwright --> fathah_hermes_desktop
+  playwright --> ScrapeGraphAI_Scrapegraph_ai
+  playwright --> midudev_autoskills
+  playwright --> santifer_career_ops
+  runablehq_mini_browser --> puppeteer
+  apify_fingerprint_suite --> puppeteer
+  puppeteer --> CloakHQ_CloakBrowser
+  puppeteer --> heygen_com_hyperframes
+  D4Vinci_Scrapling --> crawler
+  crawler --> ScrapeGraphAI_Scrapegraph_ai
+  crawler --> AndyTheFactory_newspaper4k
+  crawler --> scraperai_scraperai
+  classDef repo fill:#1f6feb,color:#fff;
+  classDef topic fill:#a371f7,color:#fff;
+  classDef technology fill:#3fb950,color:#fff;
+  classDef use_case fill:#d29922,color:#fff;
+  classDef architecture fill:#f85149,color:#fff;

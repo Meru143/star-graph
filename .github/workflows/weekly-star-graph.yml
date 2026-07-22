@@ -4,125 +4,78 @@ on:
   schedule:
     - cron: '0 6 * * 1'  # Every Monday 06:00 UTC
   workflow_dispatch:
-    inputs:
-      force_full:
-        description: 'Force full re-enrichment'
-        required: false
-        default: false
-        type: boolean
 
 permissions:
   contents: write
-  actions: read
 
 jobs:
   update-star-graph:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
-    
+    timeout-minutes: 60
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
+          token: ${{ secrets.GH_PAT }}
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      
+          cache: 'pip'
+
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
+          pip install networkx requests numpy sentence-transformers
+
       - name: Fetch starred repos
         env:
-          GH_PAT: ${{ secrets.GH_PAT }}
+          GH_TOKEN: ${{ secrets.GH_PAT }}
         run: |
-          python scripts/fetch_starred.py
-      
-      - name: Build star graph
+          mkdir -p data
+          gh api user/starred --paginate -q '.' > data/starred_raw.json
+          echo "Fetched $(python3 -c "import json; print(len(json.load(open('data/starred_raw.json'))))") repos"
+
+      - name: Build base graph
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: |
           python scripts/build_star_graph.py
-      
+
+      - name: Deep research (new repos only)
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+        run: |
+          python scripts/deep_research.py --skip-cached
+
+      - name: Build enhanced graph
+        run: |
+          python scripts/enrich_with_deep.py
+
+      - name: Rebuild embeddings
+        run: |
+          python scripts/recommend.py --build-embeddings
+
       - name: Check for changes
         id: changes
         run: |
-          if git diff --quiet data/star_graph.json data/star_graph.graphml data/last_starred_state.json data/enriched_repos.json data/starred_raw.json; then
+          if git diff --quiet data/; then
             echo "changed=false" >> $GITHUB_OUTPUT
             echo "No changes to graph files"
           else
             echo "changed=true" >> $GITHUB_OUTPUT
             echo "Graph updated"
           fi
-      
-      - name: Commit and push updates
-        if: steps.changes.outputs.changed == 'true'
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/star_graph.json data/star_graph.graphml data/last_starred_state.json data/enriched_repos.json data/starred_raw.json
-          git commit -m "chore: weekly star graph update $(date -u +%Y-%m-%d)"
-          git pull --rebase
-          git push
 
-  # Deep enrichment job (runs after update-star-graph, only on manual trigger)
-  deep-enrichment:
-    runs-on: ubuntu-latest
-    timeout-minutes: 480
-    needs: update-star-graph
-    if: github.event_name == 'workflow_dispatch' && inputs.force_full == true
-    
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Pull latest (includes fresh starred_raw.json from update job)
-        run: git pull --rebase
-      
-      - name: Set up Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-      
-      - name: Run deep enrichment
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-        run: |
-          python scripts/deep_research.py --token "$GH_PAT" --nvidia-key "$NVIDIA_API_KEY" --skip-cached
-      
-      - name: Build enhanced graph
-        run: |
-          python scripts/enrich_with_deep.py
-      
-      - name: Check for changes
-        id: changes
-        run: |
-          if git diff --quiet data/star_graph_enhanced.json data/star_graph_enhanced.graphml data/deep_research.json; then
-            echo "changed=false" >> $GITHUB_OUTPUT
-          else
-            echo "changed=true" >> $GITHUB_OUTPUT
-          fi
-      
       - name: Commit and push updates
         if: steps.changes.outputs.changed == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/star_graph_enhanced.json data/star_graph_enhanced.graphml data/deep_research.json data/star_graph_*.mermaid
-          git commit -m "chore: deep enrichment update $(date -u +%Y-%m-%d)"
-          git pull --rebase
+          git add data/
+          git commit -m "chore: weekly star graph update $(date -u +%Y-%m-%d)"
           git push

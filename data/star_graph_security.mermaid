@@ -1,0 +1,36 @@
+graph TD
+  subgraph security ["Security"]
+    braedonsaunders_codeflow["braedonsaunders/codeflow"]:::repo
+    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
+    vercel_labs_deepsec["vercel-labs/deepsec"]:::repo
+    affaan_m_ECC["affaan-m/ECC"]:::repo
+    security_scanning["security-scanning"]:::topic
+    data_privacy_stack_presidio["data-privacy-stack/presidio"]:::repo
+    betterleaks_betterleaks["betterleaks/betterleaks"]:::repo
+    compliance["compliance"]:::use_case
+    vulnerability_scanning["vulnerability-scanning"]:::topic
+    NVIDIA_SkillSpector["NVIDIA/SkillSpector"]:::repo
+    projectdiscovery_nuclei["projectdiscovery/nuclei"]:::repo
+    secrets_management["secrets-management"]:::topic
+    trufflesecurity_trufflehog["trufflesecurity/trufflehog"]:::repo
+    sast["sast"]:::topic
+    aquasecurity_trivy["aquasecurity/trivy"]:::repo
+    1N3_Sn1per["1N3/Sn1per"]:::repo
+  end
+  projectdiscovery_nuclei --> vulnerability_scanning
+  data_privacy_stack_presidio --> compliance
+  aquasecurity_trivy --> vulnerability_scanning
+  NVIDIA_SkillSpector --> vulnerability_scanning
+  braedonsaunders_codeflow --> security_scanning
+  trufflesecurity_trufflehog --> compliance
+  1N3_Sn1per --> vulnerability_scanning
+  betterleaks_betterleaks --> sast
+  betterleaks_betterleaks --> secrets_management
+  blacklanternsecurity_bbot --> security_scanning
+  vercel_labs_deepsec --> security_scanning
+  affaan_m_ECC --> security_scanning
+  classDef repo fill:#1f6feb,color:#fff;
+  classDef topic fill:#a371f7,color:#fff;
+  classDef technology fill:#3fb950,color:#fff;
+  classDef use_case fill:#d29922,color:#fff;
+  classDef architecture fill:#f85149,color:#fff;

@@ -1,0 +1,58 @@
+graph TD
+  subgraph video_content ["Video Content"]
+    remotion_dev_skills["remotion-dev/skills"]:::repo
+    HKUDS_ViMax["HKUDS/ViMax"]:::repo
+    bradautomates_claude_video["bradautomates/claude-video"]:::repo
+    IgorShadurin_app_yumcut_com["IgorShadurin/app.yumcut.com"]:::repo
+    calesthio_OpenMontage["calesthio/OpenMontage"]:::repo
+    coreyhaines31_marketingskills["coreyhaines31/marketingskills"]:::repo
+    video_editing["video-editing"]:::topic
+    OpenCut_app_OpenCut["OpenCut-app/OpenCut"]:::repo
+    palmier_io_palmier_pro["palmier-io/palmier-pro"]:::repo
+    content_creation["content-creation"]:::topic
+    Huanshere_VideoLingo["Huanshere/VideoLingo"]:::repo
+    browser_use_video_use["browser-use/video-use"]:::repo
+    alamshafil_auto_shorts["alamshafil/auto-shorts"]:::repo
+    ATH_MaaS_Pixelle_Video["ATH-MaaS/Pixelle-Video"]:::repo
+    tiktok["tiktok"]:::topic
+    Hao0321_video_autopilot_kit["Hao0321/video-autopilot-kit"]:::repo
+    harry0703_MoneyPrinterTurbo["harry0703/MoneyPrinterTurbo"]:::repo
+    video_generation["video-generation"]:::topic
+    mvanhorn_last30days_skill["mvanhorn/last30days-skill"]:::repo
+    youtube_automation["youtube-automation"]:::topic
+    MervinPraison_PraisonAI["MervinPraison/PraisonAI"]:::repo
+    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
+    trykimu_videoeditor["trykimu/videoeditor"]:::repo
+    AIEraDev_Clypra["AIEraDev/Clypra"]:::repo
+  end
+  AIEraDev_Clypra --> video_editing
+  Hao0321_video_autopilot_kit --> content_creation
+  Hao0321_video_autopilot_kit --> youtube_automation
+  content_creation --> OpenCut_app_OpenCut
+  content_creation --> bradautomates_claude_video
+  content_creation --> ATH_MaaS_Pixelle_Video
+  content_creation --> calesthio_OpenMontage
+  content_creation --> HKUDS_ViMax
+  content_creation --> MervinPraison_PraisonAI
+  content_creation --> Huanshere_VideoLingo
+  content_creation --> coreyhaines31_marketingskills
+  OpenCut_app_OpenCut --> video_editing
+  IgorShadurin_app_yumcut_com --> tiktok
+  tiktok --> alamshafil_auto_shorts
+  tiktok --> mvanhorn_last30days_skill
+  tiktok --> harry0703_MoneyPrinterTurbo
+  ATH_MaaS_Pixelle_Video --> video_generation
+  video_generation --> calesthio_OpenMontage
+  video_generation --> HKUDS_ViMax
+  calesthio_OpenMontage --> video_editing
+  palmier_io_palmier_pro --> video_editing
+  elebumm_RedditVideoMakerBot --> video_editing
+  HKUDS_ViMax --> video_editing
+  trykimu_videoeditor --> video_editing
+  video_editing --> browser_use_video_use
+  video_editing --> remotion_dev_skills
+  classDef repo fill:#1f6feb,color:#fff;
+  classDef topic fill:#a371f7,color:#fff;
+  classDef technology fill:#3fb950,color:#fff;
+  classDef use_case fill:#d29922,color:#fff;
+  classDef architecture fill:#f85149,color:#fff;

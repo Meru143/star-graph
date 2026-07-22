@@ -1,0 +1,97 @@
+graph TD
+  subgraph devtools ["Devtools"]
+    terrastruct_d2["terrastruct/d2"]:::repo
+    affaan_m_ECC["affaan-m/ECC"]:::repo
+    Meru143_argus["Meru143/argus"]:::repo
+    Trampoline_AI_fractal["Trampoline-AI/fractal"]:::repo
+    rtk_ai_rtk["rtk-ai/rtk"]:::repo
+    Hmbown_CodeWhale["Hmbown/CodeWhale"]:::repo
+    debugging["debugging"]:::topic
+    KnockOutEZ_wigolo["KnockOutEZ/wigolo"]:::repo
+    Egonex_AI_Understand_Anything["Egonex-AI/Understand-Anything"]:::repo
+    DietrichGebert_ponytail["DietrichGebert/ponytail"]:::repo
+    QwenLM_open_computer_use["QwenLM/open-computer-use"]:::repo
+    ComposioHQ_awesome_claude_skills["ComposioHQ/awesome-claude-skills"]:::repo
+    ogulcancelik_herdr["ogulcancelik/herdr"]:::repo
+    Panniantong_Agent_Reach["Panniantong/Agent-Reach"]:::repo
+    DeusData_codebase_memory_mcp["DeusData/codebase-memory-mcp"]:::repo
+    CodebuffAI_codebuff["CodebuffAI/codebuff"]:::repo
+    getagentseal_codeburn["getagentseal/codeburn"]:::repo
+    matt1398_claude_devtools["matt1398/claude-devtools"]:::repo
+    runablehq_mini_browser["runablehq/mini-browser"]:::repo
+    Intina47_context_sync["Intina47/context-sync"]:::repo
+    latent_spaces_brag["latent-spaces/brag"]:::repo
+    cosmicstack_labs_mercury_agent["cosmicstack-labs/mercury-agent"]:::repo
+    braedonsaunders_codeflow["braedonsaunders/codeflow"]:::repo
+    mvanhorn_cli_printing_press["mvanhorn/cli-printing-press"]:::repo
+    rowboatlabs_rowboat["rowboatlabs/rowboat"]:::repo
+    code_generation["code-generation"]:::use_case
+    andrewmccalip_kickbacks_ai["andrewmccalip/kickbacks.ai"]:::repo
+    refinedev_refine["refinedev/refine"]:::repo
+    anomalyco_opencode["anomalyco/opencode"]:::repo
+    MoonshotAI_kimi_code["MoonshotAI/kimi-code"]:::repo
+    zzet_gortex["zzet/gortex"]:::repo
+    ctxrs_ctx["ctxrs/ctx"]:::repo
+    Graphify_Labs_graphify["Graphify-Labs/graphify"]:::repo
+    jacob_bd_notebooklm_mcp_cli["jacob-bd/notebooklm-mcp-cli"]:::repo
+    Gitlawb_zero["Gitlawb/zero"]:::repo
+    yorukot_superfile["yorukot/superfile"]:::repo
+    open_free_llm_api_awesome_freellm_apis["open-free-llm-api/awesome-freellm-apis"]:::repo
+    standardagents_dmux["standardagents/dmux"]:::repo
+    abhigyanpatwari_GitNexus["abhigyanpatwari/GitNexus"]:::repo
+    developer_tools["developer-tools"]:::topic
+    MervinPraison_PraisonAI["MervinPraison/PraisonAI"]:::repo
+    esengine_DeepSeek_Reasonix["esengine/DeepSeek-Reasonix"]:::repo
+    Natively_AI_assistant_natively_cluely_ai_assistant["Natively-AI-assistant/natively-cluely-ai-assistant"]:::repo
+    betterleaks_betterleaks["betterleaks/betterleaks"]:::repo
+    cli_tools["cli-tools"]:::topic
+  end
+  KnockOutEZ_wigolo --> developer_tools
+  developer_tools --> refinedev_refine
+  developer_tools --> ctxrs_ctx
+  developer_tools --> Gitlawb_zero
+  developer_tools --> esengine_DeepSeek_Reasonix
+  developer_tools --> ogulcancelik_herdr
+  developer_tools --> DietrichGebert_ponytail
+  developer_tools --> DeusData_codebase_memory_mcp
+  developer_tools --> zzet_gortex
+  developer_tools --> braedonsaunders_codeflow
+  developer_tools --> getagentseal_codeburn
+  developer_tools --> betterleaks_betterleaks
+  developer_tools --> Intina47_context_sync
+  developer_tools --> terrastruct_d2
+  developer_tools --> rtk_ai_rtk
+  developer_tools --> mvanhorn_cli_printing_press
+  developer_tools --> Natively_AI_assistant_natively_cluely_ai_assistant
+  developer_tools --> ComposioHQ_awesome_claude_skills
+  developer_tools --> matt1398_claude_devtools
+  developer_tools --> Meru143_argus
+  developer_tools --> affaan_m_ECC
+  developer_tools --> open_free_llm_api_awesome_freellm_apis
+  developer_tools --> Trampoline_AI_fractal
+  developer_tools --> latent_spaces_brag
+  developer_tools --> andrewmccalip_kickbacks_ai
+  developer_tools --> abhigyanpatwari_GitNexus
+  developer_tools --> Hmbown_CodeWhale
+  developer_tools --> Egonex_AI_Understand_Anything
+  developer_tools --> Graphify_Labs_graphify
+  yorukot_superfile --> cli_tools
+  Trampoline_AI_fractal --> code_generation
+  QwenLM_open_computer_use --> cli_tools
+  Panniantong_Agent_Reach --> cli_tools
+  MoonshotAI_kimi_code --> debugging
+  runablehq_mini_browser --> cli_tools
+  MervinPraison_PraisonAI --> code_generation
+  CodebuffAI_codebuff --> code_generation
+  jacob_bd_notebooklm_mcp_cli --> cli_tools
+  cosmicstack_labs_mercury_agent --> cli_tools
+  standardagents_dmux --> cli_tools
+  anomalyco_opencode --> code_generation
+  matt1398_claude_devtools --> debugging
+  Meru143_argus --> cli_tools
+  rowboatlabs_rowboat --> code_generation
+  classDef repo fill:#1f6feb,color:#fff;
+  classDef topic fill:#a371f7,color:#fff;
+  classDef technology fill:#3fb950,color:#fff;
+  classDef use_case fill:#d29922,color:#fff;
+  classDef architecture fill:#f85149,color:#fff;

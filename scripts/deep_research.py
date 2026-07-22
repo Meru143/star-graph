@@ -1,15 +1,18 @@
 #!/usr/bin/env python3
 """
 Deep research on all starred repos:
-- Fetch README
-- Fetch key config files (package.json, requirements.txt, Cargo.toml, go.mod, etc.)
-- Fetch releases, contributors, languages
+- Fetch README + key config files
 - Deep LLM analysis with full context
-- Handles rate limits with exponential backoff
+- Concurrent GitHub fetches with rate-limit handling
+- Validates LLM output before caching
 """
-import os, json, time, hashlib, sys, subprocess
+import os, json, time, hashlib, sys, base64, re
 from pathlib import Path
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import requests
+
+sys.path.insert(0, str(Path(__file__).parent))
+from graph_utils import validate_deep_analysis
 
 GITHUB_API = "https://api.github.com"
 NVIDIA_API = "https://integrate.api.nvidia.com/v1/chat/completions"
@@ -19,7 +22,6 @@ DATA_DIR = Path(__file__).parent.parent / "data"
 DEEP_CACHE = DATA_DIR / "deep_research.json"
 STARRED_RAW = DATA_DIR / "starred_raw.json"
 
-# Key files to fetch for code analysis
 KEY_FILES = [
     "README.md", "README.rst", "README.txt",
     "package.json", "requirements.txt", "pyproject.toml", "setup.py",
@@ -44,26 +46,30 @@ Key Files:
 
 Provide a JSON object with:
 {{
-  "inferred_topics": ["topic1", "topic2", ...],  // 5-10 specific use-case topics (kebab-case)
+  "inferred_topics": ["topic1", "topic2", ...],
   "primary_purpose": "one-sentence summary of what this repo does",
-  "tech_stack": ["tech1", "tech2", ...],  // frameworks, libraries, cloud services
-  "architecture_patterns": ["pattern1", ...],  // e.g., "microservices", "event-driven", "plugin-system"
-  "use_cases": ["use-case1", ...],  // concrete problems it solves
+  "tech_stack": ["tech1", "tech2", ...],
+  "architecture_patterns": ["pattern1", ...],
+  "use_cases": ["use-case1", ...],
   "maturity": "experimental|active|stable|deprecated",
   "target_audience": "developers|data-scientists|devops|researchers|general",
   "unique_value": "what makes this different from alternatives",
-  "dependencies": ["dep1", "dep2", ...],  // key external dependencies
-  "complexity_score": 1-10,  // codebase complexity
+  "dependencies": ["dep1", "dep2", ...],
+  "complexity_score": 1-10,
   "production_ready": true/false
 }}
 
 Return ONLY valid JSON. No markdown, no explanations."""
 
-def gh_headers(token):
-    return {"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json", "User-Agent": "star-graph-deep-research"}
 
-def nvidia_headers(key):
-    return {"Authorization": f"Bearer {key}", "Content-Type": "application/json", "User-Agent": "Vibe-Trading/1.0"}
+def gh_headers():
+    token = os.environ.get('GH_PAT') or os.environ.get('GH_TOKEN', '')
+    return {
+        "Authorization": f"Bearer {token}",
+        "Accept": "application/vnd.github+json",
+        "User-Agent": "star-graph/1.0"
+    }
+
 
 def fetch_with_backoff(url, headers, max_retries=5, base_delay=2):
     for attempt in range(max_retries):
@@ -79,7 +85,6 @@ def fetch_with_backoff(url, headers, max_retries=5, base_delay=2):
             elif r.status_code == 404:
                 return None
             else:
-                print(f"  HTTP {r.status_code}: {r.text[:100]}")
                 if r.status_code >= 500:
                     time.sleep(base_delay * (2 ** attempt))
                     continue
@@ -89,71 +94,58 @@ def fetch_with_backoff(url, headers, max_retries=5, base_delay=2):
             time.sleep(base_delay * (2 ** attempt))
     return None
 
-def fetch_repo_contents(owner_repo, token, path=""):
-    url = f"{GITHUB_API}/repos/{owner_repo}/contents/{path}"
-    return fetch_with_backoff(url, gh_headers(token))
 
-def fetch_file_content(owner_repo, token, path):
+def fetch_file_content(owner_repo, path):
     url = f"{GITHUB_API}/repos/{owner_repo}/contents/{path}"
-    data = fetch_with_backoff(url, gh_headers(token))
+    data = fetch_with_backoff(url, gh_headers())
     if data and "content" in data:
-        import base64
         try:
             return base64.b64decode(data["content"]).decode("utf-8", errors="ignore")[:5000]
-        except:
+        except Exception:
             return ""
     return ""
 
-def fetch_readme(owner_repo, token):
+
+def fetch_readme(owner_repo):
     for name in ["README.md", "README.rst", "README.txt", "README"]:
-        content = fetch_file_content(owner_repo, token, name)
+        content = fetch_file_content(owner_repo, name)
         if content:
             return content[:10000]
     return ""
 
-def fetch_key_files(owner_repo, token):
-    """Fetch key files using tree API to avoid 404s on non-existent files."""
-    files = {}
-    # Use tree API to find which key files actually exist (1 API call instead of 17)
-    tree_data = fetch_with_backoff(
-        f"{GITHUB_API}/repos/{owner_repo}/git/trees/HEAD?recursive=1",
-        gh_headers(token)
+
+def fetch_key_files(owner_repo):
+    """Fetch root listing first, then only request files that exist."""
+    url = f"{GITHUB_API}/repos/{owner_repo}/contents/"
+    listing = fetch_with_backoff(url, gh_headers())
+    if not listing:
+        return {}
+
+    existing = {item['name'] for item in listing if isinstance(item, dict)}
+    # Also check .github/workflows/
+    wf_listing = fetch_with_backoff(
+        f"{GITHUB_API}/repos/{owner_repo}/contents/.github/workflows", gh_headers()
     )
-    existing_paths = set()
-    if tree_data and "tree" in tree_data:
-        existing_paths = {item["path"] for item in tree_data["tree"] if item["type"] == "blob"}
-    
+    if wf_listing:
+        existing.update(f".github/workflows/{item['name']}" for item in wf_listing if isinstance(item, dict))
+
+    files = {}
     for fname in KEY_FILES:
-        if fname not in existing_paths:
+        base = fname.split('/')[-1]
+        if base not in existing and fname not in existing:
             continue
-        content = fetch_file_content(owner_repo, token, fname)
+        content = fetch_file_content(owner_repo, fname)
         if content:
             files[fname] = content[:3000]
-        time.sleep(0.1)
+        time.sleep(0.05)
     return files
 
-def fetch_releases(owner_repo, token):
-    url = f"{GITHUB_API}/repos/{owner_repo}/releases?per_page=5"
-    data = fetch_with_backoff(url, gh_headers(token))
-    if data:
-        return [{"tag": r["tag_name"], "name": r["name"], "body": (r["body"] or "")[:2000], "prerelease": r["prerelease"], "date": r["published_at"]} for r in data]
-    return []
-
-def fetch_languages(owner_repo, token):
-    url = f"{GITHUB_API}/repos/{owner_repo}/languages"
-    return fetch_with_backoff(url, gh_headers(token)) or {}
-
-def fetch_contributors(owner_repo, token):
-    url = f"{GITHUB_API}/repos/{owner_repo}/contributors?per_page=10"
-    data = fetch_with_backoff(url, gh_headers(token))
-    if data:
-        return [{"login": c["login"], "contributions": c["contributions"]} for c in data]
-    return []
 
 def compute_hash(data):
     return hashlib.sha256(json.dumps(data, sort_keys=True).encode()).hexdigest()[:16]
 
-def deep_analyze(repo, readme, key_files, releases, languages, contributors, api_key):
+
+def deep_analyze(repo, readme, key_files, api_key):
     prompt = DEEP_PROMPT.format(
         full_name=repo["full_name"],
         description=repo.get("description", "No description"),
@@ -172,16 +164,22 @@ def deep_analyze(repo, readme, key_files, releases, languages, contributors, api
         "max_tokens": 1500,
         "temperature": 0.1
     }
+    headers = {
+        "Authorization": f"Bearer {api_key}",
+        "Content-Type": "application/json",
+        "User-Agent": "star-graph/1.0"
+    }
     for attempt in range(3):
         try:
-            r = requests.post(NVIDIA_API, headers=nvidia_headers(api_key), json=payload, timeout=120)
+            r = requests.post(NVIDIA_API, headers=headers, json=payload, timeout=120)
             if r.status_code == 200:
                 content = r.json()["choices"][0]["message"]["content"].strip()
-                import re
                 match = re.search(r'\{.*\}', content, re.DOTALL)
                 if match:
-                    return json.loads(match.group())
-                return json.loads(content)
+                    raw = json.loads(match.group())
+                else:
+                    raw = json.loads(content)
+                return validate_deep_analysis(raw)
             elif r.status_code == 429:
                 delay = 30 * (2 ** attempt)
                 print(f"  NVIDIA rate limit, waiting {delay}s...")
@@ -194,14 +192,44 @@ def deep_analyze(repo, readme, key_files, releases, languages, contributors, api
             time.sleep(10)
     return {}
 
+
+def research_one(repo, api_key):
+    """Research a single repo: fetch GitHub data concurrently, then LLM."""
+    full_name = repo["full_name"]
+    print(f"  Fetching GitHub data for {full_name}...")
+
+    readme = ""
+    key_files = {}
+
+    with ThreadPoolExecutor(max_workers=3) as pool:
+        readme_future = pool.submit(fetch_readme, full_name)
+        keyfiles_future = pool.submit(fetch_key_files, full_name)
+        readme = readme_future.result()
+        key_files = keyfiles_future.result()
+
+    print(f"  LLM analysis for {full_name}...")
+    analysis = deep_analyze(repo, readme, key_files, api_key)
+
+    return {
+        "repo_hash": compute_hash(repo),
+        "readme": readme[:5000],
+        "key_files": {k: v[:1000] for k, v in key_files.items()},
+        "deep_analysis": analysis,
+        "analyzed_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+    }
+
+
 def main():
     import argparse
     parser = argparse.ArgumentParser()
-    parser.add_argument("--token", required=True, help="GitHub token")
-    parser.add_argument("--nvidia-key", required=True, help="NVIDIA API key")
     parser.add_argument("--limit", type=int, default=0, help="Limit repos (0 = all)")
     parser.add_argument("--skip-cached", action="store_true", help="Skip repos with cached deep research")
     args = parser.parse_args()
+
+    api_key = os.environ.get('NVIDIA_API_KEY')
+    if not api_key:
+        print("Error: NVIDIA_API_KEY environment variable not set", file=sys.stderr)
+        sys.exit(1)
 
     with open(STARRED_RAW) as f:
         repos = json.load(f)
@@ -222,47 +250,19 @@ def main():
             print("  Cached, skipping")
             continue
 
-        # Fetch all data
-        print("  Fetching README...")
-        readme = fetch_readme(full_name, args.token)
+        result = research_one(repo, api_key)
+        cache[full_name] = result
 
-        print("  Fetching key files...")
-        key_files = fetch_key_files(full_name, args.token)
-
-        print("  Fetching releases...")
-        releases = fetch_releases(full_name, args.token)
-
-        print("  Fetching languages...")
-        languages = fetch_languages(full_name, args.token)
-
-        print("  Fetching contributors...")
-        contributors = fetch_contributors(full_name, args.token)
-
-        print("  Deep LLM analysis...")
-        analysis = deep_analyze(repo, readme, key_files, releases, languages, contributors, args.nvidia_key)
-
-        cache[full_name] = {
-            "repo_hash": compute_hash(repo),
-            "readme": readme[:5000],
-            "key_files": {k: v[:1000] for k, v in key_files.items()},
-            "releases": releases,
-            "languages": languages,
-            "contributors": contributors,
-            "deep_analysis": analysis,
-            "analyzed_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-        }
-
-        # Periodic save
         if (i + 1) % 5 == 0:
             with open(DEEP_CACHE, "w") as f:
                 json.dump(cache, f, indent=2)
 
-        time.sleep(1)  # Be nice to APIs
+        time.sleep(1)
 
-    # Final save
     with open(DEEP_CACHE, "w") as f:
         json.dump(cache, f, indent=2)
     print(f"\nDone! Saved {len(cache)} repos to {DEEP_CACHE}")
+
 
 if __name__ == "__main__":
     main()
