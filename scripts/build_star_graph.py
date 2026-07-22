@@ -46,7 +46,11 @@ def load_enriched():
 
 def load_raw_repos():
     with open(RAW_FILE) as f:
-        return json.load(f)
+        data = json.load(f)
+    # Handle --slurp output: array of page arrays -> flatten
+    if data and isinstance(data[0], list):
+        data = [repo for page in data for repo in page]
+    return data
 
 
 def build_graph(repos, enriched):
