@@ -43,7 +43,7 @@ jobs:
         env:
           NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
         run: |
-          python scripts/build_star_graph.py
+          python scripts/build_star_graph.py --skip-enrich
 
       - name: Deep research (new repos only)
         env:

@@ -149,6 +149,7 @@ def main():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--dry-run', action='store_true', help='Skip API calls, use cache only')
+    parser.add_argument('--skip-enrich', action='store_true', help='Skip inline LLM enrichment (use existing cache)')
     args = parser.parse_args()
 
     print("Loading raw repos...")
@@ -182,7 +183,7 @@ def main():
 
     print(f"New/changed repos: {len(new_or_changed)}")
 
-    if new_or_changed and not args.dry_run:
+    if new_or_changed and not args.dry_run and not args.skip_enrich:
         print("Enriching new/changed repos...")
         import subprocess
         temp_file = DATA_DIR / 'temp_new_repos.json'
