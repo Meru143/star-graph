@@ -117,6 +117,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git pull --rebase
           git add data/star_graph_enhanced.json data/star_graph_enhanced.graphml data/deep_research.json data/star_graph_*.mermaid
           git commit -m "chore: deep enrichment update $(date -u +%Y-%m-%d)"
           git push
