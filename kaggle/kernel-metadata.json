@@ -8,5 +8,5 @@
   "enable_gpu": true,
   "enable_internet": true,
   "accelerator": "gpu_t4_x2",
-  "secrets": []
+  "secrets": ["GH_PAT"]
 }
