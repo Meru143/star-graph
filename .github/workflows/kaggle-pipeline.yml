@@ -19,16 +19,13 @@ jobs:
         with:
           python-version: '3.12'
 
-      - name: Install Kaggle CLI
-        run: |
-          pip install kaggle
-          mkdir -p ~/.kaggle
-          cat > ~/.kaggle/kaggle.json << 'EOF'
-          {"username":"${{ secrets.KAGGLE_USERNAME }}","key":"${{ secrets.KAGGLE_KEY }}"}
-          EOF
-          chmod 600 ~/.kaggle/kaggle.json
+      - name: Install kaggle CLI
+        run: pip install kaggle
 
       - name: Push notebook to Kaggle (triggers run)
+        env:
+          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
+          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
         run: |
           echo "Pushing to Kaggle..."
           kaggle kernels push -p ./kaggle/
