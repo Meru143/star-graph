@@ -37,21 +37,19 @@ jobs:
           SLUG="meru143/star-graph-pipeline"
           echo "Waiting for $SLUG to complete..."
           for i in $(seq 1 120); do
-            STATUS=$(kaggle kernels status "$SLUG" 2>&1 | grep -oP '(?<=status )"\w+"' | tr -d '"')
-            if [ -z "$STATUS" ]; then
-              STATUS=$(kaggle kernels status "$SLUG" 2>&1)
-            fi
+            STATUS=$(kaggle kernels status "$SLUG" 2>&1)
             echo "  [$i/120] $STATUS"
             case "$STATUS" in
-              *complete*|*Complete*)
+              *"complete"*|*"Complete"*|*"finished"*)
                 echo "Done!"
                 kaggle kernels output "$SLUG" -p /tmp/kaggle-output/
                 cat /tmp/kaggle-output/*.log 2>/dev/null || true
                 exit 0
                 ;;
-              *error*|*Error*|*failed*|*Failed*)
-                echo "FAILED"
+              *"error"*|*"Error"*|*"failed"*|*"Failed"*)
+                echo "FAILED — fetching logs..."
                 kaggle kernels output "$SLUG" -p /tmp/kaggle-output/ 2>/dev/null || true
+                cat /tmp/kaggle-output/*.log 2>/dev/null || true
                 exit 1
                 ;;
             esac

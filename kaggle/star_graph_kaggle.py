@@ -190,9 +190,14 @@ def commit_and_push():
     subprocess.run(["git", "add", "data/"], cwd=str(STAR_GRAPH_DIR), check=True)
     subprocess.run(["git", "commit", "-m", f"chore: kaggle update {time.strftime('%Y-%m-%d')}"],
                    cwd=str(STAR_GRAPH_DIR), check=True)
+    # Use GH_PAT for push auth
     gh_pat = os.environ.get('GH_PAT', '')
-    env = {**os.environ, 'GH_TOKEN': gh_pat} if gh_pat else os.environ
-    subprocess.run(["git", "push", "origin", "master"], cwd=str(STAR_GRAPH_DIR), check=True, env=env)
+    remote_url = f"https://Meru143:{gh_pat}@github.com/Meru143/star-graph.git" if gh_pat else "origin"
+    subprocess.run(["git", "remote", "set-url", "origin", remote_url], cwd=str(STAR_GRAPH_DIR), check=True)
+    subprocess.run(["git", "push", "origin", "master"], cwd=str(STAR_GRAPH_DIR), check=True)
+    # Restore original URL
+    subprocess.run(["git", "remote", "set-url", "origin", "https://github.com/Meru143/star-graph.git"],
+                   cwd=str(STAR_GRAPH_DIR), check=True)
     print("Pushed!")
 
 
