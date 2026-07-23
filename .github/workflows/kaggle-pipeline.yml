@@ -24,14 +24,15 @@ jobs:
 
       - name: Push notebook to Kaggle (triggers run)
         env:
-          KAGGLE_USERNAME: ${{ secrets.KAGGLE_USERNAME }}
-          KAGGLE_KEY: ${{ secrets.KAGGLE_KEY }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           echo "Pushing to Kaggle..."
           kaggle kernels push -p ./kaggle/
           echo "Push complete. Kernel running."
 
       - name: Wait for completion
+        env:
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           SLUG="meru143/star-graph-pipeline"
           echo "Waiting for $SLUG to complete..."
