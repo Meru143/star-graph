@@ -1,0 +1,63 @@
+name: Kaggle Star Graph Pipeline
+
+on:
+  workflow_dispatch:          # Manual trigger
+  schedule:
+    - cron: '30 6 * * 1'     # Monday 06:30 UTC (30 min after GH fetch)
+
+jobs:
+  trigger-kaggle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Kaggle CLI
+        run: |
+          pip install kaggle
+          mkdir -p ~/.kaggle
+          cat > ~/.kaggle/kaggle.json << 'EOF'
+          {"username":"${{ secrets.KAGGLE_USERNAME }}","key":"${{ secrets.KAGGLE_KEY }}"}
+          EOF
+          chmod 600 ~/.kaggle/kaggle.json
+
+      - name: Push notebook to Kaggle (triggers run)
+        run: |
+          echo "Pushing to Kaggle..."
+          kaggle kernels push -p ./kaggle/
+          echo "Push complete. Kernel running."
+
+      - name: Wait for completion
+        run: |
+          SLUG="meru143/star-graph-pipeline"
+          echo "Waiting for $SLUG to complete..."
+          for i in $(seq 1 120); do
+            STATUS=$(kaggle kernels status "$SLUG" 2>&1 | grep -oP '(?<=status )"\w+"' | tr -d '"')
+            if [ -z "$STATUS" ]; then
+              STATUS=$(kaggle kernels status "$SLUG" 2>&1)
+            fi
+            echo "  [$i/120] $STATUS"
+            case "$STATUS" in
+              *complete*|*Complete*)
+                echo "Done!"
+                kaggle kernels output "$SLUG" -p /tmp/kaggle-output/
+                cat /tmp/kaggle-output/*.log 2>/dev/null || true
+                exit 0
+                ;;
+              *error*|*Error*|*failed*|*Failed*)
+                echo "FAILED"
+                kaggle kernels output "$SLUG" -p /tmp/kaggle-output/ 2>/dev/null || true
+                exit 1
+                ;;
+            esac
+            sleep 30
+          done
+          echo "TIMEOUT"
+          exit 1

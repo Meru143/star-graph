@@ -11,7 +11,7 @@ permissions:
 jobs:
   update-star-graph:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -39,18 +39,9 @@ jobs:
           gh api user/starred --paginate --slurp | jq 'add' > data/starred_raw.json
           echo "Fetched $(python3 -c "import json; print(len(json.load(open('data/starred_raw.json'))))") repos"
 
-      - name: Build base graph
-        env:
-          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
+      - name: Build base graph (existing cache, no LLM calls)
         run: |
           python scripts/build_star_graph.py --skip-enrich
-
-      - name: Deep research (new repos only)
-        env:
-          GH_PAT: ${{ secrets.GH_PAT }}
-          NVIDIA_API_KEY: ${{ secrets.NVIDIA_API_KEY }}
-        run: |
-          python scripts/deep_research.py --skip-cached
 
       - name: Build enhanced graph
         run: |

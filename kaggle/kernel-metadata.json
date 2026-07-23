@@ -1,0 +1,12 @@
+{
+  "id": "meru143/star-graph-pipeline",
+  "title": "Star Graph Pipeline",
+  "code_file": "star-graph-pipeline.ipynb",
+  "language": "python",
+  "kernel_type": "notebook",
+  "is_private": true,
+  "enable_gpu": true,
+  "enable_internet": true,
+  "accelerator": "gpu_t4_x2",
+  "secrets": []
+}
