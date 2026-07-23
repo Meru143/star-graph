@@ -6,7 +6,8 @@
   "kernel_type": "notebook",
   "is_private": true,
   "enable_gpu": true,
+  "enable_tpu": false,
   "enable_internet": true,
-  "accelerator": "gpu_t4_x2",
+  "machine_shape": "NvidiaTeslaT4",
   "secrets": ["GH_PAT"]
 }
