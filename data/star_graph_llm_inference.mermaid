@@ -1,12 +1,12 @@
 graph TD
   subgraph llm_inference ["Llm Inference"]
-    sglang["sglang"]:::technology
+    vllm["vllm"]:::topic
     AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash["AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-DFlash"]:::repo
     llm_inference["llm-inference"]:::topic
-    vllm["vllm"]:::topic
     gitleaks_gitleaks["gitleaks/gitleaks"]:::repo
     z_lab_dflash["z-lab/dflash"]:::repo
     modelscope_FunASR["modelscope/FunASR"]:::repo
+    sglang["sglang"]:::technology
   end
   AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash --> vllm
   vllm --> modelscope_FunASR

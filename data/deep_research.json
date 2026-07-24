@@ -46888,5 +46888,40 @@
       "production_ready": true
     },
     "analyzed_at": "2026-07-22T13:53:04Z"
+  },
+  "agentlas-ai/Agentlas-OS": {
+    "repo_hash": "8acb640dbdfcbf89",
+    "deep_analysis": {},
+    "analyzed_at": "2026-07-24T08:13:57Z"
+  },
+  "Wei-Shaw/sub2api": {
+    "repo_hash": "4f55f43a865e6f78",
+    "deep_analysis": {},
+    "analyzed_at": "2026-07-24T08:14:26Z"
+  },
+  "ZhuLinsen/daily_stock_analysis": {
+    "repo_hash": "1a91e304d096b136",
+    "deep_analysis": {},
+    "analyzed_at": "2026-07-24T08:14:55Z"
+  },
+  "MIgHTy-alIeN/MEV-Arbitrage-Bot": {
+    "repo_hash": "e931b96648244025",
+    "deep_analysis": {},
+    "analyzed_at": "2026-07-24T08:15:24Z"
+  },
+  "maillab/cloud-mail": {
+    "repo_hash": "dd8a6194ac82b013",
+    "deep_analysis": {},
+    "analyzed_at": "2026-07-24T08:15:53Z"
+  },
+  "petergyang/no-ai-slop": {
+    "repo_hash": "44efb383ae60c171",
+    "deep_analysis": {},
+    "analyzed_at": "2026-07-24T08:16:21Z"
+  },
+  "org2AI/ORG2": {
+    "repo_hash": "80a988e9240c45e8",
+    "deep_analysis": {},
+    "analyzed_at": "2026-07-24T08:16:50Z"
   }
 }
