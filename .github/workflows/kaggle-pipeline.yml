@@ -35,46 +35,38 @@ jobs:
           kaggle kernels push -p ./kaggle/
           echo "Push complete. Kernel running."
 
-      - name: Wait for completion
+      - name: Push to GitHub
         env:
           KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
         run: |
           SLUG="meru143/star-graph-pipeline"
           echo "Waiting for $SLUG to complete..."
+          KERNEL_FAILED=false
           for i in $(seq 1 120); do
             STATUS=$(kaggle kernels status "$SLUG" 2>&1)
             echo "  [$i/120] $STATUS"
             case "$STATUS" in
               *"complete"*|*"Complete"*|*"finished"*)
-                echo "Done!"
+                echo "Kernel completed — downloading output..."
                 kaggle kernels output "$SLUG" -p /tmp/kaggle-output/
-                cat /tmp/kaggle-output/*.log 2>/dev/null || true
-                exit 0
+                break
                 ;;
               *"error"*|*"Error"*|*"failed"*|*"Failed"*)
-                echo "FAILED — fetching logs..."
-                kaggle kernels output "$SLUG" -p /tmp/kaggle-output/ 2>/dev/null || true
-                cat /tmp/kaggle-output/*.log 2>/dev/null || true
-                exit 1
+                echo "Kernel errored — downloading output anyway..."
+                kaggle kernels output "$SLUG" -p /tmp/kaggle-output/
+                KERNEL_FAILED=true
+                break
                 ;;
             esac
             sleep 30
           done
-          echo "TIMEOUT"
-          exit 1
-
-      - name: Copy output to data/
-        # Kaggle output extracts to /tmp/kaggle-output/star-graph/data/
-        run: |
           if [ -d /tmp/kaggle-output/star-graph/data/ ]; then
-            echo "Copying output back..."
+            echo "Data found — copying back"
             rsync -av /tmp/kaggle-output/star-graph/data/ data/
           else
-            echo "No data output found — skip"
+            echo "No data output found"
           fi
-
-      - name: Commit and push updated data
-        run: |
+          # Commit and push
           if git diff --quiet data/; then
             echo "No changes to commit"
           else
@@ -84,4 +76,10 @@ jobs:
             git diff --cached --stat data/
             git commit -m "chore: kaggle pipeline update $(date -u +%Y-%m-%d)"
             git push
+          fi
+          # Fail if kernel errored
+          if [ "$KERNEL_FAILED" = "true" ]; then
+            cat /tmp/kaggle-output/*.log 2>/dev/null || true
+            echo "Kernel had errors — check logs above"
+            exit 1
           fi
