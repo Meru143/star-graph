@@ -8,6 +8,5 @@
   "enable_gpu": true,
   "enable_tpu": false,
   "enable_internet": true,
-  "machine_shape": "NvidiaTeslaT4",
-  "secrets": ["GH_PAT"]
+  "machine_shape": "NvidiaTeslaT4"
 }

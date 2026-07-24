@@ -180,25 +180,18 @@ def build_and_export():
 
 
 def commit_and_push():
+    """Push is handled by the GitHub Actions workflow after it downloads output.
+    This just prints what changed so the workflow can detect it."""
     result = subprocess.run(["git", "diff", "--quiet", "data/"],
                             cwd=str(STAR_GRAPH_DIR), capture_output=True)
     if result.returncode == 0:
         print("No changes")
         return
-    subprocess.run(["git", "config", "user.name", "kaggle-pipeline"], cwd=str(STAR_GRAPH_DIR), check=True)
-    subprocess.run(["git", "config", "user.email", "kaggle-pipeline@star-graph"], cwd=str(STAR_GRAPH_DIR), check=True)
-    subprocess.run(["git", "add", "data/"], cwd=str(STAR_GRAPH_DIR), check=True)
-    subprocess.run(["git", "commit", "-m", f"chore: kaggle update {time.strftime('%Y-%m-%d')}"],
-                   cwd=str(STAR_GRAPH_DIR), check=True)
-    # Use GH_PAT for push auth
-    gh_pat = os.environ.get('GH_PAT', '')
-    remote_url = f"https://Meru143:{gh_pat}@github.com/Meru143/star-graph.git" if gh_pat else "origin"
-    subprocess.run(["git", "remote", "set-url", "origin", remote_url], cwd=str(STAR_GRAPH_DIR), check=True)
-    subprocess.run(["git", "push", "origin", "master"], cwd=str(STAR_GRAPH_DIR), check=True)
-    # Restore original URL
-    subprocess.run(["git", "remote", "set-url", "origin", "https://github.com/Meru143/star-graph.git"],
-                   cwd=str(STAR_GRAPH_DIR), check=True)
-    print("Pushed!")
+    # Print what changed so the calling workflow can see it
+    diff = subprocess.run(["git", "diff", "--stat", "data/"],
+                          cwd=str(STAR_GRAPH_DIR), capture_output=True, text=True)
+    print(f"Changes detected:\n{diff.stdout}")
+    print("Push skipped — GH Actions workflow will handle it.")
 
 
 # --- main ------------------------------------------------------------------

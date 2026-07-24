@@ -1,7 +1,7 @@
 name: Kaggle Star Graph Pipeline
 
 on:
-  workflow_dispatch:          # Manual trigger
+  workflow_dispatch:
   schedule:
     - cron: '30 6 * * 1'     # Monday 06:30 UTC (30 min after GH fetch)
 
@@ -9,10 +9,15 @@ jobs:
   trigger-kaggle:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    permissions:
+      contents: write
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GH_PAT }}
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -57,3 +62,26 @@ jobs:
           done
           echo "TIMEOUT"
           exit 1
+
+      - name: Copy output to data/
+        # Kaggle output extracts to /tmp/kaggle-output/star-graph/data/
+        run: |
+          if [ -d /tmp/kaggle-output/star-graph/data/ ]; then
+            echo "Copying output back..."
+            rsync -av /tmp/kaggle-output/star-graph/data/ data/
+          else
+            echo "No data output found — skip"
+          fi
+
+      - name: Commit and push updated data
+        run: |
+          if git diff --quiet data/; then
+            echo "No changes to commit"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add data/
+            git diff --cached --stat data/
+            git commit -m "chore: kaggle pipeline update $(date -u +%Y-%m-%d)"
+            git push
+          fi
