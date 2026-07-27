@@ -1,5 +1,120 @@
 {
   "repos": {
+    "curiositech/some_claude_skills": {
+      "hash": "5f6e55960e9a484b",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "makecindy/cindy": {
+      "hash": "462b75ff19fe0439",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "KKKKhazix/khazix-skills": {
+      "hash": "e111631e737a5c9d",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "nyblnet/bento": {
+      "hash": "4cfefbb5b13e0be6",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "VictorTaelin/OptMem": {
+      "hash": "0b28d3fb83fa6d39",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "liquidslr/system-design-notes": {
+      "hash": "65e52663b75084a9",
+      "starred_at": "",
+      "language": null
+    },
+    "OpenMinis/OpenMinis": {
+      "hash": "f02a0ca4fc091ea1",
+      "starred_at": "",
+      "language": "Swift"
+    },
+    "vercel-labs/zerolang": {
+      "hash": "caa07ac0dbc02959",
+      "starred_at": "",
+      "language": "C"
+    },
+    "vercel-labs/portless": {
+      "hash": "2f9def9cd3c4ef6c",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "vercel-labs/agent-browser": {
+      "hash": "4e3661f3bcce50af",
+      "starred_at": "",
+      "language": "Rust"
+    },
+    "vercel-labs/scriptc": {
+      "hash": "a06b8eac9519725e",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "CoreBunch/Instatic": {
+      "hash": "e258383902f2e3a3",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "google/magika": {
+      "hash": "fc7b5ec5e7f6f104",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "MengTo/Skills": {
+      "hash": "1c1dbf2c6f3abcfa",
+      "starred_at": "",
+      "language": "HTML"
+    },
+    "moneat-io/moneat": {
+      "hash": "125e4f5066dd3259",
+      "starred_at": "",
+      "language": "Kotlin"
+    },
+    "visa/visa-vulnerability-agentic-harness": {
+      "hash": "220e1b59b1bda00e",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "ifixai-ai/iFixAi": {
+      "hash": "e67c2b3837df3aa4",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "andrewyng/openworker": {
+      "hash": "303eb138329c9a4a",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "citrolabs/ego-lite": {
+      "hash": "c00d43e20a2eca62",
+      "starred_at": "",
+      "language": "JavaScript"
+    },
+    "permissionlesstech/bitchat": {
+      "hash": "297abc04d16d731d",
+      "starred_at": "",
+      "language": "Swift"
+    },
+    "agentscope-ai/QwenPaw": {
+      "hash": "6b3b59c43818f7f4",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "NopeCHALLC/nopecha-extension": {
+      "hash": "0d90e9786be921b4",
+      "starred_at": "",
+      "language": null
+    },
+    "EvanZhouDev/openai-oauth": {
+      "hash": "5f00a20312b422f0",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
     "agentlas-ai/Agentlas-OS": {
       "hash": "8acb640dbdfcbf89",
       "starred_at": "",
@@ -15,20 +130,15 @@
       "starred_at": "",
       "language": "Python"
     },
-    "MIgHTy-alIeN/MEV-Arbitrage-Bot": {
-      "hash": "e931b96648244025",
-      "starred_at": "",
-      "language": "Solidity"
-    },
     "maillab/cloud-mail": {
       "hash": "dd8a6194ac82b013",
       "starred_at": "",
       "language": "JavaScript"
     },
     "petergyang/no-ai-slop": {
-      "hash": "44efb383ae60c171",
+      "hash": "32fbf3a297f5e0a0",
       "starred_at": "",
-      "language": null
+      "language": "Python"
     },
     "penecho/penecho": {
       "hash": "bb55e018c82e7b14",
@@ -120,7 +230,7 @@
       "starred_at": "",
       "language": "Rust"
     },
-    "hoainho/img2threejs": {
+    "img2threejs/img2threejs": {
       "hash": "8080c4c6b7926b6f",
       "starred_at": "",
       "language": "Python"
@@ -376,7 +486,7 @@
       "language": "JavaScript"
     },
     "diegosouzapw/OmniRoute": {
-      "hash": "107e0d37a5852c25",
+      "hash": "12a40696c92d412c",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -396,7 +506,7 @@
       "language": "Python"
     },
     "YusufB5/ASCILINE": {
-      "hash": "36af310768189b99",
+      "hash": "65669624bcbc8758",
       "starred_at": "",
       "language": "Python"
     },
@@ -761,7 +871,7 @@
       "language": "TypeScript"
     },
     "MODSetter/SurfSense": {
-      "hash": "dc28718f512a5ee0",
+      "hash": "a2247343f49aefa7",
       "starred_at": "",
       "language": "Python"
     },
@@ -926,7 +1036,7 @@
       "language": "Python"
     },
     "asgeirtj/system_prompts_leaks": {
-      "hash": "d6168ef8c62650c0",
+      "hash": "8e1bde3d5a2bcd58",
       "starred_at": "",
       "language": "JavaScript"
     },
@@ -936,7 +1046,7 @@
       "language": "Go"
     },
     "Anil-matcha/Open-Generative-AI": {
-      "hash": "bc4c78a7f1463108",
+      "hash": "75147244d451fd5a",
       "starred_at": "",
       "language": "JavaScript"
     },
@@ -971,7 +1081,7 @@
       "language": "HTML"
     },
     "shiaho777/web-to-app": {
-      "hash": "ed2760fde9e36e79",
+      "hash": "aa9523c9a8572c40",
       "starred_at": "",
       "language": "Kotlin"
     },
@@ -1545,8 +1655,8 @@
       "starred_at": "",
       "language": "Rust"
     },
-    "jacob-bd/notebooklm-mcp-cli": {
-      "hash": "4faeebd48b882378",
+    "jacob-bd/gemini-notebook-mcp-cli": {
+      "hash": "218465ac926b0e22",
       "starred_at": "",
       "language": "Python"
     },
@@ -1616,7 +1726,7 @@
       "language": "Rust"
     },
     "holaboss-ai/holaOS": {
-      "hash": "d3618b53ba5f8f36",
+      "hash": "bf983876e67c42c0",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -1656,7 +1766,7 @@
       "language": "TypeScript"
     },
     "1jehuang/jcode": {
-      "hash": "b7d1bef266c3943f",
+      "hash": "eb473f7f2e62ea0a",
       "starred_at": "",
       "language": "Rust"
     },
@@ -1686,7 +1796,7 @@
       "language": "Python"
     },
     "off-grid-ai/OGAM": {
-      "hash": "bfe567f61978bec8",
+      "hash": "a5e1cc584172a151",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -1776,7 +1886,7 @@
       "language": "Python"
     },
     "HKUDS/OpenSpace": {
-      "hash": "49fb70619c1511a6",
+      "hash": "485793dd49e80fb9",
       "starred_at": "",
       "language": "Python"
     },
@@ -2061,8 +2171,8 @@
       "language": "JavaScript"
     }
   },
-  "updated_at": "2026-07-24T08:16:51Z",
-  "total_repos": 412,
-  "total_nodes": 2364,
-  "total_edges": 3750
+  "updated_at": "2026-07-27T09:43:31Z",
+  "total_repos": 434,
+  "total_nodes": 2447,
+  "total_edges": 3885
 }

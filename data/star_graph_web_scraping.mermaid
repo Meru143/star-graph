@@ -1,40 +1,51 @@
 graph TD
   subgraph web_scraping ["Web Scraping"]
-    heygen_com_hyperframes["heygen-com/hyperframes"]:::repo
-    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
-    midudev_autoskills["midudev/autoskills"]:::repo
-    Panniantong_Agent_Reach["Panniantong/Agent-Reach"]:::repo
-    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
-    runablehq_mini_browser["runablehq/mini-browser"]:::repo
-    OpenBMB_PilotDeck["OpenBMB/PilotDeck"]:::repo
-    browser_use_browser_harness["browser-use/browser-harness"]:::repo
-    santifer_career_ops["santifer/career-ops"]:::repo
-    AndyTheFactory_newspaper4k["AndyTheFactory/newspaper4k"]:::repo
-    sveltejs_svelte["sveltejs/svelte"]:::repo
-    browser_automation["browser-automation"]:::topic
-    MODSetter_SurfSense["MODSetter/SurfSense"]:::repo
-    crawler["crawler"]:::topic
-    trap_bytes_gourlex["trap-bytes/gourlex"]:::repo
-    nexu_io_html_anything["nexu-io/html-anything"]:::repo
-    playwright["playwright"]:::topic
-    hyperbrowserai_HyperAgent["hyperbrowserai/HyperAgent"]:::repo
-    D4Vinci_Scrapling["D4Vinci/Scrapling"]:::repo
-    apify_fingerprint_suite["apify/fingerprint-suite"]:::repo
-    puppeteer["puppeteer"]:::topic
-    alibaba_page_agent["alibaba/page-agent"]:::repo
-    CloakHQ_CloakBrowser["CloakHQ/CloakBrowser"]:::repo
-    browseros_ai_BrowserOS["browseros-ai/BrowserOS"]:::repo
-    fathah_hermes_desktop["fathah/hermes-desktop"]:::repo
     bug0inc_passmark["bug0inc/passmark"]:::repo
-    web_scraping["web-scraping"]:::topic
-    WebBreacher_WhatsMyName["WebBreacher/WhatsMyName"]:::repo
-    refactoringhq_tolaria["refactoringhq/tolaria"]:::repo
+    MODSetter_SurfSense["MODSetter/SurfSense"]:::repo
+    trap_bytes_gourlex["trap-bytes/gourlex"]:::repo
+    Panniantong_Agent_Reach["Panniantong/Agent-Reach"]:::repo
+    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
+    CloakHQ_CloakBrowser["CloakHQ/CloakBrowser"]:::repo
     browser_use_browser_use["browser-use/browser-use"]:::repo
     alumnium_hq_alumnium["alumnium-hq/alumnium"]:::repo
+    refactoringhq_tolaria["refactoringhq/tolaria"]:::repo
+    alibaba_page_agent["alibaba/page-agent"]:::repo
+    fathah_hermes_desktop["fathah/hermes-desktop"]:::repo
+    puppeteer["puppeteer"]:::topic
+    apify_fingerprint_suite["apify/fingerprint-suite"]:::repo
     ScrapeGraphAI_Scrapegraph_ai["ScrapeGraphAI/Scrapegraph-ai"]:::repo
+    browseros_ai_BrowserOS["browseros-ai/BrowserOS"]:::repo
+    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
+    midudev_autoskills["midudev/autoskills"]:::repo
+    WebBreacher_WhatsMyName["WebBreacher/WhatsMyName"]:::repo
+    D4Vinci_Scrapling["D4Vinci/Scrapling"]:::repo
+    sveltejs_svelte["sveltejs/svelte"]:::repo
+    browser_use_browser_harness["browser-use/browser-harness"]:::repo
+    OpenBMB_PilotDeck["OpenBMB/PilotDeck"]:::repo
+    hyperbrowserai_HyperAgent["hyperbrowserai/HyperAgent"]:::repo
     scraperai_scraperai["scraperai/scraperai"]:::repo
+    heygen_com_hyperframes["heygen-com/hyperframes"]:::repo
+    santifer_career_ops["santifer/career-ops"]:::repo
+    crawler["crawler"]:::topic
+    runablehq_mini_browser["runablehq/mini-browser"]:::repo
+    citrolabs_ego_lite["citrolabs/ego-lite"]:::repo
     KnockOutEZ_wigolo["KnockOutEZ/wigolo"]:::repo
+    nexu_io_html_anything["nexu-io/html-anything"]:::repo
+    browser_automation["browser-automation"]:::topic
+    AndyTheFactory_newspaper4k["AndyTheFactory/newspaper4k"]:::repo
+    web_scraping["web-scraping"]:::topic
+    playwright["playwright"]:::topic
   end
+  citrolabs_ego_lite --> browser_automation
+  browser_automation --> alibaba_page_agent
+  browser_automation --> CloakHQ_CloakBrowser
+  browser_automation --> browser_use_browser_harness
+  browser_automation --> browser_use_browser_use
+  browser_automation --> browseros_ai_BrowserOS
+  browser_automation --> hyperbrowserai_HyperAgent
+  browser_automation --> runablehq_mini_browser
+  browser_automation --> apify_fingerprint_suite
+  browser_automation --> D4Vinci_Scrapling
   KnockOutEZ_wigolo --> web_scraping
   web_scraping --> MODSetter_SurfSense
   web_scraping --> CloakHQ_CloakBrowser
@@ -51,15 +62,6 @@ graph TD
   web_scraping --> AndyTheFactory_newspaper4k
   web_scraping --> scraperai_scraperai
   web_scraping --> browser_use_browser_use
-  alibaba_page_agent --> browser_automation
-  browser_automation --> CloakHQ_CloakBrowser
-  browser_automation --> browser_use_browser_harness
-  browser_automation --> browser_use_browser_use
-  browser_automation --> browseros_ai_BrowserOS
-  browser_automation --> hyperbrowserai_HyperAgent
-  browser_automation --> runablehq_mini_browser
-  browser_automation --> apify_fingerprint_suite
-  browser_automation --> D4Vinci_Scrapling
   sveltejs_svelte --> playwright
   bug0inc_passmark --> playwright
   playwright --> hyperbrowserai_HyperAgent
