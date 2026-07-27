@@ -69,9 +69,9 @@
     "enriched_at": "2026-07-24T07:51:49Z"
   },
   "petergyang/no-ai-slop": {
-    "hash": "44efb383ae60c171",
+    "hash": "32fbf3a297f5e0a0",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:51:52Z"
+    "enriched_at": "2026-07-27T10:45:44Z"
   },
   "penecho/penecho": {
     "hash": "bb55e018c82e7b14",
@@ -409,9 +409,9 @@
     "enriched_at": "2026-07-24T07:55:28Z"
   },
   "diegosouzapw/OmniRoute": {
-    "hash": "107e0d37a5852c25",
+    "hash": "12a40696c92d412c",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:55:32Z"
+    "enriched_at": "2026-07-27T10:45:53Z"
   },
   "SmileLikeYe/agent-chief": {
     "hash": "eda5050762acb83b",
@@ -429,9 +429,9 @@
     "enriched_at": "2026-07-24T07:55:41Z"
   },
   "YusufB5/ASCILINE": {
-    "hash": "36af310768189b99",
+    "hash": "65669624bcbc8758",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:55:45Z"
+    "enriched_at": "2026-07-27T10:45:57Z"
   },
   "lobehub/lobehub": {
     "hash": "496f4788059f1abd",
@@ -789,9 +789,9 @@
     "enriched_at": "2026-07-24T07:59:34Z"
   },
   "MODSetter/SurfSense": {
-    "hash": "dc28718f512a5ee0",
+    "hash": "a2247343f49aefa7",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:59:38Z"
+    "enriched_at": "2026-07-27T10:46:02Z"
   },
   "Stirling-Tools/Stirling-PDF": {
     "hash": "4bb2b891e99bddbf",
@@ -954,9 +954,9 @@
     "enriched_at": "2026-07-24T08:01:21Z"
   },
   "asgeirtj/system_prompts_leaks": {
-    "hash": "d6168ef8c62650c0",
+    "hash": "8e1bde3d5a2bcd58",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:01:25Z"
+    "enriched_at": "2026-07-27T10:46:07Z"
   },
   "zzet/gortex": {
     "hash": "9209370be6f55c42",
@@ -964,9 +964,9 @@
     "enriched_at": "2026-07-24T08:01:28Z"
   },
   "Anil-matcha/Open-Generative-AI": {
-    "hash": "bc4c78a7f1463108",
+    "hash": "75147244d451fd5a",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:01:31Z"
+    "enriched_at": "2026-07-27T10:46:12Z"
   },
   "mattermost/mattermost": {
     "hash": "efa1dda4950ff231",
@@ -999,9 +999,9 @@
     "enriched_at": "2026-07-24T08:01:50Z"
   },
   "shiaho777/web-to-app": {
-    "hash": "ed2760fde9e36e79",
+    "hash": "aa9523c9a8572c40",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:01:54Z"
+    "enriched_at": "2026-07-27T10:46:17Z"
   },
   "andrewmccalip/kickbacks.ai": {
     "hash": "f1dd262258785241",
@@ -1639,9 +1639,9 @@
     "enriched_at": "2026-07-24T08:08:42Z"
   },
   "holaboss-ai/holaOS": {
-    "hash": "d3618b53ba5f8f36",
+    "hash": "bf983876e67c42c0",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:08:46Z"
+    "enriched_at": "2026-07-27T10:46:27Z"
   },
   "hesamsheikh/octogent": {
     "hash": "2dcba0d4255a47c8",
@@ -1679,9 +1679,9 @@
     "enriched_at": "2026-07-24T08:09:08Z"
   },
   "1jehuang/jcode": {
-    "hash": "b7d1bef266c3943f",
+    "hash": "eb473f7f2e62ea0a",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:09:11Z"
+    "enriched_at": "2026-07-27T10:46:32Z"
   },
   "browser-use/browser-harness": {
     "hash": "a841fade3f71d9b4",
@@ -1709,9 +1709,9 @@
     "enriched_at": "2026-07-24T08:09:28Z"
   },
   "off-grid-ai/OGAM": {
-    "hash": "bfe567f61978bec8",
+    "hash": "a5e1cc584172a151",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:09:31Z"
+    "enriched_at": "2026-07-27T10:46:37Z"
   },
   "alchaincyf/huashu-design": {
     "hash": "5e1a5c3bd32dd767",
@@ -1799,9 +1799,9 @@
     "enriched_at": "2026-07-24T08:10:26Z"
   },
   "HKUDS/OpenSpace": {
-    "hash": "49fb70619c1511a6",
+    "hash": "485793dd49e80fb9",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:10:29Z"
+    "enriched_at": "2026-07-27T10:46:42Z"
   },
   "virattt/dexter": {
     "hash": "c790c0a6c35c67c3",
@@ -2082,5 +2082,130 @@
     "hash": "dda8de6e5b72c113",
     "inferred_topics": [],
     "enriched_at": "2026-07-24T08:13:29Z"
+  },
+  "curiositech/some_claude_skills": {
+    "hash": "5f6e55960e9a484b",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:23Z"
+  },
+  "makecindy/cindy": {
+    "hash": "462b75ff19fe0439",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:26Z"
+  },
+  "KKKKhazix/khazix-skills": {
+    "hash": "e111631e737a5c9d",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:29Z"
+  },
+  "nyblnet/bento": {
+    "hash": "4cfefbb5b13e0be6",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:32Z"
+  },
+  "VictorTaelin/OptMem": {
+    "hash": "0b28d3fb83fa6d39",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:36Z"
+  },
+  "liquidslr/system-design-notes": {
+    "hash": "65e52663b75084a9",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:39Z"
+  },
+  "OpenMinis/OpenMinis": {
+    "hash": "f02a0ca4fc091ea1",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:42Z"
+  },
+  "vercel-labs/zerolang": {
+    "hash": "caa07ac0dbc02959",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:45Z"
+  },
+  "vercel-labs/portless": {
+    "hash": "2f9def9cd3c4ef6c",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:48Z"
+  },
+  "vercel-labs/agent-browser": {
+    "hash": "4e3661f3bcce50af",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:52Z"
+  },
+  "vercel-labs/scriptc": {
+    "hash": "a06b8eac9519725e",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:55Z"
+  },
+  "CoreBunch/Instatic": {
+    "hash": "e258383902f2e3a3",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:44:58Z"
+  },
+  "google/magika": {
+    "hash": "fc7b5ec5e7f6f104",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:02Z"
+  },
+  "MengTo/Skills": {
+    "hash": "1c1dbf2c6f3abcfa",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:05Z"
+  },
+  "moneat-io/moneat": {
+    "hash": "125e4f5066dd3259",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:09Z"
+  },
+  "visa/visa-vulnerability-agentic-harness": {
+    "hash": "220e1b59b1bda00e",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:12Z"
+  },
+  "ifixai-ai/iFixAi": {
+    "hash": "e67c2b3837df3aa4",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:16Z"
+  },
+  "andrewyng/openworker": {
+    "hash": "303eb138329c9a4a",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:20Z"
+  },
+  "citrolabs/ego-lite": {
+    "hash": "c00d43e20a2eca62",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:23Z"
+  },
+  "permissionlesstech/bitchat": {
+    "hash": "297abc04d16d731d",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:27Z"
+  },
+  "agentscope-ai/QwenPaw": {
+    "hash": "6b3b59c43818f7f4",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:31Z"
+  },
+  "NopeCHALLC/nopecha-extension": {
+    "hash": "0d90e9786be921b4",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:35Z"
+  },
+  "EvanZhouDev/openai-oauth": {
+    "hash": "5f00a20312b422f0",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:40Z"
+  },
+  "img2threejs/img2threejs": {
+    "hash": "8080c4c6b7926b6f",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:45:48Z"
+  },
+  "jacob-bd/gemini-notebook-mcp-cli": {
+    "hash": "218465ac926b0e22",
+    "inferred_topics": [],
+    "enriched_at": "2026-07-27T10:46:22Z"
   }
 }
