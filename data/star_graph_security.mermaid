@@ -1,31 +1,33 @@
 graph TD
   subgraph security ["Security"]
-    NVIDIA_SkillSpector["NVIDIA/SkillSpector"]:::repo
-    data_privacy_stack_presidio["data-privacy-stack/presidio"]:::repo
     affaan_m_ECC["affaan-m/ECC"]:::repo
-    projectdiscovery_nuclei["projectdiscovery/nuclei"]:::repo
-    aquasecurity_trivy["aquasecurity/trivy"]:::repo
-    1N3_Sn1per["1N3/Sn1per"]:::repo
-    compliance["compliance"]:::use_case
-    betterleaks_betterleaks["betterleaks/betterleaks"]:::repo
     security_scanning["security-scanning"]:::topic
-    vulnerability_scanning["vulnerability-scanning"]:::topic
-    docusealco_docuseal["docusealco/docuseal"]:::repo
-    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
+    NVIDIA_SkillSpector["NVIDIA/SkillSpector"]:::repo
+    compliance["compliance"]:::use_case
     trufflesecurity_trufflehog["trufflesecurity/trufflehog"]:::repo
-    secrets_management["secrets-management"]:::topic
-    braedonsaunders_codeflow["braedonsaunders/codeflow"]:::repo
-    sast["sast"]:::topic
     vercel_labs_deepsec["vercel-labs/deepsec"]:::repo
+    projectdiscovery_nuclei["projectdiscovery/nuclei"]:::repo
+    docusealco_docuseal["docusealco/docuseal"]:::repo
+    sast["sast"]:::topic
+    secrets_management["secrets-management"]:::topic
+    betterleaks_betterleaks["betterleaks/betterleaks"]:::repo
+    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
+    braedonsaunders_codeflow["braedonsaunders/codeflow"]:::repo
+    vulnerability_scanning["vulnerability-scanning"]:::topic
+    aquasecurity_trivy["aquasecurity/trivy"]:::repo
+    openai_codex_security["openai/codex-security"]:::repo
+    data_privacy_stack_presidio["data-privacy-stack/presidio"]:::repo
+    1N3_Sn1per["1N3/Sn1per"]:::repo
   end
+  openai_codex_security --> vulnerability_scanning
+  vulnerability_scanning --> projectdiscovery_nuclei
+  vulnerability_scanning --> aquasecurity_trivy
+  vulnerability_scanning --> NVIDIA_SkillSpector
+  vulnerability_scanning --> 1N3_Sn1per
   docusealco_docuseal --> compliance
-  projectdiscovery_nuclei --> vulnerability_scanning
   data_privacy_stack_presidio --> compliance
-  aquasecurity_trivy --> vulnerability_scanning
-  NVIDIA_SkillSpector --> vulnerability_scanning
   braedonsaunders_codeflow --> security_scanning
   trufflesecurity_trufflehog --> compliance
-  1N3_Sn1per --> vulnerability_scanning
   betterleaks_betterleaks --> sast
   betterleaks_betterleaks --> secrets_management
   blacklanternsecurity_bbot --> security_scanning
