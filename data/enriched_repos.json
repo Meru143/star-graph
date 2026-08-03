@@ -99,9 +99,9 @@
     "enriched_at": "2026-07-24T07:52:07Z"
   },
   "ayghri/i-have-adhd": {
-    "hash": "afb376ba7c200baf",
+    "hash": "a8ddb71e38185ed1",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:52:10Z"
+    "enriched_at": "2026-08-03T10:39:20Z"
   },
   "lopopolo/harness-engineering": {
     "hash": "f4b7a08679d85ab2",
@@ -109,9 +109,9 @@
     "enriched_at": "2026-07-24T07:52:13Z"
   },
   "tonhowtf/omniget": {
-    "hash": "a40e9ce86ceacf73",
+    "hash": "78ac01e073375fdd",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:52:16Z"
+    "enriched_at": "2026-08-03T10:39:23Z"
   },
   "t8y2/dbx": {
     "hash": "aead344aa107211e",
@@ -119,9 +119,9 @@
     "enriched_at": "2026-07-24T07:52:19Z"
   },
   "kungfu-systems/kungfu": {
-    "hash": "2102175e6345ba4f",
+    "hash": "1f89b717f466c1b0",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:52:23Z"
+    "enriched_at": "2026-08-03T10:39:27Z"
   },
   "earendil-works/pi": {
     "hash": "ecec812a7117238a",
@@ -144,9 +144,9 @@
     "enriched_at": "2026-07-24T07:52:35Z"
   },
   "earthtojake/text-to-cad": {
-    "hash": "8a53e2b2443dd28c",
+    "hash": "3d2af0449a64653e",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:52:38Z"
+    "enriched_at": "2026-08-03T10:39:31Z"
   },
   "Canner/WrenAI": {
     "hash": "f39a929e20e18979",
@@ -219,9 +219,9 @@
     "enriched_at": "2026-07-24T07:53:22Z"
   },
   "org2AI/ORG2": {
-    "hash": "80a988e9240c45e8",
+    "hash": "7f2d0204b2c52ce8",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:53:26Z"
+    "enriched_at": "2026-08-03T10:39:35Z"
   },
   "docusealco/docuseal": {
     "hash": "fdd1e11b44d691b2",
@@ -299,9 +299,9 @@
     "enriched_at": "2026-07-24T07:54:17Z"
   },
   "lmn1919/dompdf.js": {
-    "hash": "1b97563671cbe0aa",
+    "hash": "423e7a927bc03cd9",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:54:21Z"
+    "enriched_at": "2026-08-03T10:39:39Z"
   },
   "littledivy/mimic": {
     "hash": "8ec53e18acbad127",
@@ -394,9 +394,9 @@
     "enriched_at": "2026-07-24T07:55:19Z"
   },
   "JustVugg/colibri": {
-    "hash": "c72339139146a02a",
+    "hash": "1d6d5b9eedcff1e7",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:55:22Z"
+    "enriched_at": "2026-08-03T10:39:43Z"
   },
   "microsoft/SkillOpt": {
     "hash": "5e623da98d981c81",
@@ -469,14 +469,14 @@
     "enriched_at": "2026-07-24T07:56:07Z"
   },
   "malisper/pgrust": {
-    "hash": "cbfae5dff8147aeb",
+    "hash": "79e251045ff6592c",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:56:10Z"
+    "enriched_at": "2026-08-03T10:39:47Z"
   },
   "emilkowalski/skills": {
-    "hash": "cb73e57df951b0e0",
+    "hash": "d185f8b1ff5d956e",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:56:14Z"
+    "enriched_at": "2026-08-03T10:39:51Z"
   },
   "HKUDS/Vibe-Trading": {
     "hash": "57124836cdf49e5b",
@@ -654,9 +654,9 @@
     "enriched_at": "2026-07-24T07:58:07Z"
   },
   "open-free-llm-api/awesome-freellm-apis": {
-    "hash": "d2681b0a750c12f0",
+    "hash": "d38266cccc6bcff4",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:58:10Z"
+    "enriched_at": "2026-08-03T10:39:55Z"
   },
   "cobusgreyling/loop-engineering": {
     "hash": "73b73b3322a9df1c",
@@ -869,9 +869,9 @@
     "enriched_at": "2026-07-24T08:00:26Z"
   },
   "fastify/fastify": {
-    "hash": "539bd051d60ac63f",
+    "hash": "9b8692d875ae60a5",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:00:29Z"
+    "enriched_at": "2026-08-03T10:39:59Z"
   },
   "dragonflydb/dragonfly": {
     "hash": "d5f7858d57e8a39f",
@@ -949,9 +949,9 @@
     "enriched_at": "2026-07-24T08:01:18Z"
   },
   "RyanCodrai/turbovec": {
-    "hash": "4fc6cdefd4cf4907",
+    "hash": "c07397f519b2402c",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:01:21Z"
+    "enriched_at": "2026-08-03T10:40:08Z"
   },
   "asgeirtj/system_prompts_leaks": {
     "hash": "8e1bde3d5a2bcd58",
@@ -1209,9 +1209,9 @@
     "enriched_at": "2026-07-24T08:04:06Z"
   },
   "alibaba/open-code-review": {
-    "hash": "f9b33aa2529b2692",
+    "hash": "43b2eb0de3eaa164",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:04:09Z"
+    "enriched_at": "2026-08-03T10:40:18Z"
   },
   "abhigyanpatwari/GitNexus": {
     "hash": "7ad44bba44e888ea",
@@ -1244,9 +1244,9 @@
     "enriched_at": "2026-07-24T08:04:28Z"
   },
   "Sophomoresty/gemini-web2api": {
-    "hash": "53d16f0c4b1660ed",
+    "hash": "6c5c190d6126ad63",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:04:31Z"
+    "enriched_at": "2026-08-03T10:40:22Z"
   },
   "microsoft/markitdown": {
     "hash": "4e110547f1b4bbee",
@@ -1639,9 +1639,9 @@
     "enriched_at": "2026-07-24T08:08:42Z"
   },
   "holaboss-ai/holaOS": {
-    "hash": "bf983876e67c42c0",
+    "hash": "ed98b0829dca0773",
     "inferred_topics": [],
-    "enriched_at": "2026-07-27T10:46:27Z"
+    "enriched_at": "2026-08-03T10:40:32Z"
   },
   "hesamsheikh/octogent": {
     "hash": "2dcba0d4255a47c8",
@@ -1679,9 +1679,9 @@
     "enriched_at": "2026-07-24T08:09:08Z"
   },
   "1jehuang/jcode": {
-    "hash": "eb473f7f2e62ea0a",
+    "hash": "33b829eeb0ada5e8",
     "inferred_topics": [],
-    "enriched_at": "2026-07-27T10:46:32Z"
+    "enriched_at": "2026-08-03T10:40:36Z"
   },
   "browser-use/browser-harness": {
     "hash": "a841fade3f71d9b4",
@@ -1729,9 +1729,9 @@
     "enriched_at": "2026-07-24T08:09:40Z"
   },
   "future-agi/future-agi": {
-    "hash": "df726b273cc4a7c4",
+    "hash": "c5b24668f26e03bd",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:09:44Z"
+    "enriched_at": "2026-08-03T10:40:41Z"
   },
   "SimoneAvogadro/android-reverse-engineering-skill": {
     "hash": "6ef6ac33e244276a",
@@ -1854,9 +1854,9 @@
     "enriched_at": "2026-07-24T08:11:01Z"
   },
   "ruvnet/ruflo": {
-    "hash": "945c106b0e5abf5f",
+    "hash": "9d1aa1b34958e5e9",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:11:04Z"
+    "enriched_at": "2026-08-03T10:40:45Z"
   },
   "RightNow-AI/openfang": {
     "hash": "8e8d526e5edc920e",
@@ -2029,14 +2029,14 @@
     "enriched_at": "2026-07-24T08:12:53Z"
   },
   "BlockRunAI/ClawRouter": {
-    "hash": "f2f741a8edf14bfe",
+    "hash": "1eea778a53da39d9",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:12:57Z"
+    "enriched_at": "2026-08-03T10:40:50Z"
   },
   "KeygraphHQ/shannon": {
-    "hash": "e7d8f8ac73aa2503",
+    "hash": "f1e09249e9921b14",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:13:00Z"
+    "enriched_at": "2026-08-03T10:40:54Z"
   },
   "anthropics/claude-code": {
     "hash": "a255103446908f5f",
@@ -2207,5 +2207,150 @@
     "hash": "218465ac926b0e22",
     "inferred_topics": [],
     "enriched_at": "2026-07-27T10:46:22Z"
+  },
+  "zenhosta/9drive": {
+    "hash": "49a6ffebd863db25",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:37:56Z"
+  },
+  "nakasyou/local-mcp": {
+    "hash": "56e9631c14f791af",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:37:59Z"
+  },
+  "NVIDIA/NeMo-Agent-Toolkit": {
+    "hash": "148f060db7c9d90a",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:02Z"
+  },
+  "NanmiCoder/MediaCrawler": {
+    "hash": "2b3eb75f92bc3075",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:05Z"
+  },
+  "zhouhengamerica/XLens": {
+    "hash": "6fe46f89c207e3dc",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:08Z"
+  },
+  "dramaclaw/dramaclaw": {
+    "hash": "4cf1bd105db2e19a",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:11Z"
+  },
+  "microsoft/TRELLIS.2": {
+    "hash": "535f80eeb87e8fc7",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:14Z"
+  },
+  "kvcache-ai/AgentENV": {
+    "hash": "92617933d1fb9c3f",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:17Z"
+  },
+  "microsoft/VibeVoice": {
+    "hash": "6e372df4db2deded",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:20Z"
+  },
+  "drumih/turbo-fieldfare": {
+    "hash": "12faf8d702a66dee",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:23Z"
+  },
+  "zhaoxuya520/reverse-skill": {
+    "hash": "916e1d0bd4bcd2ae",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:26Z"
+  },
+  "different-ai/openwork": {
+    "hash": "3ce8f45ff74da90b",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:29Z"
+  },
+  "ai-dynamo/aiperf": {
+    "hash": "02e6d577f6506e7b",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:32Z"
+  },
+  "rithwik1510/VoiceWave-Open-Source-WhisperFlow-Alternative": {
+    "hash": "b797eb81d89ba4db",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:35Z"
+  },
+  "QoderAI/better-harness": {
+    "hash": "5029e1670c81c72f",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:39Z"
+  },
+  "bholmesdev/hubble.md": {
+    "hash": "e5dd43b0b346632e",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:42Z"
+  },
+  "versenilvis/IRIS": {
+    "hash": "04b3539f785b288a",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:45Z"
+  },
+  "gavamedia/deltafin": {
+    "hash": "2e955c6b36c47dc6",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:48Z"
+  },
+  "pascalorg/editor": {
+    "hash": "b2e2b9010da8b05a",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:52Z"
+  },
+  "paperswithbacktest/awesome-systematic-trading": {
+    "hash": "5c755191d2112f82",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:55Z"
+  },
+  "openai/codex-security": {
+    "hash": "7f6f2cc4cef61d2c",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:38:59Z"
+  },
+  "diwenne/openreply": {
+    "hash": "3219f8412bda0079",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:39:02Z"
+  },
+  "huggingface/speech-to-speech": {
+    "hash": "c465e97e985c84c4",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:39:05Z"
+  },
+  "deepfakes/faceswap": {
+    "hash": "288d254a0ed21f52",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:39:09Z"
+  },
+  "google/xls": {
+    "hash": "7e453e29acaeea69",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:39:12Z"
+  },
+  "Blueturboguy07/lunara": {
+    "hash": "ff7e91aea3adbfc7",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:39:16Z"
+  },
+  "herdrdev/herdr": {
+    "hash": "a8c3bfd0f011f173",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:40:04Z"
+  },
+  "odysseus-dev/odysseus": {
+    "hash": "f74014a2dd923212",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:40:13Z"
+  },
+  "d2lang/d2": {
+    "hash": "e7087a09843d3167",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-03T10:40:27Z"
   }
 }

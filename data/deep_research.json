@@ -46892,17 +46892,17 @@
   "agentlas-ai/Agentlas-OS": {
     "repo_hash": "8acb640dbdfcbf89",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:04:10Z"
+    "analyzed_at": "2026-08-03T11:15:10Z"
   },
   "Wei-Shaw/sub2api": {
     "repo_hash": "4f55f43a865e6f78",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:04:53Z"
+    "analyzed_at": "2026-08-03T11:15:51Z"
   },
   "ZhuLinsen/daily_stock_analysis": {
     "repo_hash": "1a91e304d096b136",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:05:37Z"
+    "analyzed_at": "2026-08-03T11:16:32Z"
   },
   "MIgHTy-alIeN/MEV-Arbitrage-Bot": {
     "repo_hash": "e931b96648244025",
@@ -46912,141 +46912,281 @@
   "maillab/cloud-mail": {
     "repo_hash": "dd8a6194ac82b013",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:06:21Z"
+    "analyzed_at": "2026-08-03T11:17:13Z"
   },
   "petergyang/no-ai-slop": {
     "repo_hash": "32fbf3a297f5e0a0",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:07:04Z"
+    "analyzed_at": "2026-08-03T11:17:54Z"
   },
   "org2AI/ORG2": {
-    "repo_hash": "80a988e9240c45e8",
+    "repo_hash": "7f2d0204b2c52ce8",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:08:32Z"
+    "analyzed_at": "2026-08-03T11:19:15Z"
   },
   "curiositech/some_claude_skills": {
     "repo_hash": "5f6e55960e9a484b",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:47:23Z"
+    "analyzed_at": "2026-08-03T10:59:25Z"
   },
   "makecindy/cindy": {
     "repo_hash": "462b75ff19fe0439",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:48:08Z"
+    "analyzed_at": "2026-08-03T11:00:06Z"
   },
   "KKKKhazix/khazix-skills": {
     "repo_hash": "e111631e737a5c9d",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:48:51Z"
+    "analyzed_at": "2026-08-03T11:00:47Z"
   },
   "nyblnet/bento": {
     "repo_hash": "4cfefbb5b13e0be6",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:49:34Z"
+    "analyzed_at": "2026-08-03T11:01:28Z"
   },
   "VictorTaelin/OptMem": {
     "repo_hash": "0b28d3fb83fa6d39",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:50:18Z"
+    "analyzed_at": "2026-08-03T11:02:09Z"
   },
   "liquidslr/system-design-notes": {
     "repo_hash": "65e52663b75084a9",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:51:02Z"
+    "analyzed_at": "2026-08-03T11:02:51Z"
   },
   "OpenMinis/OpenMinis": {
     "repo_hash": "f02a0ca4fc091ea1",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:51:45Z"
+    "analyzed_at": "2026-08-03T11:03:32Z"
   },
   "vercel-labs/zerolang": {
     "repo_hash": "caa07ac0dbc02959",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:52:28Z"
+    "analyzed_at": "2026-08-03T11:04:13Z"
   },
   "vercel-labs/portless": {
     "repo_hash": "2f9def9cd3c4ef6c",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:53:12Z"
+    "analyzed_at": "2026-08-03T11:04:54Z"
   },
   "vercel-labs/agent-browser": {
     "repo_hash": "4e3661f3bcce50af",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:53:56Z"
+    "analyzed_at": "2026-08-03T11:05:36Z"
   },
   "vercel-labs/scriptc": {
     "repo_hash": "a06b8eac9519725e",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:54:40Z"
+    "analyzed_at": "2026-08-03T11:06:16Z"
   },
   "CoreBunch/Instatic": {
     "repo_hash": "e258383902f2e3a3",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:55:23Z"
+    "analyzed_at": "2026-08-03T11:06:58Z"
   },
   "google/magika": {
     "repo_hash": "fc7b5ec5e7f6f104",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:56:07Z"
+    "analyzed_at": "2026-08-03T11:07:39Z"
   },
   "MengTo/Skills": {
     "repo_hash": "1c1dbf2c6f3abcfa",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:56:51Z"
+    "analyzed_at": "2026-08-03T11:08:20Z"
   },
   "moneat-io/moneat": {
     "repo_hash": "125e4f5066dd3259",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:57:35Z"
+    "analyzed_at": "2026-08-03T11:09:01Z"
   },
   "visa/visa-vulnerability-agentic-harness": {
     "repo_hash": "220e1b59b1bda00e",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:58:18Z"
+    "analyzed_at": "2026-08-03T11:09:42Z"
   },
   "ifixai-ai/iFixAi": {
     "repo_hash": "e67c2b3837df3aa4",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:59:02Z"
+    "analyzed_at": "2026-08-03T11:10:23Z"
   },
   "andrewyng/openworker": {
     "repo_hash": "303eb138329c9a4a",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T10:59:46Z"
+    "analyzed_at": "2026-08-03T11:11:04Z"
   },
   "citrolabs/ego-lite": {
     "repo_hash": "c00d43e20a2eca62",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:00:30Z"
+    "analyzed_at": "2026-08-03T11:11:45Z"
   },
   "permissionlesstech/bitchat": {
     "repo_hash": "297abc04d16d731d",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:01:14Z"
+    "analyzed_at": "2026-08-03T11:12:26Z"
   },
   "agentscope-ai/QwenPaw": {
     "repo_hash": "6b3b59c43818f7f4",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:01:58Z"
+    "analyzed_at": "2026-08-03T11:13:07Z"
   },
   "NopeCHALLC/nopecha-extension": {
     "repo_hash": "0d90e9786be921b4",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:02:42Z"
+    "analyzed_at": "2026-08-03T11:13:48Z"
   },
   "EvanZhouDev/openai-oauth": {
     "repo_hash": "5f00a20312b422f0",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:03:26Z"
+    "analyzed_at": "2026-08-03T11:14:29Z"
   },
   "img2threejs/img2threejs": {
     "repo_hash": "8080c4c6b7926b6f",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:07:48Z"
+    "analyzed_at": "2026-08-03T11:18:35Z"
   },
   "jacob-bd/gemini-notebook-mcp-cli": {
     "repo_hash": "218465ac926b0e22",
     "deep_analysis": {},
-    "analyzed_at": "2026-07-27T11:09:15Z"
+    "analyzed_at": "2026-08-03T11:21:18Z"
+  },
+  "zenhosta/9drive": {
+    "repo_hash": "49a6ffebd863db25",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:41:34Z"
+  },
+  "nakasyou/local-mcp": {
+    "repo_hash": "56e9631c14f791af",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:42:16Z"
+  },
+  "NVIDIA/NeMo-Agent-Toolkit": {
+    "repo_hash": "148f060db7c9d90a",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:42:56Z"
+  },
+  "NanmiCoder/MediaCrawler": {
+    "repo_hash": "2b3eb75f92bc3075",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:43:38Z"
+  },
+  "zhouhengamerica/XLens": {
+    "repo_hash": "6fe46f89c207e3dc",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:44:19Z"
+  },
+  "dramaclaw/dramaclaw": {
+    "repo_hash": "4cf1bd105db2e19a",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:45:00Z"
+  },
+  "microsoft/TRELLIS.2": {
+    "repo_hash": "535f80eeb87e8fc7",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:45:41Z"
+  },
+  "kvcache-ai/AgentENV": {
+    "repo_hash": "92617933d1fb9c3f",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:46:22Z"
+  },
+  "microsoft/VibeVoice": {
+    "repo_hash": "6e372df4db2deded",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:47:03Z"
+  },
+  "drumih/turbo-fieldfare": {
+    "repo_hash": "12faf8d702a66dee",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:47:44Z"
+  },
+  "zhaoxuya520/reverse-skill": {
+    "repo_hash": "916e1d0bd4bcd2ae",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:48:25Z"
+  },
+  "different-ai/openwork": {
+    "repo_hash": "3ce8f45ff74da90b",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:49:06Z"
+  },
+  "ai-dynamo/aiperf": {
+    "repo_hash": "02e6d577f6506e7b",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:49:47Z"
+  },
+  "rithwik1510/VoiceWave-Open-Source-WhisperFlow-Alternative": {
+    "repo_hash": "b797eb81d89ba4db",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:50:28Z"
+  },
+  "QoderAI/better-harness": {
+    "repo_hash": "5029e1670c81c72f",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:51:09Z"
+  },
+  "bholmesdev/hubble.md": {
+    "repo_hash": "e5dd43b0b346632e",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:51:50Z"
+  },
+  "versenilvis/IRIS": {
+    "repo_hash": "04b3539f785b288a",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:52:32Z"
+  },
+  "gavamedia/deltafin": {
+    "repo_hash": "2e955c6b36c47dc6",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:53:13Z"
+  },
+  "pascalorg/editor": {
+    "repo_hash": "b2e2b9010da8b05a",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:53:55Z"
+  },
+  "paperswithbacktest/awesome-systematic-trading": {
+    "repo_hash": "5c755191d2112f82",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:54:35Z"
+  },
+  "openai/codex-security": {
+    "repo_hash": "7f6f2cc4cef61d2c",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:55:17Z"
+  },
+  "diwenne/openreply": {
+    "repo_hash": "3219f8412bda0079",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:55:58Z"
+  },
+  "huggingface/speech-to-speech": {
+    "repo_hash": "c465e97e985c84c4",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:56:40Z"
+  },
+  "deepfakes/faceswap": {
+    "repo_hash": "288d254a0ed21f52",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:57:20Z"
+  },
+  "google/xls": {
+    "repo_hash": "7e453e29acaeea69",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:58:02Z"
+  },
+  "Blueturboguy07/lunara": {
+    "repo_hash": "ff7e91aea3adbfc7",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T10:58:43Z"
+  },
+  "herdrdev/herdr": {
+    "repo_hash": "a8c3bfd0f011f173",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T11:19:56Z"
+  },
+  "d2lang/d2": {
+    "repo_hash": "e7087a09843d3167",
+    "deep_analysis": {},
+    "analyzed_at": "2026-08-03T11:20:37Z"
   }
 }
