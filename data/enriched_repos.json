@@ -149,9 +149,9 @@
     "enriched_at": "2026-08-03T10:39:31Z"
   },
   "Canner/WrenAI": {
-    "hash": "f39a929e20e18979",
+    "hash": "5f8cd63941f857a5",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:52:41Z"
+    "enriched_at": "2026-08-10T08:40:41Z"
   },
   "DioxusLabs/dioxus": {
     "hash": "e74728e3eaa8419c",
@@ -254,9 +254,9 @@
     "enriched_at": "2026-07-24T07:53:45Z"
   },
   "XiaoYouChR/Ghost-Downloader-3": {
-    "hash": "b574abfde24e4102",
+    "hash": "5d0264dc4a031ea9",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:53:48Z"
+    "enriched_at": "2026-08-10T08:40:45Z"
   },
   "SamurAIGPT/Generative-Media-Skills": {
     "hash": "1a1ae0949b45be1a",
@@ -274,9 +274,9 @@
     "enriched_at": "2026-07-24T07:53:58Z"
   },
   "vercel/eve": {
-    "hash": "97755d7c2a1e6bbe",
+    "hash": "693bcc6d5f0044c4",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:54:04Z"
+    "enriched_at": "2026-08-10T08:40:48Z"
   },
   "xai-org/grok-build": {
     "hash": "b829372f26273c14",
@@ -324,9 +324,9 @@
     "enriched_at": "2026-07-24T07:54:33Z"
   },
   "anysearch-ai/anysearch-skill": {
-    "hash": "7261e0da6f41bd7a",
+    "hash": "0db09f78b08a6cdc",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:54:37Z"
+    "enriched_at": "2026-08-10T08:40:52Z"
   },
   "Raphire/Win11Debloat": {
     "hash": "fcf8190cfcf3870c",
@@ -349,9 +349,9 @@
     "enriched_at": "2026-07-24T07:54:50Z"
   },
   "multica-ai/multica": {
-    "hash": "50f40a17edf54e24",
+    "hash": "7ff75b2aa38eae59",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:54:53Z"
+    "enriched_at": "2026-08-10T08:40:56Z"
   },
   "wilsonfreitas/awesome-quant": {
     "hash": "a4205ed4fbd583a3",
@@ -439,9 +439,9 @@
     "enriched_at": "2026-07-24T07:55:48Z"
   },
   "tutti-os/tutti": {
-    "hash": "002503303c4ba80f",
+    "hash": "9f425359ac4e7593",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:55:51Z"
+    "enriched_at": "2026-08-10T08:41:00Z"
   },
   "elder-plinius/T3MP3ST": {
     "hash": "5351cd92c0b8d743",
@@ -474,9 +474,9 @@
     "enriched_at": "2026-08-03T10:39:47Z"
   },
   "emilkowalski/skills": {
-    "hash": "d185f8b1ff5d956e",
+    "hash": "59fc15021afe9c75",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:39:51Z"
+    "enriched_at": "2026-08-10T08:41:04Z"
   },
   "HKUDS/Vibe-Trading": {
     "hash": "57124836cdf49e5b",
@@ -574,9 +574,9 @@
     "enriched_at": "2026-07-24T07:57:15Z"
   },
   "siyuan-note/siyuan": {
-    "hash": "8deb321f6365d367",
+    "hash": "57d0a3a56b7439eb",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:57:19Z"
+    "enriched_at": "2026-08-10T08:41:08Z"
   },
   "psf/black": {
     "hash": "cc6e73b7b2c4638c",
@@ -944,9 +944,9 @@
     "enriched_at": "2026-07-24T08:01:15Z"
   },
   "NVIDIA/SkillSpector": {
-    "hash": "12299d6e4dbaf832",
+    "hash": "2da9c1ad25a24a75",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:01:18Z"
+    "enriched_at": "2026-08-10T08:41:17Z"
   },
   "RyanCodrai/turbovec": {
     "hash": "c07397f519b2402c",
@@ -959,9 +959,9 @@
     "enriched_at": "2026-07-27T10:46:07Z"
   },
   "zzet/gortex": {
-    "hash": "9209370be6f55c42",
+    "hash": "9b5900da9d7d5d21",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:01:28Z"
+    "enriched_at": "2026-08-10T08:41:22Z"
   },
   "Anil-matcha/Open-Generative-AI": {
     "hash": "75147244d451fd5a",
@@ -984,9 +984,9 @@
     "enriched_at": "2026-07-24T08:01:41Z"
   },
   "meshery/meshery": {
-    "hash": "25b3d9b6bd0569aa",
+    "hash": "46d2cc7898508d9c",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:01:44Z"
+    "enriched_at": "2026-08-10T08:41:26Z"
   },
   "cypress-io/cypress": {
     "hash": "f04c4c473e614429",
@@ -1509,9 +1509,9 @@
     "enriched_at": "2026-07-24T08:07:19Z"
   },
   "alumnium-hq/alumnium": {
-    "hash": "1fc11ba37f5e6132",
+    "hash": "4ebd000482d66f78",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:07:22Z"
+    "enriched_at": "2026-08-10T08:41:30Z"
   },
   "TauricResearch/TradingAgents": {
     "hash": "8b5298babf327425",
@@ -1639,9 +1639,9 @@
     "enriched_at": "2026-07-24T08:08:42Z"
   },
   "holaboss-ai/holaOS": {
-    "hash": "ed98b0829dca0773",
+    "hash": "a636e18a3024219c",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:40:32Z"
+    "enriched_at": "2026-08-10T08:41:38Z"
   },
   "hesamsheikh/octogent": {
     "hash": "2dcba0d4255a47c8",
@@ -1939,9 +1939,9 @@
     "enriched_at": "2026-07-24T08:11:55Z"
   },
   "1Panel-dev/1Panel": {
-    "hash": "3c599bc7580eb562",
+    "hash": "e40cb3cc468549c9",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:11:59Z"
+    "enriched_at": "2026-08-10T08:41:42Z"
   },
   "nextlevelbuilder/ui-ux-pro-max-skill": {
     "hash": "f0f12f8e05db84d5",
@@ -2184,9 +2184,9 @@
     "enriched_at": "2026-07-27T10:45:27Z"
   },
   "agentscope-ai/QwenPaw": {
-    "hash": "6b3b59c43818f7f4",
+    "hash": "58b564bacb8d3625",
     "inferred_topics": [],
-    "enriched_at": "2026-07-27T10:45:31Z"
+    "enriched_at": "2026-08-10T08:40:37Z"
   },
   "NopeCHALLC/nopecha-extension": {
     "hash": "0d90e9786be921b4",
@@ -2299,9 +2299,9 @@
     "enriched_at": "2026-08-03T10:38:48Z"
   },
   "pascalorg/editor": {
-    "hash": "b2e2b9010da8b05a",
+    "hash": "b86de4d8e5b025ba",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:38:52Z"
+    "enriched_at": "2026-08-10T08:40:30Z"
   },
   "paperswithbacktest/awesome-systematic-trading": {
     "hash": "5c755191d2112f82",
@@ -2314,9 +2314,9 @@
     "enriched_at": "2026-08-03T10:38:59Z"
   },
   "diwenne/openreply": {
-    "hash": "3219f8412bda0079",
+    "hash": "f1a75e9c29847794",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:39:02Z"
+    "enriched_at": "2026-08-10T08:40:34Z"
   },
   "huggingface/speech-to-speech": {
     "hash": "c465e97e985c84c4",
@@ -2352,5 +2352,125 @@
     "hash": "e7087a09843d3167",
     "inferred_topics": [],
     "enriched_at": "2026-08-03T10:40:27Z"
+  },
+  "huangruiteng/loopx": {
+    "hash": "cf8c182abd8179b6",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:22Z"
+  },
+  "Jia-Ethan/codex-keysmith": {
+    "hash": "6f7999649c24fe33",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:24Z"
+  },
+  "ben-z/findphone": {
+    "hash": "932a5a86f4728c99",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:27Z"
+  },
+  "denoland/celld": {
+    "hash": "87adbc8908fa004b",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:30Z"
+  },
+  "get-bb/bb": {
+    "hash": "29a4f2808bcfd298",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:33Z"
+  },
+  "firecrawl/anydoc": {
+    "hash": "e1607f5dcd5d14c4",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:36Z"
+  },
+  "cloudflare/cloudflare-os": {
+    "hash": "18f5b1d3c9634b83",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:39Z"
+  },
+  "PrimeIntellect-ai/prime-agent": {
+    "hash": "0eba143e226a2739",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:42Z"
+  },
+  "reflex-dev/xy": {
+    "hash": "4f621df7ba2bd66b",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:45Z"
+  },
+  "chuspeeism/dashi-taskboard": {
+    "hash": "9084f01de0c1063f",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:48Z"
+  },
+  "cloudflare/computer": {
+    "hash": "d38c1d64dee25dbc",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:51Z"
+  },
+  "LiamGvchi/gc-minimal-zine-poster": {
+    "hash": "a3ae08ff94b095e0",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:54Z"
+  },
+  "genspark-ai/genoffice": {
+    "hash": "6e8b1023c5fe369f",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:39:57Z"
+  },
+  "boldsoftware/meat": {
+    "hash": "6e73c8ee284296cb",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:00Z"
+  },
+  "usekaneo/kaneo": {
+    "hash": "6e66604190f6f3c5",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:03Z"
+  },
+  "Kritt-ai/open-kritt": {
+    "hash": "ae6a6f749d23022c",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:06Z"
+  },
+  "sqliteai/waste": {
+    "hash": "a880889d115ff153",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:10Z"
+  },
+  "trycompai/crm": {
+    "hash": "6c3875a7afe53743",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:13Z"
+  },
+  "firecrawl/pdf-inspector": {
+    "hash": "132d75bdbbe6cec7",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:16Z"
+  },
+  "microsoft/skill-recorder": {
+    "hash": "90067386b3b63a26",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:20Z"
+  },
+  "yc-software/qm": {
+    "hash": "925ad9a94ac4f164",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:23Z"
+  },
+  "TencentCloud/TencentDB-Agent-Memory": {
+    "hash": "6785c9ac491ba127",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:40:26Z"
+  },
+  "Netw0rkNoob/VulnClaw": {
+    "hash": "1cd849560ac4ce78",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:41:13Z"
+  },
+  "CodebuffAI/freebuff": {
+    "hash": "85ff967fbbb96eb6",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-10T08:41:34Z"
   }
 }
