@@ -1,13 +1,13 @@
 graph TD
   subgraph llm_inference ["Llm Inference"]
-    gitleaks_gitleaks["gitleaks/gitleaks"]:::repo
+    z_lab_dflash["z-lab/dflash"]:::repo
+    AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash["AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-DFlash"]:::repo
+    llm_inference["llm-inference"]:::topic
     modelscope_FunASR["modelscope/FunASR"]:::repo
+    sglang["sglang"]:::technology
+    gitleaks_gitleaks["gitleaks/gitleaks"]:::repo
     drumih_turbo_fieldfare["drumih/turbo-fieldfare"]:::repo
     vllm["vllm"]:::topic
-    AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash["AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-DFlash"]:::repo
-    z_lab_dflash["z-lab/dflash"]:::repo
-    sglang["sglang"]:::technology
-    llm_inference["llm-inference"]:::topic
   end
   drumih_turbo_fieldfare --> llm_inference
   llm_inference --> gitleaks_gitleaks

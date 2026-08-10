@@ -1,23 +1,23 @@
 graph TD
   subgraph security ["Security"]
-    betterleaks_betterleaks["betterleaks/betterleaks"]:::repo
-    docusealco_docuseal["docusealco/docuseal"]:::repo
     braedonsaunders_codeflow["braedonsaunders/codeflow"]:::repo
-    vulnerability_scanning["vulnerability-scanning"]:::topic
+    secrets_management["secrets-management"]:::topic
     blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
     vercel_labs_deepsec["vercel-labs/deepsec"]:::repo
-    aquasecurity_trivy["aquasecurity/trivy"]:::repo
-    trufflesecurity_trufflehog["trufflesecurity/trufflehog"]:::repo
-    NVIDIA_SkillSpector["NVIDIA/SkillSpector"]:::repo
-    sast["sast"]:::topic
-    openai_codex_security["openai/codex-security"]:::repo
-    projectdiscovery_nuclei["projectdiscovery/nuclei"]:::repo
     1N3_Sn1per["1N3/Sn1per"]:::repo
-    compliance["compliance"]:::use_case
-    data_privacy_stack_presidio["data-privacy-stack/presidio"]:::repo
     affaan_m_ECC["affaan-m/ECC"]:::repo
+    aquasecurity_trivy["aquasecurity/trivy"]:::repo
+    NVIDIA_SkillSpector["NVIDIA/SkillSpector"]:::repo
+    compliance["compliance"]:::use_case
+    docusealco_docuseal["docusealco/docuseal"]:::repo
+    sast["sast"]:::topic
+    vulnerability_scanning["vulnerability-scanning"]:::topic
+    betterleaks_betterleaks["betterleaks/betterleaks"]:::repo
+    data_privacy_stack_presidio["data-privacy-stack/presidio"]:::repo
+    projectdiscovery_nuclei["projectdiscovery/nuclei"]:::repo
     security_scanning["security-scanning"]:::topic
-    secrets_management["secrets-management"]:::topic
+    trufflesecurity_trufflehog["trufflesecurity/trufflehog"]:::repo
+    openai_codex_security["openai/codex-security"]:::repo
   end
   openai_codex_security --> vulnerability_scanning
   vulnerability_scanning --> projectdiscovery_nuclei
