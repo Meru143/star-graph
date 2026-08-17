@@ -13,9 +13,9 @@
     "enriched_at": "2026-07-21T07:23:37Z"
   },
   "tt-a1i/archify": {
-    "hash": "9ebf91dde4fe1f3a",
+    "hash": "cdf07c72b3f51336",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:54:01Z"
+    "enriched_at": "2026-08-17T08:02:25Z"
   },
   "stablyai/orca": {
     "hash": "405bace3d9f4cbc4",
@@ -114,14 +114,14 @@
     "enriched_at": "2026-08-03T10:39:23Z"
   },
   "t8y2/dbx": {
-    "hash": "aead344aa107211e",
+    "hash": "0948c4ac9cd4e374",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:52:19Z"
+    "enriched_at": "2026-08-17T08:02:12Z"
   },
   "kungfu-systems/kungfu": {
-    "hash": "1f89b717f466c1b0",
+    "hash": "5027908967a82679",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:39:27Z"
+    "enriched_at": "2026-08-17T08:02:17Z"
   },
   "earendil-works/pi": {
     "hash": "ecec812a7117238a",
@@ -144,9 +144,9 @@
     "enriched_at": "2026-07-24T07:52:35Z"
   },
   "earthtojake/text-to-cad": {
-    "hash": "3d2af0449a64653e",
+    "hash": "a5e136bf3d0e2a19",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:39:31Z"
+    "enriched_at": "2026-08-17T08:02:21Z"
   },
   "Canner/WrenAI": {
     "hash": "5f8cd63941f857a5",
@@ -409,9 +409,9 @@
     "enriched_at": "2026-07-24T07:55:28Z"
   },
   "diegosouzapw/OmniRoute": {
-    "hash": "12a40696c92d412c",
+    "hash": "495499a5c439660f",
     "inferred_topics": [],
-    "enriched_at": "2026-07-27T10:45:53Z"
+    "enriched_at": "2026-08-17T08:02:30Z"
   },
   "SmileLikeYe/agent-chief": {
     "hash": "eda5050762acb83b",
@@ -559,9 +559,9 @@
     "enriched_at": "2026-07-24T07:57:06Z"
   },
   "ctxrs/ctx": {
-    "hash": "6ab20c0ba411fb85",
+    "hash": "75f5645f2cc28afd",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:57:09Z"
+    "enriched_at": "2026-08-17T08:02:34Z"
   },
   "alibaba/page-agent": {
     "hash": "5c9a230fd73416b8",
@@ -724,9 +724,9 @@
     "enriched_at": "2026-07-24T07:58:52Z"
   },
   "altic-dev/FluidVoice": {
-    "hash": "38828762b6420e93",
+    "hash": "5e17ad004d409e09",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T07:58:55Z"
+    "enriched_at": "2026-08-17T08:02:39Z"
   },
   "FujiwaraChoki/MoneyPrinterV2": {
     "hash": "904fa2f474476c2e",
@@ -1054,9 +1054,9 @@
     "enriched_at": "2026-07-24T08:02:26Z"
   },
   "GyulyVGC/sniffnet": {
-    "hash": "38e39b940ccf0fda",
+    "hash": "9e41e16440dbfb12",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:02:29Z"
+    "enriched_at": "2026-08-17T08:02:43Z"
   },
   "Panniantong/Agent-Reach": {
     "hash": "527b26db2cbadc7e",
@@ -1124,9 +1124,9 @@
     "enriched_at": "2026-07-24T08:03:11Z"
   },
   "getagentseal/codeburn": {
-    "hash": "2bd08db4c01f2c5e",
+    "hash": "ad820f1e250ec274",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:03:14Z"
+    "enriched_at": "2026-08-17T08:02:47Z"
   },
   "unhappychoice/gittype": {
     "hash": "be1a1da8fec497f7",
@@ -1244,9 +1244,9 @@
     "enriched_at": "2026-07-24T08:04:28Z"
   },
   "Sophomoresty/gemini-web2api": {
-    "hash": "6c5c190d6126ad63",
+    "hash": "53d16f0c4b1660ed",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:40:22Z"
+    "enriched_at": "2026-08-17T08:02:52Z"
   },
   "microsoft/markitdown": {
     "hash": "4e110547f1b4bbee",
@@ -1304,9 +1304,9 @@
     "enriched_at": "2026-07-24T08:05:07Z"
   },
   "paradigmxyz/centaur": {
-    "hash": "241401cdeaa080c2",
+    "hash": "656197cd83ce1b0c",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:05:10Z"
+    "enriched_at": "2026-08-17T08:02:56Z"
   },
   "MoonshotAI/kimi-code": {
     "hash": "ba371e610dc1c37c",
@@ -1314,9 +1314,9 @@
     "enriched_at": "2026-07-24T08:05:13Z"
   },
   "Hmbown/CodeWhale": {
-    "hash": "c8581c76ffcf9495",
+    "hash": "f9b78f5e7fb535a3",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:05:16Z"
+    "enriched_at": "2026-08-17T08:03:00Z"
   },
   "hardikpandya/stop-slop": {
     "hash": "d9432855aa16e980",
@@ -1689,9 +1689,9 @@
     "enriched_at": "2026-07-24T08:09:15Z"
   },
   "nexu-io/open-design": {
-    "hash": "86cae334e949382f",
+    "hash": "32b794ea5c5724ec",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:09:18Z"
+    "enriched_at": "2026-08-17T08:03:05Z"
   },
   "openai/symphony": {
     "hash": "b9170ec4890b4b6f",
@@ -1759,9 +1759,9 @@
     "enriched_at": "2026-07-24T08:10:00Z"
   },
   "NousResearch/hermes-agent": {
-    "hash": "b1c9b2a357785dbe",
+    "hash": "58b08a6932606f3e",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:10:03Z"
+    "enriched_at": "2026-08-17T08:03:09Z"
   },
   "elder-plinius/G0DM0D3": {
     "hash": "5809ee5b3e4941c9",
@@ -1944,9 +1944,9 @@
     "enriched_at": "2026-08-10T08:41:42Z"
   },
   "nextlevelbuilder/ui-ux-pro-max-skill": {
-    "hash": "f0f12f8e05db84d5",
+    "hash": "b5b8df729f91c313",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:12:02Z"
+    "enriched_at": "2026-08-17T08:03:13Z"
   },
   "ComposioHQ/awesome-claude-skills": {
     "hash": "73ce8b624a0bc2f3",
@@ -2019,9 +2019,9 @@
     "enriched_at": "2026-07-24T08:12:47Z"
   },
   "ChartGPU/ChartGPU": {
-    "hash": "bdeeaf6686052d6c",
+    "hash": "80a9bba92755dd99",
     "inferred_topics": [],
-    "enriched_at": "2026-07-24T08:12:50Z"
+    "enriched_at": "2026-08-17T08:03:17Z"
   },
   "BankrBot/skills": {
     "hash": "e4a7d4721e97e902",
@@ -2034,9 +2034,9 @@
     "enriched_at": "2026-08-03T10:40:50Z"
   },
   "KeygraphHQ/shannon": {
-    "hash": "f1e09249e9921b14",
+    "hash": "7107dce943c0eba2",
     "inferred_topics": [],
-    "enriched_at": "2026-08-03T10:40:54Z"
+    "enriched_at": "2026-08-17T08:03:22Z"
   },
   "anthropics/claude-code": {
     "hash": "a255103446908f5f",
@@ -2354,14 +2354,14 @@
     "enriched_at": "2026-08-03T10:40:27Z"
   },
   "huangruiteng/loopx": {
-    "hash": "cf8c182abd8179b6",
+    "hash": "de21b4e216677d07",
     "inferred_topics": [],
-    "enriched_at": "2026-08-10T08:39:22Z"
+    "enriched_at": "2026-08-17T08:01:51Z"
   },
   "Jia-Ethan/codex-keysmith": {
-    "hash": "6f7999649c24fe33",
+    "hash": "251e529684c53d61",
     "inferred_topics": [],
-    "enriched_at": "2026-08-10T08:39:24Z"
+    "enriched_at": "2026-08-17T08:01:55Z"
   },
   "ben-z/findphone": {
     "hash": "932a5a86f4728c99",
@@ -2424,9 +2424,9 @@
     "enriched_at": "2026-08-10T08:40:00Z"
   },
   "usekaneo/kaneo": {
-    "hash": "6e66604190f6f3c5",
+    "hash": "0074318e8f87c459",
     "inferred_topics": [],
-    "enriched_at": "2026-08-10T08:40:03Z"
+    "enriched_at": "2026-08-17T08:02:00Z"
   },
   "Kritt-ai/open-kritt": {
     "hash": "ae6a6f749d23022c",
@@ -2454,9 +2454,9 @@
     "enriched_at": "2026-08-10T08:40:20Z"
   },
   "yc-software/qm": {
-    "hash": "925ad9a94ac4f164",
+    "hash": "9ecf87e84781a2bd",
     "inferred_topics": [],
-    "enriched_at": "2026-08-10T08:40:23Z"
+    "enriched_at": "2026-08-17T08:02:08Z"
   },
   "TencentCloud/TencentDB-Agent-Memory": {
     "hash": "6785c9ac491ba127",
@@ -2472,5 +2472,355 @@
     "hash": "85ff967fbbb96eb6",
     "inferred_topics": [],
     "enriched_at": "2026-08-10T08:41:34Z"
+  },
+  "alexgreensh/attention-span": {
+    "hash": "aab25dba830f6936",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:25Z"
+  },
+  "ForkWrenGuide/AnyUnlock": {
+    "hash": "f56d15381b8c80cf",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:28Z"
+  },
+  "codeman008/Financial_freedom": {
+    "hash": "940b30f2ddad56ba",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:31Z"
+  },
+  "amruthpillai/reactive-resume": {
+    "hash": "204c98b4b151c68d",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:34Z"
+  },
+  "OpenSparX/MasterAgent": {
+    "hash": "a06f95064342fab3",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:37Z"
+  },
+  "xiaobright/modeltest": {
+    "hash": "e54a705867e6e411",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:40Z"
+  },
+  "0xSero/ai-data-extraction": {
+    "hash": "65b4a553629e26dd",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:43Z"
+  },
+  "ToolJet/ToolJet": {
+    "hash": "aeb653c11db859de",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:46Z"
+  },
+  "patchy631/time-to-first-token": {
+    "hash": "9e0fce90c13cfd52",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:49Z"
+  },
+  "Anionex/agent-vision-toolkit": {
+    "hash": "17e22ea491843970",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:52Z"
+  },
+  "Devin-AXIS/iPolloWork": {
+    "hash": "b924c820acd90e6a",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:55Z"
+  },
+  "lightningpixel/modly": {
+    "hash": "4139f0c70e236a1c",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:57:58Z"
+  },
+  "xoreaxeaxeax/skitter-creek-bath-salts": {
+    "hash": "3d07eade26a1d2da",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:01Z"
+  },
+  "liustack/modlens": {
+    "hash": "af0b1a60e7b10550",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:04Z"
+  },
+  "AdamPlatin123/awesome-dsh-plugins": {
+    "hash": "abfae0e9f62bfbf0",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:07Z"
+  },
+  "awesome-dsh-plugin/awesome-dsh-plugin": {
+    "hash": "5c20fa7585e0f4dd",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:10Z"
+  },
+  "cordiverse/paper": {
+    "hash": "bb0fe157a7dfbfbc",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:14Z"
+  },
+  "titanwings/colleague-skill": {
+    "hash": "0f59e4117378ca4b",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:17Z"
+  },
+  "zhu1090093659/dsh-web-ui": {
+    "hash": "e621d73200345aac",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:21Z"
+  },
+  "cordiverse/cordis": {
+    "hash": "018da10dbb52ca50",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:24Z"
+  },
+  "deepseek-ai/deepseek-harness": {
+    "hash": "7068a2751a6d25bb",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:27Z"
+  },
+  "MakazhanAlpamys/Soup": {
+    "hash": "8dfe429d9ebf4f95",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:31Z"
+  },
+  "yaklang/hack-skills": {
+    "hash": "b72b220384df61a9",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:34Z"
+  },
+  "OpenBMB/VoxCPM": {
+    "hash": "9ebcb4a9c41fa445",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:38Z"
+  },
+  "infiniflow/ragflow": {
+    "hash": "78675f41d8d7dd60",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:42Z"
+  },
+  "dmmulroy/anti-slop": {
+    "hash": "bf6f4f33d8b36fc5",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:45Z"
+  },
+  "i3T4AN/KADATH": {
+    "hash": "868561c2d09a2a7a",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:49Z"
+  },
+  "localsend/localsend": {
+    "hash": "f3831a836fe49a6b",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:53Z"
+  },
+  "liangnjupt/VisTouch": {
+    "hash": "9cf76e4b85a74880",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:58:57Z"
+  },
+  "BytePioneer-AI/codex-host": {
+    "hash": "1f49d2412ab60c6e",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:01Z"
+  },
+  "zerx-lab/FluxDown": {
+    "hash": "80c814cea6af41b7",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:05Z"
+  },
+  "Hisn00w/ASu-skills": {
+    "hash": "623a7f7a529186ba",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:09Z"
+  },
+  "LaoFeng-mouse/flyingmouse-format": {
+    "hash": "9c100001a31ddc15",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:13Z"
+  },
+  "macro-inc/macro": {
+    "hash": "2f0dfc77cf8f76fc",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:18Z"
+  },
+  "hugohe3/ppt-master": {
+    "hash": "7077c1bb234f78c7",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:22Z"
+  },
+  "guillaumemeyer/watermarks-remover": {
+    "hash": "5befb2ef60b56c28",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:27Z"
+  },
+  "Tencent-Hunyuan/Hunyuan3D-WorldClaw": {
+    "hash": "f7574af08ecda8bd",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:32Z"
+  },
+  "duolahypercho/codex-router": {
+    "hash": "366191e53f48e8b5",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:36Z"
+  },
+  "ailyProject/aily-blockly-libraries": {
+    "hash": "2453dac69efa7add",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:41Z"
+  },
+  "ailyProject/aily-blockly": {
+    "hash": "7e794f1b5ec6e6a1",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:45Z"
+  },
+  "MatrAIx-ai/MatrAIx-Persona-8B": {
+    "hash": "3c018504cdb59205",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:49Z"
+  },
+  "karanb192/itr-wala": {
+    "hash": "956004c8ba9ff386",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:53Z"
+  },
+  "oil-oil/oil-motion": {
+    "hash": "7f91bfe218c9ffed",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T07:59:57Z"
+  },
+  "HKUDS/LightRAG": {
+    "hash": "d2f4db7ab5c40aff",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:01Z"
+  },
+  "HKUDS/nanobot": {
+    "hash": "56aa99d5b684707f",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:06Z"
+  },
+  "TanStack/query": {
+    "hash": "0808bcd9559772d0",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:10Z"
+  },
+  "TanStack/charts": {
+    "hash": "d2383f9411a843d5",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:14Z"
+  },
+  "diffusionstudio/editor": {
+    "hash": "13e60bde8d35e2e8",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:18Z"
+  },
+  "antvis/Infographic": {
+    "hash": "0e2d66036f2ea69d",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:22Z"
+  },
+  "HKUDS/DeepTutor": {
+    "hash": "534e7e027719e799",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:26Z"
+  },
+  "Observal/Observal": {
+    "hash": "1ff9b9324a696343",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:30Z"
+  },
+  "cactus-compute/needle": {
+    "hash": "c2039fd30eba4310",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:34Z"
+  },
+  "Sidiora-Labs/centra-llm-agents": {
+    "hash": "d4f88534e3d9a631",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:39Z"
+  },
+  "danielmiessler/LifeOS": {
+    "hash": "33b39df289c44009",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:43Z"
+  },
+  "connorgallopo/Tracearr": {
+    "hash": "ffe62b5f0046d8b5",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:48Z"
+  },
+  "cathrynlavery/diagram-design": {
+    "hash": "7862eb850add423e",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:52Z"
+  },
+  "aklivity/zilla": {
+    "hash": "e5ba6d317317f37d",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:00:56Z"
+  },
+  "QwenLM/Qwen-MM-Plugins": {
+    "hash": "1f7be10547ce063d",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:01Z"
+  },
+  "MengTo/kage": {
+    "hash": "38438a10d80b6fba",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:05Z"
+  },
+  "marswaveai/ColaMD": {
+    "hash": "2194eaa189b4d5a2",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:09Z"
+  },
+  "sv-number/mcp-server": {
+    "hash": "25aec40db6631a11",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:14Z"
+  },
+  "openobserve/openobserve": {
+    "hash": "18b1343362b16296",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:18Z"
+  },
+  "harveyai/harvey-labs": {
+    "hash": "67d693ac23e57f86",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:22Z"
+  },
+  "pctrade/end4-pC": {
+    "hash": "3cc9c2d63369aacd",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:26Z"
+  },
+  "semantica-agi/semantica": {
+    "hash": "4961a38a9df81fa4",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:30Z"
+  },
+  "vitali87/code-graph-rag": {
+    "hash": "5eab00924746123e",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:35Z"
+  },
+  "pranshuparmar/witr": {
+    "hash": "9b66dcc25aa2089e",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:39Z"
+  },
+  "ShawnPana/phone-harness": {
+    "hash": "ac60d15a3ffb13bf",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:43Z"
+  },
+  "TeamWheelWizard/WheelWizard": {
+    "hash": "479addc18092c1dd",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:01:47Z"
+  },
+  "sqliteai/warp": {
+    "hash": "a880889d115ff153",
+    "inferred_topics": [],
+    "enriched_at": "2026-08-17T08:02:04Z"
   }
 }
