@@ -1,12 +1,357 @@
 {
   "repos": {
+    "alexgreensh/attention-span": {
+      "hash": "aab25dba830f6936",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "ForkWrenGuide/AnyUnlock": {
+      "hash": "f56d15381b8c80cf",
+      "starred_at": "",
+      "language": null
+    },
+    "codeman008/Financial_freedom": {
+      "hash": "940b30f2ddad56ba",
+      "starred_at": "",
+      "language": null
+    },
+    "amruthpillai/reactive-resume": {
+      "hash": "204c98b4b151c68d",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "OpenSparX/MasterAgent": {
+      "hash": "a06f95064342fab3",
+      "starred_at": "",
+      "language": "C++"
+    },
+    "xiaobright/modeltest": {
+      "hash": "e54a705867e6e411",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "0xSero/ai-data-extraction": {
+      "hash": "65b4a553629e26dd",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "ToolJet/ToolJet": {
+      "hash": "aeb653c11db859de",
+      "starred_at": "",
+      "language": "JavaScript"
+    },
+    "patchy631/time-to-first-token": {
+      "hash": "9e0fce90c13cfd52",
+      "starred_at": "",
+      "language": "HTML"
+    },
+    "Anionex/agent-vision-toolkit": {
+      "hash": "17e22ea491843970",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "Devin-AXIS/iPolloWork": {
+      "hash": "b924c820acd90e6a",
+      "starred_at": "",
+      "language": "HTML"
+    },
+    "lightningpixel/modly": {
+      "hash": "4139f0c70e236a1c",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "xoreaxeaxeax/skitter-creek-bath-salts": {
+      "hash": "3d07eade26a1d2da",
+      "starred_at": "",
+      "language": "C"
+    },
+    "liustack/modlens": {
+      "hash": "af0b1a60e7b10550",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "AdamPlatin123/awesome-dsh-plugins": {
+      "hash": "abfae0e9f62bfbf0",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "awesome-dsh-plugin/awesome-dsh-plugin": {
+      "hash": "5c20fa7585e0f4dd",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "cordiverse/paper": {
+      "hash": "bb0fe157a7dfbfbc",
+      "starred_at": "",
+      "language": null
+    },
+    "titanwings/colleague-skill": {
+      "hash": "0f59e4117378ca4b",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "zhu1090093659/dsh-web-ui": {
+      "hash": "e621d73200345aac",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "cordiverse/cordis": {
+      "hash": "018da10dbb52ca50",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "deepseek-ai/deepseek-harness": {
+      "hash": "7068a2751a6d25bb",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "MakazhanAlpamys/Soup": {
+      "hash": "8dfe429d9ebf4f95",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "yaklang/hack-skills": {
+      "hash": "b72b220384df61a9",
+      "starred_at": "",
+      "language": "CSS"
+    },
+    "OpenBMB/VoxCPM": {
+      "hash": "9ebcb4a9c41fa445",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "infiniflow/ragflow": {
+      "hash": "78675f41d8d7dd60",
+      "starred_at": "",
+      "language": "Go"
+    },
+    "dmmulroy/anti-slop": {
+      "hash": "bf6f4f33d8b36fc5",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "i3T4AN/KADATH": {
+      "hash": "868561c2d09a2a7a",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "localsend/localsend": {
+      "hash": "f3831a836fe49a6b",
+      "starred_at": "",
+      "language": "Dart"
+    },
+    "liangnjupt/VisTouch": {
+      "hash": "9cf76e4b85a74880",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "BytePioneer-AI/codex-host": {
+      "hash": "1f49d2412ab60c6e",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "zerx-lab/FluxDown": {
+      "hash": "80c814cea6af41b7",
+      "starred_at": "",
+      "language": "Rust"
+    },
+    "Hisn00w/ASu-skills": {
+      "hash": "623a7f7a529186ba",
+      "starred_at": "",
+      "language": "HTML"
+    },
+    "LaoFeng-mouse/flyingmouse-format": {
+      "hash": "9c100001a31ddc15",
+      "starred_at": "",
+      "language": "JavaScript"
+    },
+    "macro-inc/macro": {
+      "hash": "2f0dfc77cf8f76fc",
+      "starred_at": "",
+      "language": "Rust"
+    },
+    "hugohe3/ppt-master": {
+      "hash": "7077c1bb234f78c7",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "guillaumemeyer/watermarks-remover": {
+      "hash": "5befb2ef60b56c28",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "Tencent-Hunyuan/Hunyuan3D-WorldClaw": {
+      "hash": "f7574af08ecda8bd",
+      "starred_at": "",
+      "language": null
+    },
+    "duolahypercho/codex-router": {
+      "hash": "366191e53f48e8b5",
+      "starred_at": "",
+      "language": "JavaScript"
+    },
+    "ailyProject/aily-blockly-libraries": {
+      "hash": "2453dac69efa7add",
+      "starred_at": "",
+      "language": "JavaScript"
+    },
+    "ailyProject/aily-blockly": {
+      "hash": "7e794f1b5ec6e6a1",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "MatrAIx-ai/MatrAIx-Persona-8B": {
+      "hash": "3c018504cdb59205",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "karanb192/itr-wala": {
+      "hash": "956004c8ba9ff386",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "oil-oil/oil-motion": {
+      "hash": "7f91bfe218c9ffed",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "HKUDS/LightRAG": {
+      "hash": "d2f4db7ab5c40aff",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "HKUDS/nanobot": {
+      "hash": "56aa99d5b684707f",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "TanStack/query": {
+      "hash": "0808bcd9559772d0",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "TanStack/charts": {
+      "hash": "d2383f9411a843d5",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "diffusionstudio/editor": {
+      "hash": "13e60bde8d35e2e8",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "antvis/Infographic": {
+      "hash": "0e2d66036f2ea69d",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "HKUDS/DeepTutor": {
+      "hash": "534e7e027719e799",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "Observal/Observal": {
+      "hash": "1ff9b9324a696343",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "cactus-compute/needle": {
+      "hash": "c2039fd30eba4310",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "Sidiora-Labs/centra-llm-agents": {
+      "hash": "d4f88534e3d9a631",
+      "starred_at": "",
+      "language": "Go"
+    },
+    "danielmiessler/LifeOS": {
+      "hash": "33b39df289c44009",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "connorgallopo/Tracearr": {
+      "hash": "ffe62b5f0046d8b5",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "cathrynlavery/diagram-design": {
+      "hash": "7862eb850add423e",
+      "starred_at": "",
+      "language": "HTML"
+    },
+    "aklivity/zilla": {
+      "hash": "e5ba6d317317f37d",
+      "starred_at": "",
+      "language": "Java"
+    },
+    "QwenLM/Qwen-MM-Plugins": {
+      "hash": "1f7be10547ce063d",
+      "starred_at": "",
+      "language": "HTML"
+    },
+    "MengTo/kage": {
+      "hash": "38438a10d80b6fba",
+      "starred_at": "",
+      "language": "HTML"
+    },
+    "marswaveai/ColaMD": {
+      "hash": "2194eaa189b4d5a2",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "sv-number/mcp-server": {
+      "hash": "25aec40db6631a11",
+      "starred_at": "",
+      "language": "JavaScript"
+    },
+    "openobserve/openobserve": {
+      "hash": "18b1343362b16296",
+      "starred_at": "",
+      "language": "TypeScript"
+    },
+    "harveyai/harvey-labs": {
+      "hash": "67d693ac23e57f86",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "pctrade/end4-pC": {
+      "hash": "3cc9c2d63369aacd",
+      "starred_at": "",
+      "language": "QML"
+    },
+    "semantica-agi/semantica": {
+      "hash": "4961a38a9df81fa4",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "vitali87/code-graph-rag": {
+      "hash": "5eab00924746123e",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "pranshuparmar/witr": {
+      "hash": "9b66dcc25aa2089e",
+      "starred_at": "",
+      "language": "Go"
+    },
+    "ShawnPana/phone-harness": {
+      "hash": "ac60d15a3ffb13bf",
+      "starred_at": "",
+      "language": "Python"
+    },
+    "TeamWheelWizard/WheelWizard": {
+      "hash": "479addc18092c1dd",
+      "starred_at": "",
+      "language": "C#"
+    },
     "huangruiteng/loopx": {
-      "hash": "cf8c182abd8179b6",
+      "hash": "de21b4e216677d07",
       "starred_at": "",
       "language": "Python"
     },
     "Jia-Ethan/codex-keysmith": {
-      "hash": "6f7999649c24fe33",
+      "hash": "251e529684c53d61",
       "starred_at": "",
       "language": "Python"
     },
@@ -71,7 +416,7 @@
       "language": "Go"
     },
     "usekaneo/kaneo": {
-      "hash": "6e66604190f6f3c5",
+      "hash": "0074318e8f87c459",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -80,7 +425,7 @@
       "starred_at": "",
       "language": "JavaScript"
     },
-    "sqliteai/waste": {
+    "sqliteai/warp": {
       "hash": "a880889d115ff153",
       "starred_at": "",
       "language": "C"
@@ -101,7 +446,7 @@
       "language": "TypeScript"
     },
     "yc-software/qm": {
-      "hash": "925ad9a94ac4f164",
+      "hash": "9ecf87e84781a2bd",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -421,12 +766,12 @@
       "language": "Rust"
     },
     "t8y2/dbx": {
-      "hash": "aead344aa107211e",
+      "hash": "0948c4ac9cd4e374",
       "starred_at": "",
       "language": "Rust"
     },
     "kungfu-systems/kungfu": {
-      "hash": "1f89b717f466c1b0",
+      "hash": "5027908967a82679",
       "starred_at": "",
       "language": "C++"
     },
@@ -451,9 +796,9 @@
       "language": "Python"
     },
     "earthtojake/text-to-cad": {
-      "hash": "3d2af0449a64653e",
+      "hash": "a5e136bf3d0e2a19",
       "starred_at": "",
-      "language": "JavaScript"
+      "language": "Python"
     },
     "topoteretes/cognee": {
       "hash": "78559b2e46713d7a",
@@ -586,7 +931,7 @@
       "language": "Rust"
     },
     "tt-a1i/archify": {
-      "hash": "9ebf91dde4fe1f3a",
+      "hash": "cdf07c72b3f51336",
       "starred_at": "",
       "language": "HTML"
     },
@@ -726,14 +1071,9 @@
       "language": "JavaScript"
     },
     "diegosouzapw/OmniRoute": {
-      "hash": "12a40696c92d412c",
+      "hash": "495499a5c439660f",
       "starred_at": "",
       "language": "TypeScript"
-    },
-    "SmileLikeYe/agent-chief": {
-      "hash": "eda5050762acb83b",
-      "starred_at": "",
-      "language": "Python"
     },
     "Nutlope/hallmark": {
       "hash": "a7c0da4c014f982c",
@@ -881,7 +1221,7 @@
       "language": "Go"
     },
     "ctxrs/ctx": {
-      "hash": "6ab20c0ba411fb85",
+      "hash": "75f5645f2cc28afd",
       "starred_at": "",
       "language": "Rust"
     },
@@ -1046,7 +1386,7 @@
       "language": "JavaScript"
     },
     "altic-dev/FluidVoice": {
-      "hash": "38828762b6420e93",
+      "hash": "5e17ad004d409e09",
       "starred_at": "",
       "language": "Swift"
     },
@@ -1371,7 +1711,7 @@
       "language": "TeX"
     },
     "GyulyVGC/sniffnet": {
-      "hash": "38e39b940ccf0fda",
+      "hash": "9e41e16440dbfb12",
       "starred_at": "",
       "language": "Rust"
     },
@@ -1441,7 +1781,7 @@
       "language": "Python"
     },
     "getagentseal/codeburn": {
-      "hash": "2bd08db4c01f2c5e",
+      "hash": "ad820f1e250ec274",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -1566,9 +1906,9 @@
       "language": "Python"
     },
     "Sophomoresty/gemini-web2api": {
-      "hash": "6c5c190d6126ad63",
+      "hash": "53d16f0c4b1660ed",
       "starred_at": "",
-      "language": "JavaScript"
+      "language": "Python"
     },
     "microsoft/markitdown": {
       "hash": "4e110547f1b4bbee",
@@ -1626,7 +1966,7 @@
       "language": "Python"
     },
     "paradigmxyz/centaur": {
-      "hash": "241401cdeaa080c2",
+      "hash": "656197cd83ce1b0c",
       "starred_at": "",
       "language": "Python"
     },
@@ -1636,7 +1976,7 @@
       "language": "TypeScript"
     },
     "Hmbown/CodeWhale": {
-      "hash": "c8581c76ffcf9495",
+      "hash": "f9b78f5e7fb535a3",
       "starred_at": "",
       "language": "Rust"
     },
@@ -2016,7 +2356,7 @@
       "language": "Python"
     },
     "nexu-io/open-design": {
-      "hash": "86cae334e949382f",
+      "hash": "32b794ea5c5724ec",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -2086,7 +2426,7 @@
       "language": "Rust"
     },
     "NousResearch/hermes-agent": {
-      "hash": "b1c9b2a357785dbe",
+      "hash": "58b08a6932606f3e",
       "starred_at": "",
       "language": "Python"
     },
@@ -2271,7 +2611,7 @@
       "language": "Go"
     },
     "nextlevelbuilder/ui-ux-pro-max-skill": {
-      "hash": "f0f12f8e05db84d5",
+      "hash": "b5b8df729f91c313",
       "starred_at": "",
       "language": "Python"
     },
@@ -2346,7 +2686,7 @@
       "language": "HTML"
     },
     "ChartGPU/ChartGPU": {
-      "hash": "bdeeaf6686052d6c",
+      "hash": "80a9bba92755dd99",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -2361,7 +2701,7 @@
       "language": "TypeScript"
     },
     "KeygraphHQ/shannon": {
-      "hash": "f1e09249e9921b14",
+      "hash": "7107dce943c0eba2",
       "starred_at": "",
       "language": "TypeScript"
     },
@@ -2411,8 +2751,8 @@
       "language": "JavaScript"
     }
   },
-  "updated_at": "2026-08-10T09:33:55Z",
-  "total_repos": 482,
-  "total_nodes": 2584,
-  "total_edges": 4176
+  "updated_at": "2026-08-17T06:44:49Z",
+  "total_repos": 550,
+  "total_nodes": 2849,
+  "total_edges": 4755
 }
