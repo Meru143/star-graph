@@ -1,34 +1,36 @@
 graph TD
   subgraph trading ["Trading"]
-    Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
-    ifixai_ai_iFixAi["ifixai-ai/iFixAi"]:::repo
-    backtesting["backtesting"]:::topic
-    LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
-    OpenBB_finance_OpenBB["OpenBB-finance/OpenBB"]:::repo
-    virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
-    paperswithbacktest_awesome_systematic_trading["paperswithbacktest/awesome-systematic-trading"]:::repo
-    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
-    quantitative_finance["quantitative-finance"]:::topic
-    risk_management["risk-management"]:::topic
-    TraderAlice_OpenAlice["TraderAlice/OpenAlice"]:::repo
-    vnpy_vnpy["vnpy/vnpy"]:::repo
-    portfolio_optimization["portfolio-optimization"]:::topic
-    nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
     algorithmic_trading["algorithmic-trading"]:::topic
     ZhuLinsen_daily_stock_analysis["ZhuLinsen/daily_stock_analysis"]:::repo
+    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
+    paperswithbacktest_awesome_systematic_trading["paperswithbacktest/awesome-systematic-trading"]:::repo
     HKUDS_Vibe_Trading["HKUDS/Vibe-Trading"]:::repo
+    OpenBB_finance_OpenBB["OpenBB-finance/OpenBB"]:::repo
+    virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
+    vnpy_vnpy["vnpy/vnpy"]:::repo
+    Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
+    TraderAlice_OpenAlice["TraderAlice/OpenAlice"]:::repo
+    portfolio_optimization["portfolio-optimization"]:::topic
+    quantitative_finance["quantitative-finance"]:::topic
+    risk_management["risk-management"]:::topic
+    nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
+    ifixai_ai_iFixAi["ifixai-ai/iFixAi"]:::repo
+    HiThink_Tech_Financial_API["HiThink-Tech/Financial-API"]:::repo
+    backtesting["backtesting"]:::topic
+    LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
   end
-  paperswithbacktest_awesome_systematic_trading --> algorithmic_trading
-  paperswithbacktest_awesome_systematic_trading --> quantitative_finance
-  algorithmic_trading --> HKUDS_Vibe_Trading
-  algorithmic_trading --> wilsonfreitas_awesome_quant
-  algorithmic_trading --> nautechsystems_nautilus_trader
-  algorithmic_trading --> vnpy_vnpy
+  HiThink_Tech_Financial_API --> quantitative_finance
+  quantitative_finance --> paperswithbacktest_awesome_systematic_trading
   quantitative_finance --> ZhuLinsen_daily_stock_analysis
   quantitative_finance --> wilsonfreitas_awesome_quant
   quantitative_finance --> HKUDS_Vibe_Trading
   quantitative_finance --> LLMQuant_quant_mind
   quantitative_finance --> OpenBB_finance_OpenBB
+  paperswithbacktest_awesome_systematic_trading --> algorithmic_trading
+  algorithmic_trading --> HKUDS_Vibe_Trading
+  algorithmic_trading --> wilsonfreitas_awesome_quant
+  algorithmic_trading --> nautechsystems_nautilus_trader
+  algorithmic_trading --> vnpy_vnpy
   ifixai_ai_iFixAi --> risk_management
   risk_management --> virattt_ai_hedge_fund
   risk_management --> nautechsystems_nautilus_trader
