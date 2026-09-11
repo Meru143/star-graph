@@ -87,10 +87,12 @@ def call_nvidia_nim(repo, api_key, max_retries=5):
 def enrich_repos(repos, api_key, cache_path):
     cache = {}
     if cache_path.exists():
-        with open(cache_path) as f:
+        with open(cache_path, encoding='utf-8') as f:
             cache = json.load(f)
 
-    enriched = {}
+    # Keep the full cache when this function is called with only new/changed repos.
+    enriched = dict(cache)
+    cache_path.parent.mkdir(parents=True, exist_ok=True)
     total = len(repos)
     for i, repo in enumerate(repos):
         full_name = repo['full_name']
@@ -107,17 +109,19 @@ def enrich_repos(repos, api_key, cache_path):
 
         enriched[full_name] = {
             'hash': repo_hash,
+            'model': MODEL,
+            'status': 'complete',
             'inferred_topics': inferred,
             'enriched_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())
         }
 
         if (i + 1) % 10 == 0:
-            with open(cache_path, 'w') as f:
+            with open(cache_path, 'w', encoding='utf-8') as f:
                 json.dump(enriched, f, indent=2)
 
         time.sleep(1.0)
 
-    with open(cache_path, 'w') as f:
+    with open(cache_path, 'w', encoding='utf-8') as f:
         json.dump(enriched, f, indent=2)
 
     return enriched
@@ -135,7 +139,7 @@ if __name__ == "__main__":
         print("Error: NVIDIA_API_KEY environment variable not set", file=sys.stderr)
         sys.exit(1)
 
-    with open(args.input) as f:
+    with open(args.input, encoding='utf-8') as f:
         repos = json.load(f)
 
     print(f"Loaded {len(repos)} repos")

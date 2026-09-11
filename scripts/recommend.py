@@ -4,9 +4,12 @@ Recommendation engine: "I use X and Y, what else fits my stack?"
 Uses graph neighbors + embedding similarity.
 Detects stale embeddings and warns.
 """
-import json, sys, argparse, os
+import json, sys, argparse, os, math
+from collections import Counter
 from pathlib import Path
-import numpy as np
+
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
 
 GRAPH_FILE = Path(__file__).parent.parent / 'data' / 'star_graph_enhanced.json'
 EMBEDDINGS_FILE = Path(__file__).parent.parent / 'data' / 'repo_embeddings.npy'
@@ -14,8 +17,15 @@ EMBEDDINGS_META_FILE = Path(__file__).parent.parent / 'data' / 'repo_embeddings_
 
 
 def load_graph():
-    with open(GRAPH_FILE) as f:
+    with open(GRAPH_FILE, encoding='utf-8') as f:
         return json.load(f)
+
+def as_set(value):
+    if isinstance(value, str):
+        return {item for item in value.split('|') if item}
+    if isinstance(value, list):
+        return {item for item in value if isinstance(item, str) and item}
+    return set()
 
 
 def get_repo_profile(graph, repo_name):
@@ -23,67 +33,73 @@ def get_repo_profile(graph, repo_name):
         if node['key'] == repo_name and node['attributes'].get('type') == 'repo':
             attrs = node['attributes']
             return {
-                'tech_stack': set(attrs.get('tech_stack', [])),
-                'inferred_topics': set(attrs.get('inferred_topics', [])),
-                'explicit_topics': set(t for t in attrs.get('all_topics', '').split('|') if t),
-                'use_cases': set(attrs.get('use_cases', [])),
-                'architecture': set(attrs.get('architecture_patterns', [])),
+                'tech_stack': as_set(attrs.get('tech_stack', [])),
+                'inferred_topics': as_set(attrs.get('inferred_topics', [])),
+                'explicit_topics': as_set(attrs.get('explicit_topics', attrs.get('all_topics', ''))),
+                'use_cases': as_set(attrs.get('use_cases', [])),
+                'architecture': as_set(attrs.get('architecture_patterns', [])),
                 'language': attrs.get('language', ''),
             }
     return None
 
 
-def graph_based_recommendations(graph, seed_repos, top_k=10):
-    seed_profiles = {}
-    for repo in seed_repos:
-        profile = get_repo_profile(graph, repo)
-        if profile:
-            seed_profiles[repo] = profile
-
+def graph_based_recommendations(graph, seed_repos, top_k=10, explain=False):
+    seed_profiles = {
+        repo: profile
+        for repo in seed_repos
+        if (profile := get_repo_profile(graph, repo))
+    }
     if not seed_profiles:
         return []
 
-    seed_tech = set()
-    seed_topics = set()
-    seed_use_cases = set()
-    seed_arch = set()
-    for p in seed_profiles.values():
-        seed_tech.update(p['tech_stack'])
-        seed_topics.update(p['inferred_topics'])
-        seed_topics.update(p['explicit_topics'])
-        seed_use_cases.update(p['use_cases'])
-        seed_arch.update(p['architecture'])
+    field_weights = {
+        'tech_stack': 3,
+        'inferred_topics': 2,
+        'explicit_topics': 2,
+        'use_cases': 2,
+        'architecture': 1,
+    }
+    profiles = {
+        node['key']: get_repo_profile(graph, node['key'])
+        for node in graph['nodes']
+        if node['attributes'].get('type') == 'repo'
+    }
+    document_frequency = Counter(
+        (field, value)
+        for profile in profiles.values()
+        for field in field_weights
+        for value in profile[field]
+    )
+    seed_values = {
+        field: set().union(*(profile[field] for profile in seed_profiles.values()))
+        for field in field_weights
+    }
 
-    scores = {}
-    for node in graph['nodes']:
-        if node['attributes'].get('type') != 'repo':
-            continue
-        repo = node['key']
+    scores = []
+    repo_count = max(len(profiles), 1)
+    for repo, profile in profiles.items():
         if repo in seed_repos:
             continue
-
-        attrs = node['attributes']
-        score = 0
-
-        repo_tech = set(attrs.get('tech_stack', []))
-        score += len(seed_tech & repo_tech) * 3
-
-        repo_topics = set(attrs.get('inferred_topics', [])) | set(t for t in attrs.get('all_topics', '').split('|') if t)
-        score += len(seed_topics & repo_topics) * 2
-
-        repo_use = set(attrs.get('use_cases', []))
-        score += len(seed_use_cases & repo_use) * 2
-
-        repo_arch = set(attrs.get('architecture_patterns', []))
-        score += len(seed_arch & repo_arch) * 1
-
+        score = 0.0
+        reasons = []
+        for field, multiplier in field_weights.items():
+            overlap = seed_values[field] & profile[field]
+            if not overlap:
+                continue
+            score += sum(
+                multiplier * (math.log((repo_count + 1) / (document_frequency[(field, value)] + 1)) + 1)
+                for value in overlap
+            )
+            reasons.append(f"{field.replace('_', ' ')}: {', '.join(sorted(overlap)[:3])}")
         if score > 0:
-            scores[repo] = score
+            scores.append((repo, score, reasons))
 
-    return sorted(scores.items(), key=lambda x: -x[1])[:top_k]
+    scores.sort(key=lambda item: (-item[1], item[0]))
+    return [item if explain else item[:2] for item in scores[:top_k]]
 
 
 def build_embeddings(graph):
+    import numpy as np
     try:
         from sentence_transformers import SentenceTransformer
     except ImportError:
@@ -115,16 +131,17 @@ def build_embeddings(graph):
     embeddings = model.encode(texts, show_progress_bar=True, batch_size=32)
 
     np.save(EMBEDDINGS_FILE, embeddings)
-    with open(EMBEDDINGS_META_FILE, 'w') as f:
+    with open(EMBEDDINGS_META_FILE, 'w', encoding='utf-8') as f:
         json.dump({'repos': repos}, f)
 
     return embeddings, repos
 
 
 def load_embeddings():
+    import numpy as np
     if EMBEDDINGS_FILE.exists() and EMBEDDINGS_META_FILE.exists():
         embeddings = np.load(EMBEDDINGS_FILE)
-        with open(EMBEDDINGS_META_FILE) as f:
+        with open(EMBEDDINGS_META_FILE, encoding='utf-8') as f:
             meta = json.load(f)
         return embeddings, meta['repos']
     return None, None
@@ -141,6 +158,7 @@ def check_embedding_staleness(graph, repo_list):
 
 
 def embedding_recommendations(seed_repos, graph, top_k=10):
+    import numpy as np
     embeddings, repos = load_embeddings()
     if embeddings is None:
         return []
@@ -189,12 +207,13 @@ def main():
 
     if args.method in ['graph', 'both']:
         print("\n=== Graph-based Recommendations ===")
-        recs = graph_based_recommendations(graph, seed_repos, args.top_k)
-        for repo, score in recs:
+        recs = graph_based_recommendations(graph, seed_repos, args.top_k, explain=True)
+        for repo, score, reasons in recs:
             for node in graph['nodes']:
                 if node['key'] == repo:
                     attrs = node['attributes']
-                    print(f"  {repo} (score: {score}) - {attrs.get('language', '')} - {attrs.get('primary_purpose', attrs.get('description', '')[:60])}")
+                    print(f"  {repo} (score: {score:.2f}) - {attrs.get('language', '')} - {attrs.get('primary_purpose', attrs.get('description', '')[:60])}")
+                    print(f"    Why: {'; '.join(reasons)}")
                     break
 
     if args.method in ['embedding', 'both']:

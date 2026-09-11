@@ -9,7 +9,7 @@ from pathlib import Path
 import networkx as nx
 
 sys.path.insert(0, str(Path(__file__).parent))
-from graph_utils import normalize_topic
+from graph_utils import normalize_topic, validate_deep_analysis
 
 DATA_DIR = Path(__file__).parent.parent / 'data'
 DEEP_FILE = DATA_DIR / 'deep_research.json'
@@ -20,31 +20,53 @@ ENHANCED_GRAPHML = DATA_DIR / 'star_graph_enhanced.graphml'
 
 def load_deep():
     if DEEP_FILE.exists():
-        with open(DEEP_FILE) as f:
+        with open(DEEP_FILE, encoding='utf-8') as f:
             return json.load(f)
     return {}
 
 
 def load_graph():
-    with open(GRAPH_FILE) as f:
+    with open(GRAPH_FILE, encoding='utf-8') as f:
         return json.load(f)
+
+def add_relation(graph, repo, node, source, weight):
+    if graph.has_edge(repo, node):
+        edge = graph.edges[repo, node]
+        sources = set(str(edge.get('source', '')).split('|')) - {''}
+        sources.add(source)
+        edge['source'] = '|'.join(sorted(sources))
+        edge['weight'] = max(int(edge.get('weight', 1)), weight)
+    else:
+        graph.add_edge(repo, node, weight=weight, source=source)
 
 
 def build_enhanced_graph(graph_data, deep_data):
     G = nx.Graph()
 
     for node in graph_data['nodes']:
-        G.add_node(node['key'], **node['attributes'])
+        attrs = dict(node['attributes'])
+        attrs.setdefault('deep_researched', False)
+        attrs.setdefault('deep_analysis_status', 'missing')
+        attrs.setdefault('deep_analyzed_at', '')
+        attrs.setdefault('deep_model', '')
+        G.add_node(node['key'], **attrs)
 
     for edge in graph_data['edges']:
         G.add_edge(edge['source'], edge['target'], **edge.get('attributes', {}))
 
     for full_name, data in deep_data.items():
-        analysis = data.get('deep_analysis', {})
-        if not analysis:
+        if not isinstance(data, dict):
             continue
-
         if not G.has_node(full_name):
+            continue
+        raw_analysis = data.get('deep_analysis', {})
+        analysis = validate_deep_analysis(raw_analysis) if raw_analysis else {}
+        node = G.nodes[full_name]
+        node['deep_researched'] = True
+        node['deep_analysis_status'] = 'complete' if analysis else 'missing'
+        node['deep_analyzed_at'] = data.get('analyzed_at', '') or ''
+        node['deep_model'] = data.get('model', '') or ''
+        if not analysis:
             continue
 
         # Add inferred topics
@@ -54,7 +76,7 @@ def build_enhanced_graph(graph_data, deep_data):
                 continue
             if not G.has_node(topic):
                 G.add_node(topic, type='topic', label=topic)
-            G.add_edge(full_name, topic, weight=2, source='deep_inferred')
+            add_relation(G, full_name, topic, 'deep_inferred', 2)
 
         # Add technologies
         for tech in analysis.get('tech_stack', []):
@@ -63,7 +85,7 @@ def build_enhanced_graph(graph_data, deep_data):
                 continue
             if not G.has_node(tech):
                 G.add_node(tech, type='technology', label=tech)
-            G.add_edge(full_name, tech, weight=2, source='deep_tech')
+            add_relation(G, full_name, tech, 'deep_tech', 2)
 
         # Add architecture patterns
         for pattern in analysis.get('architecture_patterns', []):
@@ -72,7 +94,7 @@ def build_enhanced_graph(graph_data, deep_data):
                 continue
             if not G.has_node(pattern):
                 G.add_node(pattern, type='architecture', label=pattern)
-            G.add_edge(full_name, pattern, weight=1, source='deep_arch')
+            add_relation(G, full_name, pattern, 'deep_arch', 1)
 
         # Add use cases
         for uc in analysis.get('use_cases', []):
@@ -81,7 +103,7 @@ def build_enhanced_graph(graph_data, deep_data):
                 continue
             if not G.has_node(uc):
                 G.add_node(uc, type='use_case', label=uc)
-            G.add_edge(full_name, uc, weight=2, source='deep_use_case')
+            add_relation(G, full_name, uc, 'deep_use_case', 2)
 
         # Add maturity, audience as node attributes
         G.nodes[full_name]['maturity'] = analysis.get('maturity', '')
@@ -93,7 +115,13 @@ def build_enhanced_graph(graph_data, deep_data):
         G.nodes[full_name]['tech_stack'] = analysis.get('tech_stack', [])
         G.nodes[full_name]['use_cases'] = analysis.get('use_cases', [])
         G.nodes[full_name]['architecture_patterns'] = analysis.get('architecture_patterns', [])
-        G.nodes[full_name]['inferred_topics'] = analysis.get('inferred_topics', [])
+        base_topics = G.nodes[full_name].get('inferred_topics', [])
+        if isinstance(base_topics, str):
+            base_topics = [topic for topic in base_topics.split('|') if topic]
+        G.nodes[full_name]['inferred_topics'] = list(dict.fromkeys(
+            list(base_topics) + analysis.get('inferred_topics', [])
+        ))
+        G.nodes[full_name]['deep_inferred_topics'] = analysis.get('inferred_topics', [])
 
     return G
 
@@ -105,7 +133,7 @@ def export_enhanced(G):
     for u, v, attrs in G.edges(data=True):
         graphology['edges'].append({'source': u, 'target': v, 'attributes': attrs})
 
-    with open(ENHANCED_JSON, 'w') as f:
+    with open(ENHANCED_JSON, 'w', encoding='utf-8') as f:
         json.dump(graphology, f, indent=2)
     print(f"Enhanced JSON: {ENHANCED_JSON} ({len(G.nodes())} nodes, {len(G.edges())} edges)")
 
@@ -177,7 +205,7 @@ def export_domain_mermaids(G):
             '  classDef architecture fill:#f85149,color:#fff;'
         ])
 
-        with open(DATA_DIR / f'star_graph_{domain_name}.mermaid', 'w') as f:
+        with open(DATA_DIR / f'star_graph_{domain_name}.mermaid', 'w', encoding='utf-8') as f:
             f.write('\n'.join(lines))
         print(f"  Domain Mermaid: {domain_name} ({len(sub_nodes)} nodes)")
 

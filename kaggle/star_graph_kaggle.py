@@ -107,7 +107,8 @@ def enrich_repos(repos, cache_path):
                 inferred = [normalize_topic(t) for t in json.loads(match.group()) if isinstance(t, str)][:8]
             except json.JSONDecodeError:
                 print(f"  Bad JSON: {content[:100]}")
-        cache[name] = {'hash': h, 'inferred_topics': inferred,
+        cache[name] = {'hash': h, 'model': 'local-llama-server', 'status': 'complete',
+                       'inferred_topics': inferred,
                        'enriched_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
         if (i + 1) % 10 == 0:
             cache_path.write_text(json.dumps(cache, indent=2))
@@ -160,7 +161,8 @@ def deep_research_all(repos, cache_path, skip_cached=True):
             max_tokens=1500, temperature=0.1)
         match = re.search(r'\{.*\}', content, re.DOTALL)
         analysis = json.loads(match.group()) if match else {}
-        cache[name] = {'repo_hash': compute_repo_hash(repo), 'deep_analysis': analysis,
+        cache[name] = {'repo_hash': compute_repo_hash(repo), 'model': 'local-llama-server',
+                       'deep_analysis': analysis,
                        'analyzed_at': time.strftime('%Y-%m-%dT%H:%M:%SZ', time.gmtime())}
         if (i + 1) % 5 == 0:
             cache_path.write_text(json.dumps(cache, indent=2))
@@ -177,6 +179,8 @@ def build_and_export():
                    check=True, timeout=300, cwd=str(STAR_GRAPH_DIR))
     subprocess.run([sys.executable, str(SCRIPTS_DIR / "recommend.py"), "--build-embeddings"],
                    check=True, timeout=600, cwd=str(STAR_GRAPH_DIR))
+    subprocess.run([sys.executable, str(SCRIPTS_DIR / "validate_data.py")],
+                   check=True, timeout=300, cwd=str(STAR_GRAPH_DIR))
 
 
 def git_env():

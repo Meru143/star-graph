@@ -58,10 +58,13 @@ def validate_deep_analysis(data):
     maturity = str(data.get('maturity', '')).lower()
     result['maturity'] = maturity if maturity in ('experimental', 'active', 'stable', 'deprecated') else ''
 
-    audience = str(data.get('target_audience', '')).lower()
-    result['target_audience'] = audience if audience in (
-        'developers', 'data-scientists', 'devops', 'researchers', 'general'
-    ) else ''
+    allowed_audiences = ('developers', 'data-scientists', 'devops', 'researchers', 'general')
+    raw_audience = data.get('target_audience', '')
+    audience_values = raw_audience if isinstance(raw_audience, list) else [raw_audience]
+    result['target_audience'] = next(
+        (str(a).lower() for a in audience_values if str(a).lower() in allowed_audiences),
+        ''
+    )
 
     uv = data.get('unique_value', '')
     result['unique_value'] = str(uv)[:500] if uv else ''

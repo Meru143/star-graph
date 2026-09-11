@@ -11,6 +11,9 @@ import numpy as np
 
 sys.path.insert(0, str(Path(__file__).parent))
 
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
 GRAPH_FILE = Path(__file__).parent.parent / 'data' / 'star_graph_enhanced.json'
 EMBEDDINGS_FILE = Path(__file__).parent.parent / 'data' / 'repo_embeddings.npy'
 EMBEDDINGS_META_FILE = Path(__file__).parent.parent / 'data' / 'repo_embeddings_meta.json'
@@ -34,14 +37,14 @@ Answer:"""
 
 
 def load_graph():
-    with open(GRAPH_FILE) as f:
+    with open(GRAPH_FILE, encoding='utf-8') as f:
         return json.load(f)
 
 
 def load_embeddings():
     if EMBEDDINGS_FILE.exists() and EMBEDDINGS_META_FILE.exists():
         embeddings = np.load(EMBEDDINGS_FILE)
-        with open(EMBEDDINGS_META_FILE) as f:
+        with open(EMBEDDINGS_META_FILE, encoding='utf-8') as f:
             meta = json.load(f)
         return embeddings, meta['repos']
     return None, None
@@ -160,12 +163,20 @@ def format_context(subgraph):
                 lines.append(f"  Tech: {', '.join(attrs['tech_stack'][:8])}")
             if attrs.get('use_cases'):
                 lines.append(f"  Use Cases: {', '.join(attrs['use_cases'][:6])}")
+            if attrs.get('target_audience'):
+                lines.append(f"  Audience: {attrs['target_audience']}")
+            if attrs.get('unique_value'):
+                lines.append(f"  Unique Value: {attrs['unique_value'][:200]}")
             if attrs.get('maturity'):
                 lines.append(f"  Maturity: {attrs['maturity']}")
             if attrs.get('production_ready') is not None:
                 lines.append(f"  Production Ready: {attrs['production_ready']}")
             if attrs.get('inferred_topics'):
                 lines.append(f"  Topics: {', '.join(attrs['inferred_topics'][:8])}")
+            if attrs.get('enrichment_status'):
+                lines.append(f"  Enrichment: {attrs['enrichment_status']} ({attrs.get('enrichment_model', 'unknown model')})")
+            if attrs.get('deep_researched'):
+                lines.append(f"  Deep research: {attrs.get('deep_analysis_status', 'unknown')} ({attrs.get('deep_model', 'unknown model')})")
         elif ntype in ['topic', 'technology', 'use_case', 'architecture']:
             lines.append(f"{ntype.upper()}: {key}")
 

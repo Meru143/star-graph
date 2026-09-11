@@ -51,6 +51,10 @@ jobs:
         run: |
           python scripts/recommend.py --build-embeddings
 
+      - name: Validate generated data
+        run: |
+          python scripts/validate_data.py
+
       - name: Check for changes
         id: changes
         run: |

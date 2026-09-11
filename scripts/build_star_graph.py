@@ -27,25 +27,25 @@ def compute_repo_hash(repo):
 
 def load_state():
     if STATE_FILE.exists():
-        with open(STATE_FILE) as f:
+        with open(STATE_FILE, encoding='utf-8') as f:
             return json.load(f)
     return {'repos': {}}
 
 
 def save_state(state):
-    with open(STATE_FILE, 'w') as f:
+    with open(STATE_FILE, 'w', encoding='utf-8') as f:
         json.dump(state, f, indent=2)
 
 
 def load_enriched():
     if ENRICHED_FILE.exists():
-        with open(ENRICHED_FILE) as f:
+        with open(ENRICHED_FILE, encoding='utf-8') as f:
             return json.load(f)
     return {}
 
 
 def load_raw_repos():
-    with open(RAW_FILE) as f:
+    with open(RAW_FILE, encoding='utf-8') as f:
         data = json.load(f)
     # Handle --slurp output: array of page arrays -> flatten
     if data and isinstance(data[0], list):
@@ -59,9 +59,13 @@ def build_graph(repos, enriched):
     for repo in repos:
         full_name = repo['full_name']
         repo_hash = compute_repo_hash(repo)
+        enrichment = enriched.get(full_name, {})
 
         explicit = [normalize_topic(t) for t in repo.get('topics', []) if normalize_topic(t)]
-        inferred = [normalize_topic(t) for t in enriched.get(full_name, {}).get('inferred_topics', []) if normalize_topic(t)]
+        inferred_value = enrichment.get('inferred_topics', [])
+        if isinstance(inferred_value, str):
+            inferred_value = [t for t in inferred_value.split('|') if t]
+        inferred = [normalize_topic(t) for t in inferred_value if normalize_topic(t)]
         all_topics = list(dict.fromkeys(explicit + inferred))  # dedupe preserving order
 
         G.add_node(full_name,
@@ -72,14 +76,25 @@ def build_graph(repos, enriched):
                    html_url=repo.get('html_url', '') or '',
                    hash=repo_hash,
                    explicit_topics='|'.join(explicit),
-                   inferred_topics='|'.join(inferred),
+                   inferred_topics=inferred,
                    all_topics='|'.join(all_topics),
-                   enriched_at=enriched.get(full_name, {}).get('enriched_at', '') or '')
+                   enriched_at=enrichment.get('enriched_at', '') or '',
+                   enrichment_hash=enrichment.get('hash', '') or '',
+                   enrichment_model=enrichment.get('model', '') or '',
+                   enrichment_status=enrichment.get(
+                       'status', 'legacy' if enrichment else 'missing'))
 
         for topic in all_topics:
             if not G.has_node(topic):
                 G.add_node(topic, type='topic')
-            G.add_edge(full_name, topic)
+            sources = []
+            if topic in explicit:
+                sources.append('github')
+            if topic in inferred:
+                sources.append('llm')
+            G.add_edge(full_name, topic,
+                       source='|'.join(sources),
+                       weight=2 if 'llm' in sources else 1)
 
     return G
 
@@ -92,7 +107,7 @@ def export_graph(G):
     for u, v, data in G.edges(data=True):
         graphology['edges'].append({'source': u, 'target': v, 'attributes': data})
 
-    with open(GRAPH_JSON, 'w') as f:
+    with open(GRAPH_JSON, 'w', encoding='utf-8') as f:
         json.dump(graphology, f, indent=2)
     print(f"Written {GRAPH_JSON} ({len(G.nodes())} nodes, {len(G.edges())} edges)")
 
@@ -140,7 +155,7 @@ def export_graph(G):
         mermaid_lines.append(f'  {topic.replace("-", "_")}["{topic}"]:::topic')
     mermaid_lines.append('  classDef topic fill:#f9f,stroke:#333,stroke-width:2px;')
 
-    with open(MERMAID_FILE, 'w') as f:
+    with open(MERMAID_FILE, 'w', encoding='utf-8') as f:
         f.write('\n'.join(mermaid_lines))
     print(f"Written {MERMAID_FILE}")
 
@@ -187,7 +202,7 @@ def main():
         print("Enriching new/changed repos...")
         import subprocess
         temp_file = DATA_DIR / 'temp_new_repos.json'
-        with open(temp_file, 'w') as f:
+        with open(temp_file, 'w', encoding='utf-8') as f:
             json.dump(new_or_changed, f)
 
         api_key = os.environ.get('NVIDIA_API_KEY')

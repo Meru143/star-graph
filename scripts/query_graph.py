@@ -6,11 +6,14 @@ Uses pre-built adjacency and type indexes for O(1) lookups.
 import json, sys
 from pathlib import Path
 
-GRAPH_FILE = Path(__file__).parent.parent / 'data' / 'star_graph.json'
+if hasattr(sys.stdout, 'reconfigure'):
+    sys.stdout.reconfigure(encoding='utf-8')
+
+GRAPH_FILE = Path(__file__).parent.parent / 'data' / 'star_graph_enhanced.json'
 
 
 def load_graph():
-    with open(GRAPH_FILE) as f:
+    with open(GRAPH_FILE, encoding='utf-8') as f:
         return json.load(f)
 
 
@@ -114,7 +117,7 @@ def export_mermaid(graph, output_path, topic_filter, adj, node_type):
         lines.append(f'  {topic.replace("-", "_")}["{topic}"]:::topic')
     lines.append('  classDef topic fill:#f9f,stroke:#333,stroke-width:2px;')
 
-    with open(output_path, 'w') as f:
+    with open(output_path, 'w', encoding='utf-8') as f:
         f.write('\n'.join(lines))
     print(f"Exported to {output_path}")
 
