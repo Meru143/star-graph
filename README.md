@@ -35,6 +35,16 @@ python scripts/query_graph.py --topic ai-agents
 # Find repos by topic + language
 python scripts/query_graph.py --topic ai-agents --language python
 
+# Search a project domain with aliases (CMS, headless CMS, admin platforms, etc.)
+python scripts/research.py search --domain cms
+python scripts/query_graph.py --domain backend-platform
+
+# Create a Markdown research report for a new project
+python scripts/research.py report --query "I'm building a Next.js content-heavy app" --output reports/nextjs-content.md
+
+# Compare shortlisted candidates
+python scripts/research.py compare --repos directus/directus,tinacms/tinacms --output reports/cms-compare.md
+
 # Topic co-occurrence (what appears with "ai-agents")
 python scripts/query_graph.py --cooccur ai-agents
 
@@ -86,6 +96,7 @@ GitHub Action runs every Monday 06:00 UTC:
 | `data/star_graph.mermaid` | Mermaid | Obsidian, GitHub, Notion |
 | `data/enriched_repos.json` | JSON | LLM cache (hash-based) |
 | `data/deep_research.json` | JSON | Optional deep-research cache |
+| `data/domain_aliases.json` | JSON | Editable project-domain search aliases |
 | `data/last_starred_state.json` | JSON | Incremental diff state |
 
 ## Setup for Your Own Stars

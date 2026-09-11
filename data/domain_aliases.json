@@ -1,0 +1,58 @@
+{
+  "cms": [
+    "cms",
+    "content management",
+    "headless cms",
+    "content platform",
+    "publishing platform",
+    "admin platform",
+    "admin dashboard",
+    "strapi",
+    "directus",
+    "payload",
+    "sanity",
+    "keystone",
+    "ghost",
+    "wordpress"
+  ],
+  "ai-harness": [
+    "ai harness",
+    "agent harness",
+    "llm harness",
+    "agent framework",
+    "agent orchestration",
+    "coding agent",
+    "multi-agent",
+    "mcp",
+    "langgraph",
+    "autogen",
+    "crew ai"
+  ],
+  "backend-platform": [
+    "backend platform",
+    "backend as a service",
+    "baas",
+    "database platform",
+    "api platform",
+    "serverless",
+    "supabase",
+    "appwrite",
+    "firebase",
+    "pocketbase"
+  ],
+  "frontend": [
+    "frontend",
+    "front end",
+    "ui",
+    "ux",
+    "design system",
+    "component library",
+    "react",
+    "nextjs",
+    "next.js",
+    "tailwind",
+    "css",
+    "web development",
+    "browser"
+  ]
+}

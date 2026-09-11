@@ -67,6 +67,13 @@ def build_graph(repos, enriched):
             inferred_value = [t for t in inferred_value.split('|') if t]
         inferred = [normalize_topic(t) for t in inferred_value if normalize_topic(t)]
         all_topics = list(dict.fromkeys(explicit + inferred))  # dedupe preserving order
+        license_data = repo.get('license') or {}
+        license_name = (
+            license_data.get('spdx_id') or license_data.get('name', '')
+            if isinstance(license_data, dict) else str(license_data)
+        )
+        if license_name == 'NOASSERTION':
+            license_name = ''
 
         G.add_node(full_name,
                    type='repo',
@@ -74,6 +81,12 @@ def build_graph(repos, enriched):
                    language=repo.get('language', '') or '',
                    stargazers_count=repo.get('stargazers_count', 0),
                    html_url=repo.get('html_url', '') or '',
+                   license=license_name or '',
+                   pushed_at=repo.get('pushed_at', '') or '',
+                   updated_at=repo.get('updated_at', '') or '',
+                   created_at=repo.get('created_at', '') or '',
+                   archived=bool(repo.get('archived', False)),
+                   fork=bool(repo.get('fork', False)),
                    hash=repo_hash,
                    explicit_topics='|'.join(explicit),
                    inferred_topics=inferred,

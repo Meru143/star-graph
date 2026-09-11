@@ -126,6 +126,7 @@ def main():
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('--topic', help='Find repos by topic')
+    parser.add_argument('--domain', help='Find repos using domain aliases (e.g. cms)')
     parser.add_argument('--language', help='Filter by language')
     parser.add_argument('--cooccur', help='Topic co-occurrence')
     parser.add_argument('--similar', help='Find similar repos')
@@ -147,6 +148,14 @@ def main():
         for topic, count in topic_cooccurrence(graph, args.cooccur, adj, node_type)[:20]:
             print(f"  {topic}: {count}")
 
+    elif args.domain:
+        sys.path.insert(0, str(Path(__file__).parent))
+        from research import search_repos
+        for index, result in enumerate(search_repos(graph, args.domain, domain=args.domain), 1):
+            attrs = result['attributes']
+            print(f"  {index}. {result['repo']} - {attrs.get('language', '')} - {attrs.get('stargazers_count', 0):,} stars")
+            print(f"     Why: {'; '.join(result['reasons'])}")
+
     elif args.similar:
         for repo, score in recommend_similar(graph, args.similar, adj, node_type):
             print(f"  {repo}: {score} shared topics")
@@ -155,7 +164,7 @@ def main():
         export_mermaid(graph, Path(args.output or f'data/{args.mermaid}_subgraph.mermaid'), args.mermaid, adj, node_type)
 
     else:
-        print("Usage: --topic TOPIC [--language LANG] | --cooccur TOPIC | --similar REPO | --mermaid TOPIC [--output FILE]")
+        print("Usage: --topic TOPIC [--language LANG] | --domain DOMAIN | --cooccur TOPIC | --similar REPO | --mermaid TOPIC [--output FILE]")
 
 
 if __name__ == '__main__':
