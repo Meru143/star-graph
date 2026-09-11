@@ -10,7 +10,7 @@ All enrichment/deep-research prompts are identical to the original scripts.
 Just the API endpoint changes from NVIDIA NIM to local llama-server.
 """
 
-import json, hashlib, os, re, subprocess, sys, time
+import base64, json, hashlib, os, re, subprocess, sys, time
 from pathlib import Path
 import requests
 
@@ -179,6 +179,19 @@ def build_and_export():
                    check=True, timeout=600, cwd=str(STAR_GRAPH_DIR))
 
 
+def git_env():
+    token = os.environ.get('GH_PAT')
+    if not token:
+        raise RuntimeError('GH_PAT environment variable is required for git push')
+    auth = base64.b64encode(f'x-access-token:{token}'.encode()).decode()
+    return {
+        **os.environ,
+        'GIT_CONFIG_COUNT': '1',
+        'GIT_CONFIG_KEY_0': 'http.https://github.com/.extraheader',
+        'GIT_CONFIG_VALUE_0': f'AUTHORIZATION: basic {auth}',
+    }
+
+
 def commit_and_push():
     result = subprocess.run(["git", "diff", "--quiet", "data/"],
                             cwd=str(STAR_GRAPH_DIR), capture_output=True)
@@ -190,12 +203,8 @@ def commit_and_push():
     subprocess.run(["git", "add", "data/"], cwd=str(STAR_GRAPH_DIR), check=True)
     subprocess.run(["git", "commit", "-m", f"chore: kaggle update {time.strftime('%Y-%m-%d')}"],
                    cwd=str(STAR_GRAPH_DIR), check=True)
-    gh_pat = os.environ.get('GH_PAT', '')
-    remote_url = f"https://Meru143:{gh_pat}@github.com/Meru143/star-graph.git" if gh_pat else "origin"
-    subprocess.run(["git", "remote", "set-url", "origin", remote_url], cwd=str(STAR_GRAPH_DIR), check=True)
-    subprocess.run(["git", "push", "origin", "master"], cwd=str(STAR_GRAPH_DIR), check=True)
-    subprocess.run(["git", "remote", "set-url", "origin", "https://github.com/Meru143/star-graph.git"],
-                   cwd=str(STAR_GRAPH_DIR), check=True)
+    subprocess.run(["git", "push", "origin", "master"],
+                   cwd=str(STAR_GRAPH_DIR), check=True, env=git_env())
     print("Pushed!")
 
 
