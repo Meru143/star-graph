@@ -61,6 +61,39 @@ python scripts/validate_data.py
 python scripts/query_graph.py --mermaid ai-agents --output data/ai-agents.mermaid
 ```
 
+## CLI and Local MCP
+
+Install the lightweight CLI and MCP server from the repo root:
+
+```bash
+python -m pip install --user pipx
+python -m pipx ensurepath
+# Reopen the terminal after ensurepath, then run:
+pipx install --editable .
+
+star-graph search --domain cms
+star-graph-mcp
+```
+
+The MCP server uses local stdio and exposes `list_domains`, `search_domain`, `research_project`, `compare_repositories`, and `get_repository`. Configure your MCP host to launch `star-graph-mcp` and set `STAR_GRAPH_DATA_DIR` to this repo's `data` directory. The server reads the generated graph locally; it does not host a website or open a network port.
+
+Example MCP host configuration:
+
+```json
+{
+  "mcpServers": {
+    "star-graph": {
+      "command": "star-graph-mcp",
+      "env": {
+        "STAR_GRAPH_DATA_DIR": "C:\\path\\to\\star-graph\\data"
+      }
+    }
+  }
+}
+```
+
+Reports written under `reports/` are ignored because they are personal research notes.
+
 ## Architecture
 
 ```

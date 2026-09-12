@@ -3,6 +3,9 @@ data/page_*.json
 data/test_*.json
 data/temp_*.json
 
+# Personal project research reports (generated locally)
+reports/
+
 # Python
 __pycache__/
 *.pyc

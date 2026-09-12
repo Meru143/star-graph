@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "star-graph"
+version = "0.2.0"
+description = "A personal research CLI and MCP server for starred GitHub repositories"
+requires-python = ">=3.10"
+dependencies = ["mcp>=1.0,<2"]
+
+[project.scripts]
+star-graph = "scripts.research:main"
+star-graph-mcp = "scripts.mcp_server:main"
+
+[tool.setuptools.packages.find]
+include = ["scripts*"]

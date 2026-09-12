@@ -2,6 +2,7 @@
 import argparse
 import json
 import math
+import os
 import re
 import sys
 from collections import Counter
@@ -12,8 +13,7 @@ if hasattr(sys.stdout, 'reconfigure'):
     sys.stdout.reconfigure(encoding='utf-8')
 
 ROOT = Path(__file__).parent.parent
-GRAPH_FILE = ROOT / 'data' / 'star_graph_enhanced.json'
-ALIASES_FILE = ROOT / 'data' / 'domain_aliases.json'
+DEFAULT_DATA_DIR = ROOT / 'data'
 TOKEN_RE = re.compile(r'[a-z0-9]+')
 STOPWORDS = {
     'about', 'and', 'app', 'build', 'building', 'for', 'from', 'help', 'how',
@@ -45,13 +45,23 @@ DOMAIN_QUERY_HINTS = {
 
 
 def load_graph():
-    with open(GRAPH_FILE, encoding='utf-8') as handle:
+    with open(data_dir() / 'star_graph_enhanced.json', encoding='utf-8') as handle:
         return json.load(handle)
 
 
 def load_aliases():
-    with open(ALIASES_FILE, encoding='utf-8') as handle:
+    with open(data_dir() / 'domain_aliases.json', encoding='utf-8') as handle:
         return json.load(handle)
+
+
+def data_dir():
+    configured = os.environ.get('STAR_GRAPH_DATA_DIR')
+    if configured:
+        return Path(configured)
+    local = Path.cwd() / 'data'
+    if (local / 'star_graph_enhanced.json').exists():
+        return local
+    return DEFAULT_DATA_DIR
 
 
 def normalize_text(value):
