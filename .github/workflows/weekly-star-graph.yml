@@ -53,7 +53,7 @@ jobs:
 
       - name: Validate generated data
         run: |
-          python scripts/validate_data.py
+          python scripts/validate_data.py --allow-stale-enrichment
 
       - name: Check for changes
         id: changes

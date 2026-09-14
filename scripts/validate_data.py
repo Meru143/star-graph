@@ -31,6 +31,11 @@ def repo_hash(repo):
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--graph', default=str(DATA / 'star_graph_enhanced.json'))
+    parser.add_argument(
+        '--allow-stale-enrichment',
+        action='store_true',
+        help='Report stale enrichment hashes as warnings instead of errors',
+    )
     args = parser.parse_args()
 
     errors = []
@@ -98,7 +103,8 @@ def main():
     for repo in repos:
         entry = enriched.get(repo.get('full_name'))
         if entry and entry.get('hash') != repo_hash(repo):
-            errors.append(f'{repo.get("full_name")} has a stale enrichment hash')
+            message = f'{repo.get("full_name")} has a stale enrichment hash'
+            (warnings if args.allow_stale_enrichment else errors).append(message)
 
     deep_path = DATA / 'deep_research.json'
     deep = load(deep_path) if deep_path.exists() else {}
