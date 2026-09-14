@@ -1,14 +1,14 @@
 graph TD
   subgraph llm_inference ["Llm Inference"]
-    modelscope_FunASR["modelscope/FunASR"]:::repo
+    AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash["AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-DFlash"]:::repo
     z_lab_dflash["z-lab/dflash"]:::repo
-    gitleaks_gitleaks["gitleaks/gitleaks"]:::repo
+    drumih_turbo_fieldfare["drumih/turbo-fieldfare"]:::repo
+    modelscope_FunASR["modelscope/FunASR"]:::repo
+    llm_inference["llm-inference"]:::topic
     sglang["sglang"]:::topic
     ARahim3_kaggle_tpu_lab["ARahim3/kaggle-tpu-lab"]:::repo
     patchy631_time_to_first_token["patchy631/time-to-first-token"]:::repo
-    AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash["AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-DFlash"]:::repo
-    llm_inference["llm-inference"]:::topic
-    drumih_turbo_fieldfare["drumih/turbo-fieldfare"]:::repo
+    gitleaks_gitleaks["gitleaks/gitleaks"]:::repo
     vllm["vllm"]:::topic
   end
   ARahim3_kaggle_tpu_lab --> llm_inference

@@ -1,34 +1,40 @@
 graph TD
   subgraph video_content ["Video Content"]
-    calesthio_OpenMontage["calesthio/OpenMontage"]:::repo
-    jamiepine_voicebox["jamiepine/voicebox"]:::repo
-    IgorShadurin_app_yumcut_com["IgorShadurin/app.yumcut.com"]:::repo
     remotion_dev_skills["remotion-dev/skills"]:::repo
-    tiktok["tiktok"]:::topic
-    video_editing["video-editing"]:::topic
-    pixel_point_aval["pixel-point/aval"]:::repo
-    HKUDS_ViMax["HKUDS/ViMax"]:::repo
-    OpenCut_app_OpenCut["OpenCut-app/OpenCut"]:::repo
     mvanhorn_last30days_skill["mvanhorn/last30days-skill"]:::repo
-    alamshafil_auto_shorts["alamshafil/auto-shorts"]:::repo
+    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
+    harry0703_MoneyPrinterTurbo["harry0703/MoneyPrinterTurbo"]:::repo
+    calesthio_OpenMontage["calesthio/OpenMontage"]:::repo
+    imputnet_cobalt["imputnet/cobalt"]:::repo
     palmier_io_palmier_pro["palmier-io/palmier-pro"]:::repo
-    coreyhaines31_marketingskills["coreyhaines31/marketingskills"]:::repo
-    Hao0321_video_autopilot_kit["Hao0321/video-autopilot-kit"]:::repo
-    Huanshere_VideoLingo["Huanshere/VideoLingo"]:::repo
-    dramaclaw_dramaclaw["dramaclaw/dramaclaw"]:::repo
-    browser_use_video_use["browser-use/video-use"]:::repo
+    OpenCut_app_OpenCut["OpenCut-app/OpenCut"]:::repo
     trykimu_videoeditor["trykimu/videoeditor"]:::repo
     content_creation["content-creation"]:::topic
-    SamurAIGPT_Generative_Media_Skills["SamurAIGPT/Generative-Media-Skills"]:::repo
-    MervinPraison_PraisonAI["MervinPraison/PraisonAI"]:::repo
-    video_generation["video-generation"]:::topic
-    harry0703_MoneyPrinterTurbo["harry0703/MoneyPrinterTurbo"]:::repo
-    bradautomates_claude_video["bradautomates/claude-video"]:::repo
+    HKUDS_ViMax["HKUDS/ViMax"]:::repo
     AIEraDev_Clypra["AIEraDev/Clypra"]:::repo
+    tiktok["tiktok"]:::topic
+    video_generation["video-generation"]:::topic
+    video_editing["video-editing"]:::topic
+    coreyhaines31_marketingskills["coreyhaines31/marketingskills"]:::repo
+    browser_use_video_use["browser-use/video-use"]:::repo
+    Hao0321_video_autopilot_kit["Hao0321/video-autopilot-kit"]:::repo
+    jamiepine_voicebox["jamiepine/voicebox"]:::repo
+    MervinPraison_PraisonAI["MervinPraison/PraisonAI"]:::repo
+    alamshafil_auto_shorts["alamshafil/auto-shorts"]:::repo
+    dramaclaw_dramaclaw["dramaclaw/dramaclaw"]:::repo
+    bradautomates_claude_video["bradautomates/claude-video"]:::repo
+    Huanshere_VideoLingo["Huanshere/VideoLingo"]:::repo
+    pixel_point_aval["pixel-point/aval"]:::repo
     ATH_MaaS_Pixelle_Video["ATH-MaaS/Pixelle-Video"]:::repo
+    IgorShadurin_app_yumcut_com["IgorShadurin/app.yumcut.com"]:::repo
     youtube_automation["youtube-automation"]:::topic
-    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
+    SamurAIGPT_Generative_Media_Skills["SamurAIGPT/Generative-Media-Skills"]:::repo
   end
+  imputnet_cobalt --> tiktok
+  tiktok --> IgorShadurin_app_yumcut_com
+  tiktok --> alamshafil_auto_shorts
+  tiktok --> mvanhorn_last30days_skill
+  tiktok --> harry0703_MoneyPrinterTurbo
   dramaclaw_dramaclaw --> content_creation
   dramaclaw_dramaclaw --> video_generation
   content_creation --> Hao0321_video_autopilot_kit
@@ -50,10 +56,6 @@ graph TD
   AIEraDev_Clypra --> video_editing
   Hao0321_video_autopilot_kit --> youtube_automation
   OpenCut_app_OpenCut --> video_editing
-  IgorShadurin_app_yumcut_com --> tiktok
-  tiktok --> alamshafil_auto_shorts
-  tiktok --> mvanhorn_last30days_skill
-  tiktok --> harry0703_MoneyPrinterTurbo
   calesthio_OpenMontage --> video_editing
   palmier_io_palmier_pro --> video_editing
   elebumm_RedditVideoMakerBot --> video_editing

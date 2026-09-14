@@ -1,24 +1,28 @@
 graph TD
   subgraph trading ["Trading"]
-    nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
-    LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
-    TraderAlice_OpenAlice["TraderAlice/OpenAlice"]:::repo
-    virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
-    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
-    OpenBB_finance_OpenBB["OpenBB-finance/OpenBB"]:::repo
-    Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
-    risk_management["risk-management"]:::topic
-    backtesting["backtesting"]:::topic
+    HiThink_Tech_Financial_API["HiThink-Tech/Financial-API"]:::repo
     quantitative_finance["quantitative-finance"]:::topic
     algorithmic_trading["algorithmic-trading"]:::topic
-    ifixai_ai_iFixAi["ifixai-ai/iFixAi"]:::repo
     HKUDS_Vibe_Trading["HKUDS/Vibe-Trading"]:::repo
-    vnpy_vnpy["vnpy/vnpy"]:::repo
+    ifixai_ai_iFixAi["ifixai-ai/iFixAi"]:::repo
+    risk_management["risk-management"]:::topic
+    backtesting["backtesting"]:::topic
+    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
+    Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
+    virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
     paperswithbacktest_awesome_systematic_trading["paperswithbacktest/awesome-systematic-trading"]:::repo
-    HiThink_Tech_Financial_API["HiThink-Tech/Financial-API"]:::repo
+    Mathieu2301_TradingView_API["Mathieu2301/TradingView-API"]:::repo
     ZhuLinsen_daily_stock_analysis["ZhuLinsen/daily_stock_analysis"]:::repo
+    OpenBB_finance_OpenBB["OpenBB-finance/OpenBB"]:::repo
+    LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
     portfolio_optimization["portfolio-optimization"]:::topic
+    TraderAlice_OpenAlice["TraderAlice/OpenAlice"]:::repo
+    vnpy_vnpy["vnpy/vnpy"]:::repo
+    nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
   end
+  Mathieu2301_TradingView_API --> backtesting
+  backtesting --> HKUDS_Vibe_Trading
+  backtesting --> Drakkar_Software_OctoBot
   HiThink_Tech_Financial_API --> quantitative_finance
   quantitative_finance --> paperswithbacktest_awesome_systematic_trading
   quantitative_finance --> ZhuLinsen_daily_stock_analysis
@@ -38,8 +42,6 @@ graph TD
   risk_management --> vnpy_vnpy
   wilsonfreitas_awesome_quant --> portfolio_optimization
   virattt_ai_hedge_fund --> portfolio_optimization
-  HKUDS_Vibe_Trading --> backtesting
-  backtesting --> Drakkar_Software_OctoBot
   nautechsystems_nautilus_trader --> portfolio_optimization
   classDef repo fill:#1f6feb,color:#fff;
   classDef topic fill:#a371f7,color:#fff;
