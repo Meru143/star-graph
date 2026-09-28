@@ -1,20 +1,22 @@
 graph TD
   subgraph llm_inference ["Llm Inference"]
-    llm_inference["llm-inference"]:::topic
-    vllm["vllm"]:::topic
     sglang["sglang"]:::topic
     modelscope_FunASR["modelscope/FunASR"]:::repo
     gitleaks_gitleaks["gitleaks/gitleaks"]:::repo
-    ARahim3_kaggle_tpu_lab["ARahim3/kaggle-tpu-lab"]:::repo
-    patchy631_time_to_first_token["patchy631/time-to-first-token"]:::repo
+    vllm["vllm"]:::topic
     AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash["AEON-7/Qwen3.6-27B-AEON-Ultimate-Uncensored-DFlash"]:::repo
-    z_lab_dflash["z-lab/dflash"]:::repo
+    llm_inference["llm-inference"]:::topic
     drumih_turbo_fieldfare["drumih/turbo-fieldfare"]:::repo
+    z_lab_dflash["z-lab/dflash"]:::repo
+    patchy631_time_to_first_token["patchy631/time-to-first-token"]:::repo
+    ARahim3_kaggle_tpu_lab["ARahim3/kaggle-tpu-lab"]:::repo
+    raullenchai_Rapid_MLX["raullenchai/Rapid-MLX"]:::repo
   end
   ARahim3_kaggle_tpu_lab --> llm_inference
   ARahim3_kaggle_tpu_lab --> vllm
   llm_inference --> patchy631_time_to_first_token
   llm_inference --> drumih_turbo_fieldfare
+  llm_inference --> raullenchai_Rapid_MLX
   llm_inference --> gitleaks_gitleaks
   vllm --> patchy631_time_to_first_token
   vllm --> AEON_7_Qwen3_6_27B_AEON_Ultimate_Uncensored_DFlash
