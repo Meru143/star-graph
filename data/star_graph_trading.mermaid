@@ -1,24 +1,24 @@
 graph TD
   subgraph trading ["Trading"]
-    quantitative_finance["quantitative-finance"]:::topic
     nautechsystems_nautilus_trader["nautechsystems/nautilus_trader"]:::repo
-    portfolio_optimization["portfolio-optimization"]:::topic
-    Mathieu2301_TradingView_API["Mathieu2301/TradingView-API"]:::repo
-    vnpy_vnpy["vnpy/vnpy"]:::repo
-    Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
     LLMQuant_quant_mind["LLMQuant/quant-mind"]:::repo
-    ZhuLinsen_daily_stock_analysis["ZhuLinsen/daily_stock_analysis"]:::repo
-    HKUDS_Vibe_Trading["HKUDS/Vibe-Trading"]:::repo
-    backtesting["backtesting"]:::topic
-    HiThink_Tech_Financial_API["HiThink-Tech/Financial-API"]:::repo
-    risk_management["risk-management"]:::topic
     algorithmic_trading["algorithmic-trading"]:::topic
-    ifixai_ai_iFixAi["ifixai-ai/iFixAi"]:::repo
+    risk_management["risk-management"]:::topic
+    quantitative_finance["quantitative-finance"]:::topic
+    HKUDS_Vibe_Trading["HKUDS/Vibe-Trading"]:::repo
+    portfolio_optimization["portfolio-optimization"]:::topic
+    HiThink_Tech_Financial_API["HiThink-Tech/Financial-API"]:::repo
+    backtesting["backtesting"]:::topic
     TraderAlice_OpenAlice["TraderAlice/OpenAlice"]:::repo
-    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
-    paperswithbacktest_awesome_systematic_trading["paperswithbacktest/awesome-systematic-trading"]:::repo
+    Mathieu2301_TradingView_API["Mathieu2301/TradingView-API"]:::repo
+    ifixai_ai_iFixAi["ifixai-ai/iFixAi"]:::repo
     virattt_ai_hedge_fund["virattt/ai-hedge-fund"]:::repo
-    OpenBB_finance_OpenBB["OpenBB-finance/OpenBB"]:::repo
+    vnpy_vnpy["vnpy/vnpy"]:::repo
+    ZhuLinsen_daily_stock_analysis["ZhuLinsen/daily_stock_analysis"]:::repo
+    paperswithbacktest_awesome_systematic_trading["paperswithbacktest/awesome-systematic-trading"]:::repo
+    wilsonfreitas_awesome_quant["wilsonfreitas/awesome-quant"]:::repo
+    Drakkar_Software_OctoBot["Drakkar-Software/OctoBot"]:::repo
+    openbq_org_OpenBB["openbq-org/OpenBB"]:::repo
   end
   Mathieu2301_TradingView_API --> backtesting
   backtesting --> HKUDS_Vibe_Trading
@@ -29,7 +29,7 @@ graph TD
   quantitative_finance --> wilsonfreitas_awesome_quant
   quantitative_finance --> HKUDS_Vibe_Trading
   quantitative_finance --> LLMQuant_quant_mind
-  quantitative_finance --> OpenBB_finance_OpenBB
+  quantitative_finance --> openbq_org_OpenBB
   paperswithbacktest_awesome_systematic_trading --> algorithmic_trading
   algorithmic_trading --> HKUDS_Vibe_Trading
   algorithmic_trading --> wilsonfreitas_awesome_quant
