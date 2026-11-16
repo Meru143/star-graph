@@ -1,51 +1,50 @@
 graph TD
   subgraph web_scraping ["Web Scraping"]
-    trap_bytes_gourlex["trap-bytes/gourlex"]:::repo
-    fathah_hermes_desktop["fathah/hermes-desktop"]:::repo
-    KnockOutEZ_wigolo["KnockOutEZ/wigolo"]:::repo
-    runablehq_mini_browser["runablehq/mini-browser"]:::repo
-    crawler["crawler"]:::topic
-    browser_automation["browser-automation"]:::topic
-    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
-    sveltejs_svelte["sveltejs/svelte"]:::repo
-    playwright["playwright"]:::topic
-    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
-    WebBreacher_WhatsMyName["WebBreacher/WhatsMyName"]:::repo
-    NopeCHALLC_nopecha_extension["NopeCHALLC/nopecha-extension"]:::repo
-    OpenBMB_PilotDeck["OpenBMB/PilotDeck"]:::repo
-    Panniantong_Agent_Reach["Panniantong/Agent-Reach"]:::repo
-    hyperbrowserai_HyperAgent["hyperbrowserai/HyperAgent"]:::repo
-    scraperai_scraperai["scraperai/scraperai"]:::repo
     ScrapeGraphAI_Scrapegraph_ai["ScrapeGraphAI/Scrapegraph-ai"]:::repo
-    refactoringhq_tolaria["refactoringhq/tolaria"]:::repo
-    heygen_com_hyperframes["heygen-com/hyperframes"]:::repo
+    citrolabs_ego_lite["citrolabs/ego-lite"]:::repo
     alumnium_hq_alumnium["alumnium-hq/alumnium"]:::repo
     alibaba_page_agent["alibaba/page-agent"]:::repo
-    lexmount_moli["lexmount/moli"]:::repo
-    tester_army_e2e["tester-army/e2e"]:::repo
-    citrolabs_ego_lite["citrolabs/ego-lite"]:::repo
-    CloakHQ_CloakBrowser["CloakHQ/CloakBrowser"]:::repo
-    AndyTheFactory_newspaper4k["AndyTheFactory/newspaper4k"]:::repo
     browser_use_browser_use["browser-use/browser-use"]:::repo
-    dgtlmoon_changedetection_io["dgtlmoon/changedetection.io"]:::repo
     puppeteer["puppeteer"]:::topic
-    MODSetter_SurfSense["MODSetter/SurfSense"]:::repo
-    miuuyy_codex_chatgpt_web["miuuyy/codex-chatgpt-web"]:::repo
-    browseros_ai_BrowserOS["browseros-ai/BrowserOS"]:::repo
-    lightpanda_io_browser["lightpanda-io/browser"]:::repo
-    nexu_io_html_anything["nexu-io/html-anything"]:::repo
-    h4ckf0r0day_obscura["h4ckf0r0day/obscura"]:::repo
-    D4Vinci_Scrapling["D4Vinci/Scrapling"]:::repo
-    agentrhq_webcmd["agentrhq/webcmd"]:::repo
-    web_scraping["web-scraping"]:::topic
+    crawler["crawler"]:::topic
+    browser_automation["browser-automation"]:::topic
+    WebBreacher_WhatsMyName["WebBreacher/WhatsMyName"]:::repo
+    n8n_io_nod["n8n-io/nod"]:::repo
+    blacklanternsecurity_bbot["blacklanternsecurity/bbot"]:::repo
+    playwright["playwright"]:::topic
+    scraperai_scraperai["scraperai/scraperai"]:::repo
+    Panniantong_Agent_Reach["Panniantong/Agent-Reach"]:::repo
     browser_use_browser_harness["browser-use/browser-harness"]:::repo
+    agentrhq_webcmd["agentrhq/webcmd"]:::repo
+    e2e_inc_e2e["e2e-inc/e2e"]:::repo
+    MODSetter_SurfSense["MODSetter/SurfSense"]:::repo
+    NopeCHALLC_nopecha_extension["NopeCHALLC/nopecha-extension"]:::repo
+    hyperbrowserai_HyperAgent["hyperbrowserai/HyperAgent"]:::repo
+    miuuyy_codex_chatgpt_web["miuuyy/codex-chatgpt-web"]:::repo
+    AndyTheFactory_newspaper4k["AndyTheFactory/newspaper4k"]:::repo
+    elebumm_RedditVideoMakerBot["elebumm/RedditVideoMakerBot"]:::repo
+    CloakHQ_CloakBrowser["CloakHQ/CloakBrowser"]:::repo
+    web_scraping["web-scraping"]:::topic
+    heygen_com_hyperframes["heygen-com/hyperframes"]:::repo
+    trap_bytes_gourlex["trap-bytes/gourlex"]:::repo
+    OpenBMB_PilotDeck["OpenBMB/PilotDeck"]:::repo
+    h4ckf0r0day_obscura["h4ckf0r0day/obscura"]:::repo
+    fathah_hermes_desktop["fathah/hermes-desktop"]:::repo
+    KnockOutEZ_wigolo["KnockOutEZ/wigolo"]:::repo
+    D4Vinci_Scrapling["D4Vinci/Scrapling"]:::repo
     CopilotKit_OpenBot["CopilotKit/OpenBot"]:::repo
+    runablehq_mini_browser["runablehq/mini-browser"]:::repo
+    browseros_ai_BrowserOS["browseros-ai/BrowserOS"]:::repo
+    lexmount_moli["lexmount/moli"]:::repo
     bug0inc_qa_agent["bug0inc/qa-agent"]:::repo
     apify_fingerprint_suite["apify/fingerprint-suite"]:::repo
+    dgtlmoon_changedetection_io["dgtlmoon/changedetection.io"]:::repo
+    lightpanda_io_browser["lightpanda-io/browser"]:::repo
+    refactoringhq_tolaria["refactoringhq/tolaria"]:::repo
+    sveltejs_svelte["sveltejs/svelte"]:::repo
   end
-  lightpanda_io_browser --> browser_automation
-  lightpanda_io_browser --> playwright
-  lightpanda_io_browser --> puppeteer
+  n8n_io_nod --> browser_automation
+  browser_automation --> lightpanda_io_browser
   browser_automation --> lexmount_moli
   browser_automation --> h4ckf0r0day_obscura
   browser_automation --> agentrhq_webcmd
@@ -61,7 +60,9 @@ graph TD
   browser_automation --> runablehq_mini_browser
   browser_automation --> apify_fingerprint_suite
   browser_automation --> D4Vinci_Scrapling
-  playwright --> tester_army_e2e
+  lightpanda_io_browser --> playwright
+  lightpanda_io_browser --> puppeteer
+  playwright --> e2e_inc_e2e
   playwright --> lexmount_moli
   playwright --> miuuyy_codex_chatgpt_web
   playwright --> h4ckf0r0day_obscura
@@ -76,7 +77,6 @@ graph TD
   playwright --> sveltejs_svelte
   playwright --> refactoringhq_tolaria
   playwright --> elebumm_RedditVideoMakerBot
-  playwright --> nexu_io_html_anything
   playwright --> OpenBMB_PilotDeck
   playwright --> fathah_hermes_desktop
   playwright --> ScrapeGraphAI_Scrapegraph_ai
